@@ -1,0 +1,1 @@
+java -Xms256m -Xmx1024m -cp lib/jcolibri2.jar;mtechkecbr/RecipeRecommender.jar jcolibri.util.Launcher jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender

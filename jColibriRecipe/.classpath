@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="src" kind="src"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" exported="true" kind="con"/>
+	<classpathentry path="lib/textual/SnowBall.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/commons/antlr-2.7.6.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/commons/commons-collections-3.2.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/commons/commons-logging-1.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/commons/dom4j-1.6.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/commons/junit.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/commons/log4j-1.2.14.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/asm.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/asm-attrs.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/c3p0-0.9.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/cglib-2.1.3.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/hibernate3.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/jta.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/mysql-connector-java-3.0.11-stable-bin.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/jena/arq.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/jena/concurrent.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/jena/icu4j_3_4.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/jena/iri.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/jena/jena.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/jena/json.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/jena/wstx-asl-2.8.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/jena/xercesImpl.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/jetty/jetty.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/abstractparser.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/xsdlib/relaxngDatatype.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/aterm-java-1.6.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/pellet.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/servlet.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/api.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/impl.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/inference.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/io.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/owl-servlet.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/rdfapi.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/rdfparser.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/rules.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/owlapi/validation.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/pellet/xsdlib/xsdlib.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/aduna-clustermap-2006.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/aduna-clustermap-2006.1-resources.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/axis.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/bsh-2.0b4.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-filter-case-normalizer.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-filter-fuzzyants.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-filter-haog.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-filter-lingo.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-filter-stc.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-filter-trc.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-input-lucene.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-input-msnapi.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-input-yahooapi.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-local-core.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-snowball-stemmers.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-stemmer-stempelator.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-util-common.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/carrot2-util-tokenizer.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/colt-1.0.3-trimmed.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/commons-codec-1.3.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/commons-discovery-0.2.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/commons-httpclient-3.0.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/commons-lang-2.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/commons-pool-1.3.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/format.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/forms-1.0.7.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/jal.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/Jama-1.0.2.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/jaxen-1.1-beta-6.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/jaxrpc.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/jdic.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/looks-2.0.4.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/saaj.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/stempel-1.0-dw.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/stempelator-1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/violinstrings-1.0.2.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/carrot2/wsdl4j-1.5.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/db-4.3.29.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/easymock-1.2_Java1.5.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/hessian-3.0.20.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/hivemind-1.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/hivemind-jmx-1.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/hivemind-lib-1.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/javassist-3.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/je.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-analyzers-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-ant-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-benchmark-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-core-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-highlighter-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-lucli-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-memory-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-misc-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-queries-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-regex-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-similarity-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-snowball-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-spellchecker-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-surround-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-swing-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-wordnet-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/lucene-xml-query-parser-2.1.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/oro-2.0.6.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/lucene21/stax-1.1.2-dev.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/commons/stax-api-1.0.1.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/evaluation/Chart2D.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/visualization/InfoVisual-CB.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/ontobridge/ontobridge.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/IE/OpenNLP/grok-0.7.0.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/IE/OpenNLP/jdom.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/IE/OpenNLP/opennlp.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/IE/OpenNLP/maxent.jar" exported="true" kind="lib"/>
+	<classpathentry path="lib/textual/IE/OpenNLP/trove.jar" kind="lib"/>
+	<classpathentry path="lib/textual/IE/Gate/gate.jar" kind="lib"/>
+	<classpathentry path="lib/textual/IE/Gate/jasper-compiler-jdt.jar" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/hsqldb.jar" kind="lib"/>
+	<classpathentry path="lib/textual/wordnet/jwnl.jar" kind="lib"/>
+	<classpathentry path="lib/textual/wordnet/wordnetbridge.jar" kind="lib"/>
+	<classpathentry path="lib/textual/spamcorpus/spamcorpus.jar" kind="lib"/>
+	<classpathentry path="bin" kind="output"/>
+</classpath>

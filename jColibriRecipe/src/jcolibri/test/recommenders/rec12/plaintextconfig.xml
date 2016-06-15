@@ -1,0 +1,45 @@
+<TextFileConfiguration>
+	<FilePath>jcolibri/test/recommenders/rec12/moviesDB/movies_small.txt</FilePath>
+	<Delimiters>|</Delimiters>
+	<DescriptionClassName>jcolibri.test.recommenders.rec12.moviesDB.User</DescriptionClassName>
+	<DescriptionMappings>
+		<Map>age</Map>
+		<Map>gender</Map>
+		<Map>occupation</Map>
+		<Map>zipCode</Map>	
+	</DescriptionMappings>
+	
+	<SolutionClassName>jcolibri.test.recommenders.rec12.moviesDB.Movie</SolutionClassName>
+	<SolutionMappings>
+		<Map>id</Map>
+		<Map>title</Map>
+		<Map>releaseDate</Map>
+		<Map>videoReleaseDate</Map>
+		<Map>URL</Map>
+		<Map>genreUnknown</Map>
+		<Map>genreAction</Map>
+		<Map>genreAdventure</Map>
+		<Map>genreAnimation</Map>
+		<Map>genreChildren</Map>
+		<Map>genreComedy</Map>
+		<Map>genreCrime</Map>
+		<Map>genreDocumentary</Map>
+		<Map>genreDrama</Map>
+		<Map>genreFantasy</Map>
+		<Map>genreFilmNoir</Map>
+		<Map>genreHorror</Map>
+		<Map>genreMusical</Map>
+		<Map>genreMystery</Map>
+		<Map>genreRomance</Map>
+		<Map>genreSciFi</Map>
+		<Map>genreThriller</Map>
+		<Map>genreWar</Map>
+		<Map>genreWestern</Map>
+	</SolutionMappings>
+	
+	<ResultClassName>jcolibri.test.recommenders.rec12.moviesDB.Rating</ResultClassName>
+	<ResultMappings>
+		<Map>id</Map>
+		<Map>rating</Map>
+	</ResultMappings>
+</TextFileConfiguration>
