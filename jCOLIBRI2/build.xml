@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="all" name="jCOLIBRI2">
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.5"/>
+    <property name="source" value="1.5"/>
+    <path id="jCOLIBRI2.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/textual/SnowBall.jar"/>
+        <pathelement location="lib/commons/antlr-2.7.6.jar"/>
+        <pathelement location="lib/commons/commons-collections-3.2.jar"/>
+        <pathelement location="lib/commons/commons-logging-1.1.jar"/>
+        <pathelement location="lib/commons/dom4j-1.6.1.jar"/>
+        <pathelement location="lib/commons/junit.jar"/>
+        <pathelement location="lib/commons/log4j-1.2.14.jar"/>
+        <pathelement location="lib/databaseconnector/asm.jar"/>
+        <pathelement location="lib/databaseconnector/asm-attrs.jar"/>
+        <pathelement location="lib/databaseconnector/c3p0-0.9.0.jar"/>
+        <pathelement location="lib/databaseconnector/cglib-2.1.3.jar"/>
+        <pathelement location="lib/databaseconnector/hibernate3.jar"/>
+        <pathelement location="lib/databaseconnector/jta.jar"/>
+        <pathelement location="lib/databaseconnector/mysql-connector-java-3.0.11-stable-bin.jar"/>
+        <pathelement location="lib/ontobridge/jena/arq.jar"/>
+        <pathelement location="lib/ontobridge/jena/concurrent.jar"/>
+        <pathelement location="lib/ontobridge/jena/icu4j_3_4.jar"/>
+        <pathelement location="lib/ontobridge/jena/iri.jar"/>
+        <pathelement location="lib/ontobridge/jena/jena.jar"/>
+        <pathelement location="lib/ontobridge/jena/json.jar"/>
+        <pathelement location="lib/ontobridge/jena/wstx-asl-2.8.jar"/>
+        <pathelement location="lib/ontobridge/jena/xercesImpl.jar"/>
+        <pathelement location="lib/ontobridge/pellet/jetty/jetty.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/abstractparser.jar"/>
+        <pathelement location="lib/ontobridge/pellet/xsdlib/relaxngDatatype.jar"/>
+        <pathelement location="lib/ontobridge/pellet/aterm-java-1.6.jar"/>
+        <pathelement location="lib/ontobridge/pellet/pellet.jar"/>
+        <pathelement location="lib/ontobridge/pellet/servlet.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/api.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/impl.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/inference.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/io.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/owl-servlet.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/rdfapi.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/rdfparser.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/rules.jar"/>
+        <pathelement location="lib/ontobridge/pellet/owlapi/validation.jar"/>
+        <pathelement location="lib/ontobridge/pellet/xsdlib/xsdlib.jar"/>
+        <pathelement location="lib/textual/wordnet/jwnl.jar"/>
+        <pathelement location="lib/textual/wordnet/wordnetbridge.jar"/>
+        <pathelement location="lib/textual/carrot2/aduna-clustermap-2006.1.jar"/>
+        <pathelement location="lib/textual/carrot2/aduna-clustermap-2006.1-resources.jar"/>
+        <pathelement location="lib/textual/carrot2/axis.jar"/>
+        <pathelement location="lib/textual/carrot2/bsh-2.0b4.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-filter-case-normalizer.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-filter-fuzzyants.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-filter-haog.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-filter-lingo.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-filter-stc.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-filter-trc.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-input-lucene.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-input-msnapi.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-input-yahooapi.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-local-core.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-snowball-stemmers.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-stemmer-stempelator.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-util-common.jar"/>
+        <pathelement location="lib/textual/carrot2/carrot2-util-tokenizer.jar"/>
+        <pathelement location="lib/textual/carrot2/colt-1.0.3-trimmed.jar"/>
+        <pathelement location="lib/textual/carrot2/commons-codec-1.3.jar"/>
+        <pathelement location="lib/textual/carrot2/commons-discovery-0.2.jar"/>
+        <pathelement location="lib/textual/carrot2/commons-httpclient-3.0.1.jar"/>
+        <pathelement location="lib/textual/carrot2/commons-lang-2.1.jar"/>
+        <pathelement location="lib/textual/carrot2/commons-pool-1.3.jar"/>
+        <pathelement location="lib/textual/carrot2/format.jar"/>
+        <pathelement location="lib/textual/carrot2/forms-1.0.7.jar"/>
+        <pathelement location="lib/textual/carrot2/jal.jar"/>
+        <pathelement location="lib/textual/carrot2/Jama-1.0.2.jar"/>
+        <pathelement location="lib/textual/carrot2/jaxen-1.1-beta-6.jar"/>
+        <pathelement location="lib/textual/carrot2/jaxrpc.jar"/>
+        <pathelement location="lib/textual/carrot2/jdic.jar"/>
+        <pathelement location="lib/textual/carrot2/looks-2.0.4.jar"/>
+        <pathelement location="lib/textual/carrot2/saaj.jar"/>
+        <pathelement location="lib/textual/carrot2/stempel-1.0-dw.jar"/>
+        <pathelement location="lib/textual/carrot2/stempelator-1.0.jar"/>
+        <pathelement location="lib/textual/carrot2/violinstrings-1.0.2.jar"/>
+        <pathelement location="lib/textual/carrot2/wsdl4j-1.5.1.jar"/>
+        <pathelement location="lib/textual/lucene21/db-4.3.29.jar"/>
+        <pathelement location="lib/textual/lucene21/easymock-1.2_Java1.5.jar"/>
+        <pathelement location="lib/textual/lucene21/hessian-3.0.20.jar"/>
+        <pathelement location="lib/textual/lucene21/hivemind-1.1.jar"/>
+        <pathelement location="lib/textual/lucene21/hivemind-jmx-1.1.jar"/>
+        <pathelement location="lib/textual/lucene21/hivemind-lib-1.1.jar"/>
+        <pathelement location="lib/textual/lucene21/javassist-3.0.jar"/>
+        <pathelement location="lib/textual/lucene21/je.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-analyzers-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-ant-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-benchmark-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-core-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-highlighter-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-lucli-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-memory-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-misc-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-queries-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-regex-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-similarity-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-snowball-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-spellchecker-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-surround-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-swing-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-wordnet-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/lucene-xml-query-parser-2.1.0.jar"/>
+        <pathelement location="lib/textual/lucene21/oro-2.0.6.jar"/>
+        <pathelement location="lib/textual/lucene21/stax-1.1.2-dev.jar"/>
+        <pathelement location="lib/commons/stax-api-1.0.1.jar"/>
+        <pathelement location="lib/evaluation/Chart2D.jar"/>
+        <pathelement location="lib/visualization/InfoVisual-CB.jar"/>
+        <pathelement location="lib/ontobridge/ontobridge.jar"/>
+        <pathelement location="lib/textual/IE/OpenNLP/grok-0.7.0.jar"/>
+        <pathelement location="lib/textual/IE/OpenNLP/jdom.jar"/>
+        <pathelement location="lib/textual/IE/OpenNLP/opennlp.jar"/>
+        <pathelement location="lib/textual/IE/OpenNLP/maxent.jar"/>
+        <pathelement location="lib/textual/IE/OpenNLP/trove.jar"/>
+        <pathelement location="lib/textual/IE/Gate/gate.jar"/>
+        <pathelement location="lib/textual/IE/Gate/jasper-compiler-jdt.jar"/>
+        <pathelement location="lib/databaseconnector/hsqldb.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src" excludes="**/*.uad, **/*.ucd, **/*.uld, **/*.upd, **/*.udd, **/*.uod, **/*.usd, **/*.utd, **/*.uud, **/*.odd, **/*.ead, **/*.ecd, **/*.eld, **/*.epd, **/*.edd, **/*.eod, **/*.esd, **/*.etd, **/*.eud, **/*.urd*.uml, **/*.ecore, **/*.launch, **/*.java"/>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+        <delete file="lib/jcolibri2.jar"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target depends="build,jar,javadoc" name="all"/>
+    <target name="jar" depends="build">
+    	<jar destfile="lib/jcolibri2.jar">
+    	  <fileset dir="bin"/>
+			</jar>
+    </target>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </javac>
+    </target>
+    
+    <target name="javadoc" description="Generates javadoc">
+		    <javadoc
+		    			 sourcepath="src"
+		           destdir="doc/api"
+		           author="true"
+		           version="true"
+		           use="true"
+		           linksource="yes"
+		           windowtitle="jCOLIBRI 2 API">
+				<classpath refid="jCOLIBRI2.classpath"/>
+		    <doctitle><![CDATA[<h1>jCOLIBRI 2</h1>]]></doctitle>
+		    <bottom><![CDATA[<i> GAIA - Group for Artificial Intelligence Applications <a href="http://gaia.fdi.ucm.es">http://gaia.fdi.ucm.es</a></i>]]></bottom>
+		  	</javadoc>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target name="HSQLDBserver">
+        <java classname="jcolibri.test.database.HSQLDBserver" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Launcher">
+        <java classname="jcolibri.util.Launcher" failonerror="true" fork="yes">
+            <arg line="jcolibri.test.test5.Test5"/>
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target depends="MainTester" name="run"/>
+    <target name="MainTester">
+        <java classname="jcolibri.test.main.MainTester" failonerror="true" fork="yes">
+            <jvmarg line="-Xms256m -Xmx1024m"/>
+            <arg line="jcolibri.test.main.MainTester"/>
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="OntCosine">
+        <java classname="jcolibri.method.retrieve.KNNretrieval.similarity.local.ontology.OntCosine" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="OntDeep">
+        <java classname="jcolibri.method.retrieve.KNNretrieval.similarity.local.ontology.OntDeep" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="OntDeepBasic">
+        <java classname="jcolibri.method.retrieve.KNNretrieval.similarity.local.ontology.OntDeepBasic" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="OntDetail">
+        <java classname="jcolibri.method.retrieve.KNNretrieval.similarity.local.ontology.OntDetail" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="OntoUtils">
+        <java classname="jcolibri.util.OntoUtils" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test1 (1)">
+        <java classname="jcolibri.test.test1.Test1" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test10">
+        <java classname="jcolibri.test.test10.Test10" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test11">
+        <java classname="jcolibri.test.test11.Test11" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test13a">
+        <java classname="jcolibri.test.test13.Test13a" failonerror="true" fork="yes">
+            <jvmarg line="-Xms256m -Xmx1024m"/>
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test13b">
+        <java classname="jcolibri.test.test13.Test13b" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test2 (1)">
+        <java classname="jcolibri.test.test2.Test2" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test3">
+        <java classname="jcolibri.test.test3.Test3" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test4">
+        <java classname="jcolibri.test.test4.Test4" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test5">
+        <java classname="jcolibri.test.test5.Test5" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test6 (1)">
+        <java classname="jcolibri.test.test6.Test6" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test7 (1)">
+        <java classname="jcolibri.test.test7.Test7" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test8">
+        <java classname="jcolibri.test.test8.Test8" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Test9">
+        <java classname="jcolibri.test.test9.Test9" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="TestCarrot (1)">
+        <java classname="jcolibri.extensions.textual.carrot2.TestCarrot" failonerror="true" fork="yes">
+            <jvmarg line="-Xms256m -Xmx1024m"/>
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="TestGate (1)">
+        <java classname="jcolibri.test.test12.TestGate" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="TestLucene (1)">
+        <java classname="jcolibri.extensions.textual.lucene.TestLucene" failonerror="true" fork="yes">
+            <jvmarg line="-Xms256m -Xmx1024m"/>
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="TestOpenNLP (1)">
+        <java classname="jcolibri.test.test12.TestOpenNLP" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="Travel (2)">
+        <java classname="jcolibri.test.test3.Travel" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="TravelDescription (1)">
+        <java classname="jcolibri.test.test2.TravelDescription" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="TravelDescription">
+        <java classname="jcolibri.test.test1.TravelDescription" failonerror="true" fork="yes">
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+    <target name="WordNetBridge (1)">
+        <java classname="jcolibri.extensions.textual.wordnet.WordNetBridge" failonerror="true" fork="yes">
+            <jvmarg line="-Xms256m -Xmx512m"/>
+            <classpath refid="jCOLIBRI2.classpath"/>
+        </java>
+    </target>
+</project>

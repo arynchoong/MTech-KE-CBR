@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry path="src" kind="src"/>
+	<classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"/>
+	<classpathentry path="lib/commons/antlr-2.7.6.jar" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/asm.jar" kind="lib"/>
+	<classpathentry sourcepath="/jCOLIBRI2/src" path="lib/jcolibri2.jar" kind="lib"/>
+	<classpathentry path="lib/commons/commons-collections-3.2.jar" kind="lib"/>
+	<classpathentry path="lib/commons/commons-logging-1.1.jar" kind="lib"/>
+	<classpathentry path="lib/commons/dom4j-1.6.1.jar" kind="lib"/>
+	<classpathentry path="lib/commons/junit.jar" kind="lib"/>
+	<classpathentry path="lib/commons/log4j-1.2.14.jar" kind="lib"/>
+	<classpathentry path="lib/commons/stax-api-1.0.1.jar" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/asm-attrs.jar" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/c3p0-0.9.0.jar" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/cglib-2.1.3.jar" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/hibernate3.jar" kind="lib"/>
+	<classpathentry sourcepath="C:/software/hsqldb/src" path="lib/databaseconnector/hsqldb.jar" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/jta.jar" kind="lib"/>
+	<classpathentry path="lib/databaseconnector/mysql-connector-java-3.0.11-stable-bin.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/ontobridge.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/jena/xercesImpl.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/jena/arq.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/jena/concurrent.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/jena/icu4j_3_4.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/jena/iri.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/jena/jena.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/jena/json.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/jena/wstx-asl-2.8.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/servlet.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/aterm-java-1.6.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/pellet.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/jetty/jetty.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/validation.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/abstractparser.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/api.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/impl.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/inference.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/io.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/owl-servlet.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/rdfapi.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/rdfparser.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/owlapi/rules.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/xsdlib/relaxngDatatype.jar" kind="lib"/>
+	<classpathentry path="C:/doctorado/JColibri/jCOLIBRI2/lib/ontobridge/pellet/xsdlib/xsdlib.jar" kind="lib"/>
+	<classpathentry path="bin" kind="output"/>
+</classpath>

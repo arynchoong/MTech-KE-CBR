@@ -1,0 +1,20 @@
+<TextFileConfiguration>
+	<FilePath>jcolibri/test/test14/glass_data_jCOLIBRI.txt</FilePath>
+	<Delimiters>,</Delimiters>
+	<DescriptionClassName>jcolibri.test.test14.GlassDescription</DescriptionClassName>
+	<DescriptionMappings>
+		<Map>ri</Map>
+		<Map>na</Map>
+		<Map>mg</Map>
+		<Map>al</Map>
+		<Map>si</Map>
+		<Map>k</Map>
+		<Map>ca</Map>
+		<Map>ba</Map>
+		<Map>fe</Map>
+	</DescriptionMappings>
+	<SolutionClassName>jcolibri.test.test14.GlassSolution</SolutionClassName>
+	<SolutionMappings>
+		<Map>type</Map>
+	</SolutionMappings>
+</TextFileConfiguration>

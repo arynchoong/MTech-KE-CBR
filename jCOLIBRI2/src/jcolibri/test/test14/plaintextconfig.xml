@@ -1,0 +1,15 @@
+<TextFileConfiguration>
+	<FilePath>jcolibri/test/test14/iris_data_jCOLIBRI.txt</FilePath>
+	<Delimiters>,</Delimiters>
+	<DescriptionClassName>jcolibri.test.test14.IrisDescription</DescriptionClassName>
+	<DescriptionMappings>
+		<Map>sepalLength</Map>
+		<Map>sepalWidth</Map>
+		<Map>petalLength</Map>
+		<Map>petalWidth</Map>		
+	</DescriptionMappings>
+	<SolutionClassName>jcolibri.test.test14.IrisSolution</SolutionClassName>
+	<SolutionMappings>
+		<Map>type</Map>
+	</SolutionMappings>
+</TextFileConfiguration>

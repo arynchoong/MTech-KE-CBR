@@ -1,0 +1,19 @@
+# Rules Format:
+#
+# [Topic] <FeatureName,value> <FeatureName,value> ... <Phrase> <Phrase>
+#
+#
+# Topic: Topic classification
+#
+# FeatureName: FeatureName defined in the features extraction Layer
+#
+# value: FeatureName value. It also can be '?', meaning any value.
+#
+# Phrase: You can use the pharses detected in the phrase Layer
+#
+#######################################################################################
+#
+# Example
+#
+[MyProyect]<University,Robert Gordon> <Person,Juan Antonio> <Company,?> <Compaq Presario 2100>
+[Alejo's Restaurant]<CHEF,Alejo><PASTA DISHES>

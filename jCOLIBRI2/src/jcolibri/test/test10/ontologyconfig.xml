@@ -1,0 +1,60 @@
+<OntologyConfiguration>
+	<MainOntology>
+		<URL>http://gaia.fdi.ucm.es/ontologies/vacation.owl</URL>
+		<LocalCopy>jcolibri/test/test10/vacation.owl</LocalCopy>
+	</MainOntology>	
+	
+	<!-- There are not subontologies -->
+	
+	<CaseMainConcept>VACATION_CASE</CaseMainConcept>
+	
+	<DescriptionClassName>jcolibri.test.test10.TravelDescription</DescriptionClassName>
+	<DescriptionMappings>
+		<Map>
+			<Property>HAS-DESTINATION</Property>
+			<Concept>DESTINATION</Concept>
+			<Attribute>Destination</Attribute>
+		</Map>
+		<Map>
+			<Property>HAS-CATEGORY</Property>
+			<Concept>CATEGORY</Concept>
+			<Attribute>Accommodation</Attribute>
+		</Map>
+		<Map>
+			<Property>HAS-PERSONS</Property>
+			<Concept>PERSONS</Concept>
+			<Attribute>NumberOfPersons</Attribute>
+		</Map>
+		<Map>
+			<Property>HAS-TRANSPORTATION</Property>
+			<Concept>TRANSPORTATION</Concept>
+			<Attribute>Transportation</Attribute>
+		</Map>
+		<Map>
+			<Property>HAS-SEASON</Property>
+			<Concept>SEASON</Concept>
+			<Attribute>Season</Attribute>
+		</Map>
+		<Map>
+			<Property>HAS-HOLIDAY_TYPE</Property>
+			<Concept>HOLIDAY_TYPE</Concept>
+			<Attribute>HolidayType</Attribute>
+		</Map>
+		<Map>
+			<Property>HAS-DURATION</Property>
+			<Concept>DURATION</Concept>
+			<Attribute>Duration</Attribute>
+		</Map>
+	</DescriptionMappings>
+	
+	<SolutionClassName>jcolibri.test.test10.TravelSolution</SolutionClassName>
+	<SolutionMappings>
+		<Map>
+			<Property>HAS-PRICE</Property>
+			<Concept>PRICE</Concept>
+			<Attribute>price</Attribute>
+		</Map>
+	</SolutionMappings>
+
+
+</OntologyConfiguration>

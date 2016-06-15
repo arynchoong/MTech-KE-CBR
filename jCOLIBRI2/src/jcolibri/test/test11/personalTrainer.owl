@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://gaia.fdi.ucm.es/ontologies/personalTrainer.owl#"
+  xml:base="http://gaia.fdi.ucm.es/ontologies/personalTrainer.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="trunk">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="body"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="leg">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="legs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="thigh">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#legs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="brachium">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="arms"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="hand">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#arms"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="antibrachium">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#arms"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="front">
+    <rdfs:subClassOf rdf:resource="#trunk"/>
+  </owl:Class>
+  <owl:Class rdf:ID="limbs">
+    <rdfs:subClassOf rdf:resource="#body"/>
+  </owl:Class>
+  <owl:Class rdf:ID="foot">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#legs"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="back">
+    <rdfs:subClassOf rdf:resource="#trunk"/>
+  </owl:Class>
+  <owl:Class rdf:about="#legs">
+    <rdfs:subClassOf rdf:resource="#limbs"/>
+  </owl:Class>
+  <owl:Class rdf:about="#arms">
+    <rdfs:subClassOf rdf:resource="#limbs"/>
+  </owl:Class>
+  <owl:Class rdf:ID="head">
+    <rdfs:subClassOf rdf:resource="#body"/>
+  </owl:Class>
+  <back rdf:ID="deltoid"/>
+  <head rdf:ID="trapezius"/>
+  <front rdf:ID="abdominis"/>
+  <front rdf:ID="pectoralis"/>
+  <brachium rdf:ID="triceps"/>
+  <brachium rdf:ID="biceps"/>
+  <thigh rdf:ID="quadriceps"/>
+  <thigh rdf:ID="gluteus"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

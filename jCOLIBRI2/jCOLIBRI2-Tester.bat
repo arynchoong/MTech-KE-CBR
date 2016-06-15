@@ -1,0 +1,1 @@
+java -Xms256m -Xmx1024m -cp lib\jcolibri2.jar jcolibri.util.Launcher jcolibri.test.main.MainTester

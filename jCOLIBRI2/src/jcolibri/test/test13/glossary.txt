@@ -1,0 +1,23 @@
+# Glossary Format:
+#
+#  [Part-of-Speech Tag]{Similarity} word1 word2 ... wordn
+#
+# Part-of-Speech Tag: Sometimes words can have different POS tags, this parameter marks that the 
+#  following words are only related when they appear in a sentence with that tag.
+#  Possible values: NOUN, VERB, ADJECTIVE, ADVERB
+#
+# Similarity: Indicates the similarity relation. 
+#  Possible values: 1, 2, 3. (1 - very similar, 2 - similar, 3 - not very similar)
+#
+# Words must be separated with spaces.
+#
+#
+###############################################################################################
+#
+#Examples (TCBR domain)
+#
+[NOUN]{2} case instance
+[NOUN]{3} cbr nbr
+[NOUN]{1} word term speech
+[NOUN]{1} plantain banana
+[NOUN]{1} burgers hamburgers

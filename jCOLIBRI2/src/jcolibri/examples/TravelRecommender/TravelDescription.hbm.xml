@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-lazy="false">
+<class name="jcolibri.examples.TravelRecommender.TravelDescription" table="Travel">
+
+	<id name="caseId" column="caseId">
+	  <generator class="native"/>
+	</id>
+	<property name="HolidayType" column="HolidayType"/>
+	<property name="NumberOfPersons" column="NumberOfPersons"/>
+	<property name="Region" column="Region">
+		<type name="jcolibri.connector.databaseutils.GenericUserType">
+			<param name="className">jcolibri.datatypes.Instance</param>
+		</type>
+	</property>
+	<property name="Transportation" column="Transportation"/>
+	<property name="Duration" column="Duration"/>
+	<property name="Season" column="Season">
+		<type name="jcolibri.connector.databaseutils.EnumUserType">
+			<param name="enumClassName">jcolibri.examples.TravelRecommender.TravelDescription$Seasons</param>
+    	</type>
+  	</property>
+	<property name="Accommodation" column="Accommodation">
+		<type name="jcolibri.connector.databaseutils.EnumUserType">
+			<param name="enumClassName">jcolibri.examples.TravelRecommender.TravelDescription$AccommodationTypes</param>
+    	</type>
+  	</property>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,1898 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns="http://gaia.fdi.ucm.es/ontologies/vacation.owl#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xml:base="http://gaia.fdi.ucm.es/ontologies/vacation.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="VACATION_APARTMENT_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:ID="VACATION_CASE"/>
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="APARTMENT_CAT"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:ID="HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="VACATION_NO_RELAX_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="NO_RELAX"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#VACATION_CASE"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="VACATION_HOTEL_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="HOTEL_CAT"/>
+            </owl:someValuesFrom>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#VACATION_CASE"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#VACATION_CASE">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CBR_DESCRIPTION"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CBRCASE"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="HOLIDAY_TYPE">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CBR_INDEX"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SPRING">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="SEASON"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="RELAX">
+    <rdfs:subClassOf rdf:resource="#HOLIDAY_TYPE"/>
+  </owl:Class>
+  <owl:Class rdf:about="#HOTEL_CAT">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="CATEGORY"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SURFACE">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="TRANSPORTATION"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="SUMMER">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SEASON"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="PRICE">
+    <rdfs:subClassOf rdf:resource="#CBR_INDEX"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VACATION_AUTUM_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+            <owl:someValuesFrom>
+              <owl:Class rdf:ID="AUTUM"/>
+            </owl:someValuesFrom>
+          </owl:Restriction>
+          <owl:Class rdf:about="#VACATION_CASE"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#NO_RELAX">
+    <rdfs:subClassOf rdf:resource="#HOLIDAY_TYPE"/>
+  </owl:Class>
+  <owl:Class rdf:about="#APARTMENT_CAT">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#CATEGORY"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="AIR">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#TRANSPORTATION"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="VACATION_SUMMER_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#SUMMER"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#VACATION_CASE"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="VACATION_SPRING_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#SPRING"/>
+          </owl:Restriction>
+          <owl:Class rdf:about="#VACATION_CASE"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#CATEGORY">
+    <rdfs:subClassOf rdf:resource="#CBR_INDEX"/>
+  </owl:Class>
+  <owl:Class rdf:ID="WINTER">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SEASON"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="DESTINATION">
+    <rdfs:subClassOf rdf:resource="#CBR_INDEX"/>
+  </owl:Class>
+  <owl:Class rdf:about="#AUTUM">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#SEASON"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#TRANSPORTATION">
+    <rdfs:subClassOf rdf:resource="#CBR_INDEX"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VACATION_WINTER_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#VACATION_CASE"/>
+          <owl:Restriction>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+            <owl:someValuesFrom rdf:resource="#WINTER"/>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="DURATION">
+    <rdfs:subClassOf rdf:resource="#CBR_INDEX"/>
+  </owl:Class>
+  <owl:Class rdf:ID="PERSONS">
+    <rdfs:subClassOf rdf:resource="#CBR_INDEX"/>
+  </owl:Class>
+  <owl:Class rdf:ID="VACATION_RELAX_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#RELAX"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#VACATION_CASE"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="VACATION_SURFACE_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#SURFACE"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+          </owl:Restriction>
+          <owl:Class rdf:about="#VACATION_CASE"/>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="VACATION_AIR_CASE">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:intersectionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#VACATION_CASE"/>
+          <owl:Restriction>
+            <owl:someValuesFrom rdf:resource="#AIR"/>
+            <owl:onProperty>
+              <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+            </owl:onProperty>
+          </owl:Restriction>
+        </owl:intersectionOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:about="#SEASON">
+    <rdfs:subClassOf rdf:resource="#CBR_INDEX"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="HAS-DESTINATION">
+    <rdfs:range rdf:resource="#DESTINATION"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#VACATION_CASE"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HAS-PRICE">
+    <rdfs:range rdf:resource="#PRICE"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#VACATION_CASE"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HAS-CATEGORY">
+    <rdfs:domain rdf:resource="#VACATION_CASE"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="#CATEGORY"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HAS-PERSONS">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#VACATION_CASE"/>
+    <rdfs:range rdf:resource="#PERSONS"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HAS-DESCRIPTION">
+    <rdfs:range rdf:resource="#CBR_DESCRIPTION"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#CBRCASE"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#HAS-ATTRIBUTE">
+    <rdfs:range rdf:resource="#CBR_INDEX"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#VACATION_HOTEL_CASE"/>
+          <owl:Class rdf:about="#VACATION_SURFACE_CASE"/>
+          <owl:Class rdf:about="#VACATION_AIR_CASE"/>
+          <owl:Class rdf:about="#VACATION_WINTER_CASE"/>
+          <owl:Class rdf:about="#VACATION_AUTUM_CASE"/>
+          <owl:Class rdf:about="#CBR_DESCRIPTION"/>
+          <owl:Class rdf:about="#VACATION_SUMMER_CASE"/>
+          <owl:Class rdf:about="#VACATION_NO_RELAX_CASE"/>
+          <owl:Class rdf:about="#VACATION_RELAX_CASE"/>
+          <owl:Class rdf:about="#VACATION_SPRING_CASE"/>
+          <owl:Class rdf:about="#VACATION_APARTMENT_CASE"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HAS-TRANSPORTATION">
+    <rdfs:subPropertyOf rdf:resource="#HAS-ATTRIBUTE"/>
+    <rdfs:range rdf:resource="#TRANSPORTATION"/>
+    <rdfs:domain rdf:resource="#VACATION_CASE"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HAS-DURATION">
+    <rdfs:range rdf:resource="#DURATION"/>
+    <rdfs:domain rdf:resource="#VACATION_CASE"/>
+    <rdfs:subPropertyOf rdf:resource="#HAS-ATTRIBUTE"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HAS-SEASON">
+    <rdfs:range rdf:resource="#SEASON"/>
+    <rdfs:subPropertyOf rdf:resource="#HAS-ATTRIBUTE"/>
+    <rdfs:domain rdf:resource="#VACATION_CASE"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="HAS-HOLIDAY_TYPE">
+    <rdfs:domain rdf:resource="#VACATION_CASE"/>
+    <rdfs:range rdf:resource="#HOLIDAY_TYPE"/>
+    <rdfs:subPropertyOf rdf:resource="#HAS-ATTRIBUTE"/>
+  </owl:ObjectProperty>
+  <PRICE rdf:ID="I574.00"/>
+  <PRICE rdf:ID="I774.00"/>
+  <PRICE rdf:ID="I549.00"/>
+  <RELAX rdf:ID="BATHING"/>
+  <VACATION_CASE rdf:ID="I776">
+    <HAS-PERSONS>
+      <DURATION rdf:ID="I6"/>
+    </HAS-PERSONS>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I394.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY>
+      <APARTMENT_CAT rdf:ID="HOLIDAYFLAT"/>
+    </HAS-CATEGORY>
+    <HAS-SEASON>
+      <WINTER rdf:ID="January"/>
+    </HAS-SEASON>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="BELGIUM"/>
+    </HAS-DESTINATION>
+    <HAS-DURATION>
+      <DURATION rdf:ID="I4"/>
+    </HAS-DURATION>
+    <HAS-HOLIDAY_TYPE>
+      <NO_RELAX rdf:ID="ACTIVE"/>
+    </HAS-HOLIDAY_TYPE>
+    <HAS-TRANSPORTATION>
+      <SURFACE rdf:ID="CAR"/>
+    </HAS-TRANSPORTATION>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I2258.00"/>
+  <DESTINATION rdf:ID="ALGARVE"/>
+  <DESTINATION rdf:ID="TUNISIA"/>
+  <VACATION_CASE rdf:ID="I171">
+    <HAS-HOLIDAY_TYPE>
+      <RELAX rdf:ID="RECREATION"/>
+    </HAS-HOLIDAY_TYPE>
+    <HAS-SEASON>
+      <SPRING rdf:ID="May"/>
+    </HAS-SEASON>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION>
+      <DURATION rdf:ID="I7"/>
+    </HAS-DURATION>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I589.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="THURINGIA"/>
+    </HAS-DESTINATION>
+    <HAS-PERSONS rdf:resource="#I4"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I929.00"/>
+  <VACATION_CASE rdf:ID="I1062">
+    <HAS-SEASON>
+      <WINTER rdf:ID="February"/>
+    </HAS-SEASON>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PERSONS>
+      <PERSONS rdf:ID="I2"/>
+    </HAS-PERSONS>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="LOWERAUSTRIA"/>
+    </HAS-DESTINATION>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I399.00"/>
+    </HAS-PRICE>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I638.00"/>
+  <PRICE rdf:ID="I4552.00"/>
+  <PRICE rdf:ID="I847.00"/>
+  <VACATION_CASE rdf:ID="I859">
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="CZECHIA"/>
+    </HAS-DESTINATION>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-CATEGORY>
+      <HOTEL_CAT rdf:ID="ONESTAR"/>
+    </HAS-CATEGORY>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I488.00"/>
+    </HAS-PRICE>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I569.00"/>
+  <DESTINATION rdf:ID="RHODES"/>
+  <PRICE rdf:ID="I888.00"/>
+  <PRICE rdf:ID="I2457.00"/>
+  <PRICE rdf:ID="I1254.00"/>
+  <DESTINATION rdf:ID="CHALKIDIKI"/>
+  <VACATION_CASE rdf:ID="I857">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I698.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY>
+      <HOTEL_CAT rdf:ID="TWOSTARS"/>
+    </HAS-CATEGORY>
+    <HAS-SEASON>
+      <SPRING rdf:ID="March"/>
+    </HAS-SEASON>
+    <HAS-DESTINATION rdf:resource="#CZECHIA"/>
+    <HAS-HOLIDAY_TYPE>
+      <NO_RELAX rdf:ID="SKIING"/>
+    </HAS-HOLIDAY_TYPE>
+    <HAS-PERSONS rdf:resource="#I2"/>
+  </VACATION_CASE>
+  <DESTINATION rdf:ID="HARZ"/>
+  <PRICE rdf:ID="I359.00"/>
+  <VACATION_CASE rdf:ID="I415">
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="TYROL"/>
+    </HAS-DESTINATION>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON>
+      <SUMMER rdf:ID="June"/>
+    </HAS-SEASON>
+    <HAS-HOLIDAY_TYPE>
+      <RELAX rdf:ID="WANDERING"/>
+    </HAS-HOLIDAY_TYPE>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I439.00"/>
+    </HAS-PRICE>
+    <HAS-DURATION rdf:resource="#I7"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1234">
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-PRICE rdf:resource="#I4552.00"/>
+    <HAS-DURATION>
+      <DURATION rdf:ID="I14"/>
+    </HAS-DURATION>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="EGYPT"/>
+    </HAS-DESTINATION>
+    <HAS-TRANSPORTATION>
+      <AIR rdf:ID="PLANE"/>
+    </HAS-TRANSPORTATION>
+    <HAS-CATEGORY>
+      <HOTEL_CAT rdf:ID="THREESTARS"/>
+    </HAS-CATEGORY>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-SEASON rdf:resource="#February"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I1018.00"/>
+  <PRICE rdf:ID="I509.00"/>
+  <VACATION_CASE rdf:ID="I1386">
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="TENERIFFE"/>
+    </HAS-DESTINATION>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I3188.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON>
+      <AUTUM rdf:ID="November"/>
+    </HAS-SEASON>
+    <HAS-PERSONS rdf:resource="#I2"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I417">
+    <HAS-PRICE>
+      <PRICE rdf:ID="I769.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON>
+      <SUMMER rdf:ID="August"/>
+    </HAS-SEASON>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PERSONS rdf:resource="#I6"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-DESTINATION rdf:resource="#TYROL"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I60">
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="ALLGAEU"/>
+    </HAS-DESTINATION>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-SEASON>
+      <AUTUM rdf:ID="September"/>
+    </HAS-SEASON>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I951.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY>
+      <HOTEL_CAT rdf:ID="FIVESTARS"/>
+    </HAS-CATEGORY>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I3368.00"/>
+  <PRICE rdf:ID="I837.00"/>
+  <PRICE rdf:ID="I2078.00"/>
+  <PRICE rdf:ID="I2758.00"/>
+  <PRICE rdf:ID="I2572.00"/>
+  <DESTINATION rdf:ID="SALZBERGERLAND"/>
+  <PRICE rdf:ID="I789.00"/>
+  <PRICE rdf:ID="I794.00"/>
+  <PRICE rdf:ID="I2308.00"/>
+  <VACATION_CASE rdf:ID="I588">
+    <HAS-PERSONS>
+      <VACATION_CASE rdf:ID="I3">
+        <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+        <HAS-DURATION rdf:resource="#I14"/>
+        <HAS-DESTINATION rdf:resource="#EGYPT"/>
+        <HAS-SEASON rdf:resource="#June"/>
+        <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+        <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+        <HAS-PRICE>
+          <PRICE rdf:ID="I2778.00"/>
+        </HAS-PRICE>
+        <HAS-PERSONS rdf:resource="#I2"/>
+      </VACATION_CASE>
+    </HAS-PERSONS>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2800.00"/>
+    </HAS-PRICE>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-SEASON>
+      <SUMMER rdf:ID="July"/>
+    </HAS-SEASON>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="COSTABLANCA"/>
+    </HAS-DESTINATION>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I173">
+    <HAS-DESTINATION rdf:resource="#THURINGIA"/>
+    <HAS-PRICE rdf:resource="#I574.00"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-SEASON rdf:resource="#August"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I3125.00"/>
+  <VACATION_CASE rdf:ID="I973">
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="BLACKFOREST"/>
+    </HAS-DESTINATION>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I6"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I688.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON>
+      <WINTER rdf:ID="December"/>
+    </HAS-SEASON>
+  </VACATION_CASE>
+  <DESTINATION rdf:ID="NORTHSEA"/>
+  <PRICE rdf:ID="I998.00"/>
+  <DESTINATION rdf:ID="CRETE"/>
+  <VACATION_CASE rdf:ID="I1297">
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="MOROCCO"/>
+    </HAS-DESTINATION>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I3654.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#November"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1411">
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2628.00"/>
+    </HAS-PRICE>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="LANZAROTE"/>
+    </HAS-DESTINATION>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-SEASON rdf:resource="#November"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1251">
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="MADEIRA"/>
+    </HAS-DESTINATION>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-SEASON rdf:resource="#November"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I3578.00"/>
+    </HAS-PRICE>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I823">
+    <HAS-PRICE rdf:resource="#I638.00"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="POLAND"/>
+    </HAS-DESTINATION>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1331">
+    <HAS-PRICE>
+      <PRICE rdf:ID="I4245.00"/>
+    </HAS-PRICE>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="GRANCANARIA"/>
+    </HAS-DESTINATION>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-SEASON rdf:resource="#February"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1201">
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-CATEGORY>
+      <HOTEL_CAT rdf:ID="FOURSTARS"/>
+    </HAS-CATEGORY>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I898.00"/>
+    </HAS-PRICE>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="DOLOMITES"/>
+    </HAS-DESTINATION>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I1044.00"/>
+  <VACATION_CASE rdf:ID="I1294">
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="MALTA"/>
+    </HAS-DESTINATION>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1922.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#December"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I2329.00"/>
+  <VACATION_CASE rdf:ID="I94">
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="ERZGEBIRGE"/>
+    </HAS-DESTINATION>
+    <HAS-SEASON rdf:resource="#August"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1580.00"/>
+    </HAS-PRICE>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-TRANSPORTATION>
+      <SURFACE rdf:ID="TRAIN"/>
+    </HAS-TRANSPORTATION>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1046">
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-PRICE rdf:resource="#I847.00"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="CARINTHIA"/>
+    </HAS-DESTINATION>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I334">
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-DESTINATION rdf:resource="#NORTHSEA"/>
+    <HAS-SEASON rdf:resource="#September"/>
+    <HAS-TRANSPORTATION rdf:resource="#TRAIN"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1198.00"/>
+    </HAS-PRICE>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I752">
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-PRICE rdf:resource="#I2258.00"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-DESTINATION rdf:resource="#TUNISIA"/>
+    <HAS-SEASON rdf:resource="#May"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+  </VACATION_CASE>
+  <DESTINATION rdf:ID="SLOWAKEI"/>
+  <PRICE rdf:ID="I987.00"/>
+  <VACATION_CASE rdf:ID="I1044">
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE rdf:resource="#I998.00"/>
+    <HAS-DESTINATION rdf:resource="#CARINTHIA"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I175">
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="ATLANTIC"/>
+    </HAS-DESTINATION>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PRICE rdf:resource="#I2078.00"/>
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I377">
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2118.00"/>
+    </HAS-PRICE>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-SEASON rdf:resource="#September"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="LAKEGARDA"/>
+    </HAS-DESTINATION>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I553">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS rdf:resource="#I6"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I799.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="SWEDEN"/>
+    </HAS-DESTINATION>
+    <HAS-DURATION rdf:resource="#I7"/>
+  </VACATION_CASE>
+  <DESTINATION rdf:ID="TURKISHRIVIERA"/>
+  <VACATION_CASE rdf:ID="I1053">
+    <HAS-DESTINATION rdf:resource="#CARINTHIA"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I669.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I801">
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="DENMARK"/>
+    </HAS-DESTINATION>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I719.00"/>
+    </HAS-PRICE>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1436">
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-CATEGORY rdf:resource="#FIVESTARS"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2278.00"/>
+    </HAS-PRICE>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-SEASON rdf:resource="#November"/>
+    <HAS-DESTINATION rdf:resource="#TURKISHRIVIERA"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I708">
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="GIANTMOUNTAINS"/>
+    </HAS-DESTINATION>
+    <HAS-PRICE rdf:resource="#I698.00"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-SEASON rdf:resource="#June"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I275">
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2158.00"/>
+    </HAS-PRICE>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="CORFU"/>
+    </HAS-DESTINATION>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1258">
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="CYPRUS"/>
+    </HAS-DESTINATION>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2527.00"/>
+    </HAS-PRICE>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I580">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I779.00"/>
+    </HAS-PRICE>
+    <HAS-PERSONS rdf:resource="#I6"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="ALPS"/>
+    </HAS-DESTINATION>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON rdf:resource="#June"/>
+  </VACATION_CASE>
+  <PERSONS rdf:ID="I8"/>
+  <VACATION_CASE rdf:ID="I383">
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I624.00"/>
+    </HAS-PRICE>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-SEASON rdf:resource="#August"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-DESTINATION rdf:resource="#LAKEGARDA"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1106">
+    <HAS-PERSONS rdf:resource="#I6"/>
+    <HAS-DESTINATION rdf:resource="#TYROL"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I864.00"/>
+    </HAS-PRICE>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I1068.00"/>
+  <VACATION_CASE rdf:ID="I931">
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1782.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-DESTINATION rdf:resource="#ERZGEBIRGE"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I2478.00"/>
+  <PRICE rdf:ID="I2028.00"/>
+  <VACATION_CASE rdf:ID="I1180">
+    <HAS-PRICE rdf:resource="#I359.00"/>
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="STYRIA"/>
+    </HAS-DESTINATION>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1169">
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-DESTINATION rdf:resource="#STYRIA"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PRICE rdf:resource="#I549.00"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I16">
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-SEASON>
+      <SPRING rdf:ID="April"/>
+    </HAS-SEASON>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="CAIRO"/>
+    </HAS-DESTINATION>
+    <HAS-PRICE rdf:resource="#I2308.00"/>
+    <HAS-HOLIDAY_TYPE>
+      <NO_RELAX rdf:ID="CITY"/>
+    </HAS-HOLIDAY_TYPE>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+  </VACATION_CASE>
+  <DESTINATION rdf:ID="FANO"/>
+  <DESTINATION rdf:ID="MALLORCA"/>
+  <VACATION_CASE rdf:ID="I379">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DESTINATION rdf:resource="#LAKEGARDA"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I3678.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+  </VACATION_CASE>
+  <DESTINATION rdf:ID="SALZKAMMERGUT"/>
+  <PRICE rdf:ID="I1258.00"/>
+  <VACATION_CASE rdf:ID="I301">
+    <HAS-DESTINATION rdf:resource="#RHODES"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-DURATION>
+      <DURATION rdf:ID="I21"/>
+    </HAS-DURATION>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I4364.00"/>
+    </HAS-PRICE>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I5576.00"/>
+  <VACATION_CASE rdf:ID="I260">
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I5329.00"/>
+    </HAS-PRICE>
+    <HAS-DESTINATION rdf:resource="#CHALKIDIKI"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I913">
+    <HAS-PRICE rdf:resource="#I774.00"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-PERSONS rdf:resource="#I6"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="BAVARIA"/>
+    </HAS-DESTINATION>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I851">
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-DESTINATION rdf:resource="#CZECHIA"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PRICE rdf:resource="#I998.00"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1066">
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-PRICE rdf:resource="#I669.00"/>
+    <HAS-DESTINATION rdf:resource="#LOWERAUSTRIA"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I50">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS>
+      <PERSONS rdf:ID="I5"/>
+    </HAS-PERSONS>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE rdf:resource="#I789.00"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-DESTINATION rdf:resource="#FANO"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON rdf:resource="#May"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1206">
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1478.00"/>
+    </HAS-PRICE>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-DESTINATION rdf:resource="#DOLOMITES"/>
+    <HAS-DURATION>
+      <DURATION rdf:ID="I10"/>
+    </HAS-DURATION>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-SEASON rdf:resource="#December"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I524">
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-DESTINATION rdf:resource="#ALGARVE"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2371.00"/>
+    </HAS-PRICE>
+  </VACATION_CASE>
+  <DESTINATION rdf:ID="IRELAND"/>
+  <VACATION_CASE rdf:ID="I1220">
+    <HAS-SEASON rdf:resource="#December"/>
+    <HAS-DESTINATION rdf:resource="#DOLOMITES"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PRICE rdf:resource="#I929.00"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I10"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I501">
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I738.00"/>
+    </HAS-PRICE>
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DESTINATION rdf:resource="#TYROL"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-SEASON rdf:resource="#May"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I1084.00"/>
+  <PRICE rdf:ID="I3605.00"/>
+  <AUTUM rdf:ID="October"/>
+  <VACATION_CASE rdf:ID="I1125">
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PRICE rdf:resource="#I1254.00"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DESTINATION rdf:resource="#SALZBERGERLAND"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I858.00"/>
+  <PRICE rdf:ID="I2787.00"/>
+  <VACATION_CASE rdf:ID="I934">
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DESTINATION rdf:resource="#ERZGEBIRGE"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1257.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#February"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I2922.00"/>
+  <VACATION_CASE rdf:ID="I1133">
+    <HAS-DURATION rdf:resource="#I10"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PERSONS rdf:resource="#I6"/>
+    <HAS-DESTINATION rdf:resource="#SALZBERGERLAND"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON rdf:resource="#December"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I3009.00"/>
+    </HAS-PRICE>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I3522.00"/>
+  <PRICE rdf:ID="I2418.00"/>
+  <VACATION_CASE rdf:ID="I287">
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-DESTINATION rdf:resource="#CRETE"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PRICE rdf:resource="#I2758.00"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I192">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-PERSONS rdf:resource="#I5"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1089.00"/>
+    </HAS-PRICE>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="COTEDAZUR"/>
+    </HAS-DESTINATION>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I505">
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1847.00"/>
+    </HAS-PRICE>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-CATEGORY rdf:resource="#FIVESTARS"/>
+    <HAS-DESTINATION rdf:resource="#TYROL"/>
+    <HAS-SEASON rdf:resource="#July"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I832">
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1048.00"/>
+    </HAS-PRICE>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-DESTINATION rdf:resource="#SLOWAKEI"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I458">
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-DESTINATION rdf:resource="#SALZBERGERLAND"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-SEASON rdf:resource="#August"/>
+    <HAS-PRICE rdf:resource="#I837.00"/>
+  </VACATION_CASE>
+  <DESTINATION rdf:ID="FUERTEVENTURA"/>
+  <VACATION_CASE rdf:ID="I174">
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-PRICE rdf:resource="#I858.00"/>
+    <HAS-DESTINATION rdf:resource="#ATLANTIC"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON rdf:resource="#May"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I2048.00"/>
+  <VACATION_CASE rdf:ID="I1143">
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2648.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-DESTINATION rdf:resource="#SALZKAMMERGUT"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I1910.00"/>
+  <VACATION_CASE rdf:ID="I1356">
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-DESTINATION rdf:resource="#FUERTEVENTURA"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-SEASON rdf:resource="#April"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2828.00"/>
+    </HAS-PRICE>
+    <HAS-DURATION rdf:resource="#I14"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I316">
+    <HAS-PRICE rdf:resource="#I2048.00"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-DESTINATION rdf:resource="#IRELAND"/>
+    <HAS-PERSONS rdf:resource="#I7"/>
+    <HAS-HOLIDAY_TYPE>
+      <NO_RELAX rdf:ID="LANGUAGE"/>
+    </HAS-HOLIDAY_TYPE>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I884.00"/>
+  <VACATION_CASE rdf:ID="I1432">
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-DESTINATION rdf:resource="#LANZAROTE"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I4247.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#January"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I358">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1349.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#August"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="ADRIATICSEA"/>
+    </HAS-DESTINATION>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I838">
+    <HAS-DESTINATION rdf:resource="#SLOWAKEI"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2036.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I635">
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-PRICE rdf:resource="#I3125.00"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DESTINATION rdf:resource="#GRANCANARIA"/>
+    <HAS-DURATION rdf:resource="#I21"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I385">
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DESTINATION rdf:resource="#LAKEGARDA"/>
+    <HAS-PERSONS rdf:resource="#I6"/>
+    <HAS-PRICE rdf:resource="#I884.00"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1151">
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I10"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-SEASON rdf:resource="#December"/>
+    <HAS-PRICE rdf:resource="#I1084.00"/>
+    <HAS-DESTINATION rdf:resource="#SALZKAMMERGUT"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I974">
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I454.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DESTINATION rdf:resource="#BLACKFOREST"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-SEASON rdf:resource="#January"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I3598.00"/>
+  <VACATION_CASE rdf:ID="I972">
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-DESTINATION rdf:resource="#BLACKFOREST"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I897.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I798.00"/>
+  <VACATION_CASE rdf:ID="I101">
+    <HAS-PRICE>
+      <PRICE rdf:ID="I948.00"/>
+    </HAS-PRICE>
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-DESTINATION rdf:resource="#HARZ"/>
+    <HAS-TRANSPORTATION rdf:resource="#TRAIN"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I350">
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I14380.00"/>
+    </HAS-PRICE>
+    <HAS-DESTINATION rdf:resource="#ADRIATICSEA"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+  </VACATION_CASE>
+  <DESTINATION rdf:ID="CORSICA"/>
+  <VACATION_CASE rdf:ID="I318">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DURATION rdf:resource="#I21"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PRICE rdf:resource="#I2457.00"/>
+    <HAS-DESTINATION rdf:resource="#IRELAND"/>
+    <HAS-PERSONS rdf:resource="#I8"/>
+    <HAS-SEASON rdf:resource="#September"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I366">
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-PRICE rdf:resource="#I998.00"/>
+    <HAS-DESTINATION rdf:resource="#ADRIATICSEA"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I681">
+    <HAS-PRICE rdf:resource="#I3605.00"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-SEASON rdf:resource="#August"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-DESTINATION rdf:resource="#MALLORCA"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I977">
+    <HAS-DESTINATION rdf:resource="#BLACKFOREST"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PRICE rdf:resource="#I1068.00"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-SEASON rdf:resource="#February"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I652">
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-SEASON rdf:resource="#August"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2852.00"/>
+    </HAS-PRICE>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="IBIZA"/>
+    </HAS-DESTINATION>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I477">
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-DESTINATION rdf:resource="#STYRIA"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-PRICE rdf:resource="#I898.00"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I2187.00"/>
+  <VACATION_CASE rdf:ID="I1017">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS rdf:resource="#I5"/>
+    <HAS-DESTINATION>
+      <DESTINATION rdf:ID="FRANCE"/>
+    </HAS-DESTINATION>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PRICE rdf:resource="#I3368.00"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I751">
+    <HAS-DESTINATION rdf:resource="#TUNISIA"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2768.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DURATION rdf:resource="#I21"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-SEASON rdf:resource="#June"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1295">
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1428.00"/>
+    </HAS-PRICE>
+    <HAS-DESTINATION rdf:resource="#MALTA"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I1138.00"/>
+  <PRICE rdf:ID="I2618.00"/>
+  <VACATION_CASE rdf:ID="I209">
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-PRICE rdf:resource="#I3522.00"/>
+    <HAS-DESTINATION rdf:resource="#CORSICA"/>
+    <HAS-SEASON rdf:resource="#July"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1349">
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-SEASON rdf:resource="#November"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I4585.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DESTINATION rdf:resource="#FUERTEVENTURA"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1247">
+    <HAS-DESTINATION rdf:resource="#MADEIRA"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-SEASON rdf:resource="#December"/>
+    <HAS-PRICE rdf:resource="#I5576.00"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I497">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-PRICE rdf:resource="#I798.00"/>
+    <HAS-SEASON rdf:resource="#August"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DESTINATION rdf:resource="#TYROL"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I3530.00"/>
+  <PRICE rdf:ID="I984.00"/>
+  <PRICE rdf:ID="I1289.00"/>
+  <VACATION_CASE rdf:ID="I919">
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PRICE rdf:resource="#I1018.00"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-DESTINATION rdf:resource="#BAVARIA"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1056">
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-PRICE rdf:resource="#I569.00"/>
+    <HAS-DESTINATION rdf:resource="#CARINTHIA"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I998">
+    <HAS-DESTINATION rdf:resource="#THURINGIA"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-PRICE rdf:resource="#I987.00"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I941">
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE rdf:resource="#I1910.00"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-DESTINATION rdf:resource="#HARZ"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-SEASON rdf:resource="#January"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I444">
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DESTINATION rdf:resource="#CARINTHIA"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PRICE rdf:resource="#I2572.00"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I948">
+    <HAS-SEASON rdf:resource="#December"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-DESTINATION rdf:resource="#HARZ"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2007.00"/>
+    </HAS-PRICE>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+  </VACATION_CASE>
+  <PRICE rdf:ID="I762.00"/>
+  <VACATION_CASE rdf:ID="I249">
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-PRICE rdf:resource="#I2787.00"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DESTINATION rdf:resource="#CHALKIDIKI"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1365">
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-DESTINATION rdf:resource="#FUERTEVENTURA"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PRICE rdf:resource="#I2308.00"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I844">
+    <HAS-DESTINATION rdf:resource="#SLOWAKEI"/>
+    <HAS-CATEGORY rdf:resource="#ONESTAR"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-PRICE rdf:resource="#I888.00"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I892">
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PERSONS rdf:resource="#I6"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-DESTINATION rdf:resource="#ALLGAEU"/>
+    <HAS-PRICE rdf:resource="#I984.00"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1392">
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PRICE rdf:resource="#I3368.00"/>
+    <HAS-DESTINATION rdf:resource="#TENERIFFE"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-SEASON rdf:resource="#November"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I673">
+    <HAS-DESTINATION rdf:resource="#MALLORCA"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PRICE rdf:resource="#I3530.00"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I499">
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1972.00"/>
+    </HAS-PRICE>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DESTINATION rdf:resource="#TYROL"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-SEASON rdf:resource="#June"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1442">
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-CATEGORY rdf:resource="#FIVESTARS"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-DESTINATION rdf:resource="#TURKISHRIVIERA"/>
+    <HAS-PRICE rdf:resource="#I2418.00"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I300">
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PRICE rdf:resource="#I2758.00"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DESTINATION rdf:resource="#RHODES"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1244">
+    <HAS-PRICE rdf:resource="#I3598.00"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-DESTINATION rdf:resource="#MADEIRA"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1288">
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PRICE rdf:resource="#I1258.00"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-DESTINATION rdf:resource="#MALTA"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I188">
+    <HAS-PRICE rdf:resource="#I2187.00"/>
+    <HAS-DESTINATION rdf:resource="#ATLANTIC"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-SEASON rdf:resource="#August"/>
+    <HAS-DURATION rdf:resource="#I21"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1032">
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-DESTINATION rdf:resource="#FRANCE"/>
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-PRICE rdf:resource="#I2028.00"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I446">
+    <HAS-HOLIDAY_TYPE rdf:resource="#WANDERING"/>
+    <HAS-DESTINATION rdf:resource="#CARINTHIA"/>
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I1049.00"/>
+    </HAS-PRICE>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS rdf:resource="#I6"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I302">
+    <HAS-DESTINATION rdf:resource="#RHODES"/>
+    <HAS-HOLIDAY_TYPE>
+      <NO_RELAX rdf:ID="EDUCATION"/>
+    </HAS-HOLIDAY_TYPE>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-SEASON rdf:resource="#October"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PRICE rdf:resource="#I2478.00"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1284">
+    <HAS-SEASON rdf:resource="#February"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-DESTINATION rdf:resource="#MALTA"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-PRICE rdf:resource="#I2329.00"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I798">
+    <HAS-PRICE rdf:resource="#I509.00"/>
+    <HAS-DESTINATION rdf:resource="#DENMARK"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I544">
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-PRICE rdf:resource="#I3598.00"/>
+    <HAS-DESTINATION rdf:resource="#MADEIRA"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-SEASON rdf:resource="#August"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1292">
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-DESTINATION rdf:resource="#MALTA"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2519.00"/>
+    </HAS-PRICE>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I61">
+    <HAS-DESTINATION rdf:resource="#ALLGAEU"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-TRANSPORTATION rdf:resource="#TRAIN"/>
+    <HAS-PRICE rdf:resource="#I794.00"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-SEASON rdf:resource="#August"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1221">
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-SEASON rdf:resource="#November"/>
+    <HAS-PRICE rdf:resource="#I2618.00"/>
+    <HAS-DESTINATION rdf:resource="#EGYPT"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I180">
+    <HAS-PRICE rdf:resource="#I1289.00"/>
+    <HAS-SEASON rdf:resource="#July"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-DESTINATION rdf:resource="#ATLANTIC"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PERSONS rdf:resource="#I5"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1416">
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-DESTINATION rdf:resource="#LANZAROTE"/>
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-SEASON rdf:resource="#April"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-PRICE>
+      <PRICE rdf:ID="I2788.00"/>
+    </HAS-PRICE>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I630">
+    <HAS-PERSONS rdf:resource="#I2"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+    <HAS-DESTINATION rdf:resource="#FUERTEVENTURA"/>
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-PRICE rdf:resource="#I3188.00"/>
+    <HAS-CATEGORY rdf:resource="#FOURSTARS"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1065">
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-PRICE rdf:resource="#I669.00"/>
+    <HAS-DESTINATION rdf:resource="#LOWERAUSTRIA"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I127">
+    <HAS-DESTINATION rdf:resource="#NORTHSEA"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PERSONS rdf:resource="#I6"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-SEASON rdf:resource="#June"/>
+    <HAS-TRANSPORTATION rdf:resource="#TRAIN"/>
+    <HAS-PRICE rdf:resource="#I1044.00"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1402">
+    <HAS-SEASON rdf:resource="#March"/>
+    <HAS-CATEGORY rdf:resource="#TWOSTARS"/>
+    <HAS-DESTINATION rdf:resource="#TENERIFFE"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#BATHING"/>
+    <HAS-PRICE rdf:resource="#I2922.00"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#PLANE"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1122">
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-PRICE rdf:resource="#I669.00"/>
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-PERSONS rdf:resource="#I3"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#SKIING"/>
+    <HAS-SEASON rdf:resource="#January"/>
+    <HAS-DESTINATION rdf:resource="#SALZBERGERLAND"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I125">
+    <HAS-CATEGORY rdf:resource="#HOLIDAYFLAT"/>
+    <HAS-DESTINATION rdf:resource="#NORTHSEA"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#RECREATION"/>
+    <HAS-PRICE rdf:resource="#I1138.00"/>
+    <HAS-DURATION rdf:resource="#I14"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-SEASON rdf:resource="#August"/>
+  </VACATION_CASE>
+  <VACATION_CASE rdf:ID="I1186">
+    <HAS-PRICE rdf:resource="#I762.00"/>
+    <HAS-HOLIDAY_TYPE rdf:resource="#ACTIVE"/>
+    <HAS-DESTINATION rdf:resource="#TYROL"/>
+    <HAS-CATEGORY rdf:resource="#THREESTARS"/>
+    <HAS-TRANSPORTATION rdf:resource="#CAR"/>
+    <HAS-DURATION rdf:resource="#I7"/>
+    <HAS-PERSONS rdf:resource="#I4"/>
+    <HAS-SEASON rdf:resource="#January"/>
+  </VACATION_CASE>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 2.2, Build 331)  http://protege.stanford.edu -->

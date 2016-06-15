@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><CBRQuery Id="305"><CaseComponent Class="jcolibri.test.recommenders.rec12.moviesDB.User" IdAttribute="id" Name="Description"><id>305</id><age>23</age><gender>Male</gender><occupation>programmer</occupation><zipCode>94086</zipCode></CaseComponent></CBRQuery>

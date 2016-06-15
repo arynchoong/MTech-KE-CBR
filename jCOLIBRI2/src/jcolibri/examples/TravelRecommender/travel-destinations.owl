@@ -1,0 +1,289 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://gaia.fdi.ucm.es/ontologies/travel-destinations.owl#"
+  xml:base="http://gaia.fdi.ucm.es/ontologies/travel-destinations.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Belgium_country">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Europe"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Turkey_country">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Europe"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Poland_country">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Europe"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Ireland_country">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Europe"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="TurkishAegean_Sea">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Sea"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Forest"/>
+  <owl:Class rdf:ID="Bulgaria_country">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Europe"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Germany_country">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Europe"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Holland_country">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Europe"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Europe">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Country"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Slovakia_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Balearic_Islands">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Mediterranean"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Island"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Spain_country"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Sweden_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Italy_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Lake"/>
+  <owl:Class rdf:ID="Austria_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Baltic_Sea">
+    <rdfs:subClassOf rdf:resource="#Sea"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Portugal_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Greece_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Malta_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Africa">
+    <rdfs:subClassOf rdf:resource="#Country"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Canary_Islands">
+    <rdfs:subClassOf rdf:resource="#Island"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Atlantic_Ocean"/>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Spain_country"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Spain_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Switzerland_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Hungary_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Egypt_country">
+    <rdfs:subClassOf rdf:resource="#Africa"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Mediterranean">
+    <rdfs:subClassOf rdf:resource="#Sea"/>
+  </owl:Class>
+  <owl:Class rdf:ID="England_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Aegean_Sea">
+    <rdfs:subClassOf rdf:resource="#Sea"/>
+  </owl:Class>
+  <owl:Class rdf:ID="France_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Adriatic_Sea">
+    <rdfs:subClassOf rdf:resource="#Sea"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Czechia_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="North_Sea">
+    <rdfs:subClassOf rdf:resource="#Sea"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Atlantic_Ocean">
+    <rdfs:subClassOf rdf:resource="#Sea"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Denmark_country">
+    <rdfs:subClassOf rdf:resource="#Europe"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Mountain"/>
+  <owl:Class rdf:ID="Tunisia_country">
+    <rdfs:subClassOf rdf:resource="#Africa"/>
+  </owl:Class>
+  <owl:Class rdf:ID="City"/>
+  <Czechia_country rdf:ID="GiantMountains">
+    <rdf:type rdf:resource="#Poland_country"/>
+    <rdf:type rdf:resource="#Mountain"/>
+  </Czechia_country>
+  <Greece_country rdf:ID="Greece"/>
+  <Austria_country rdf:ID="Austria"/>
+  <Mediterranean rdf:ID="Malta">
+    <rdf:type rdf:resource="#Island"/>
+    <rdf:type rdf:resource="#Malta_country"/>
+  </Mediterranean>
+  <Lake rdf:ID="Balaton">
+    <rdf:type rdf:resource="#Hungary_country"/>
+  </Lake>
+  <Baltic_Sea rdf:ID="Bornholm">
+    <rdf:type rdf:resource="#Denmark_country"/>
+    <rdf:type rdf:resource="#Island"/>
+  </Baltic_Sea>
+  <Baltic_Sea rdf:ID="BalticSea"/>
+  <Switzerland_country rdf:ID="Alps">
+    <rdf:type rdf:resource="#France_country"/>
+    <rdf:type rdf:resource="#Italy_country"/>
+    <rdf:type rdf:resource="#Mountain"/>
+  </Switzerland_country>
+  <France_country rdf:ID="Normandy">
+    <rdf:type rdf:resource="#Atlantic_Ocean"/>
+  </France_country>
+  <Germany_country rdf:ID="Thuringia"/>
+  <Canary_Islands rdf:ID="Teneriffe"/>
+  <Slovakia_country rdf:ID="Slowakei"/>
+  <Mediterranean rdf:ID="Corsica">
+    <rdf:type rdf:resource="#France_country"/>
+  </Mediterranean>
+  <Hungary_country rdf:ID="Hungary"/>
+  <North_Sea rdf:ID="NorthSea"/>
+  <Mediterranean rdf:ID="CotedAzur">
+    <rdf:type rdf:resource="#France_country"/>
+  </Mediterranean>
+  <Portugal_country rdf:ID="Madeira">
+    <rdf:type rdf:resource="#Atlantic_Ocean"/>
+    <rdf:type rdf:resource="#Island"/>
+  </Portugal_country>
+  <Belgium_country rdf:ID="Belgium"/>
+  <Atlantic_Ocean rdf:ID="Algarve">
+    <rdf:type rdf:resource="#Portugal_country"/>
+  </Atlantic_Ocean>
+  <Czechia_country rdf:ID="Czechia"/>
+  <Spain_country rdf:ID="Spain"/>
+  <Germany_country rdf:ID="Germany"/>
+  <Aegean_Sea rdf:ID="Chalkidiki">
+    <rdf:type rdf:resource="#Greece_country"/>
+  </Aegean_Sea>
+  <Germany_country rdf:ID="Allgaeu"/>
+  <England_country rdf:ID="Wales"/>
+  <Atlantic_Ocean rdf:ID="Atlantic"/>
+  <Mediterranean rdf:ID="Crete">
+    <rdf:type rdf:resource="#Island"/>
+    <rdf:type rdf:resource="#Greece_country"/>
+  </Mediterranean>
+  <Greece_country rdf:ID="Corfu"/>
+  <Atlantic_Ocean rdf:ID="Brittany">
+    <rdf:type rdf:resource="#France_country"/>
+  </Atlantic_Ocean>
+  <Canary_Islands rdf:ID="GranCanaria"/>
+  <Holland_country rdf:ID="Holland"/>
+  <Germany_country rdf:ID="Harz">
+    <rdf:type rdf:resource="#Mountain"/>
+  </Germany_country>
+  <Bulgaria_country rdf:ID="Bulgaria"/>
+  <England_country rdf:ID="England"/>
+  <Sweden_country rdf:ID="Sweden"/>
+  <Tunisia_country rdf:ID="Tunisia"/>
+  <Germany_country rdf:ID="SalzbergerLand"/>
+  <Greece_country rdf:ID="Rhodes">
+    <rdf:type rdf:resource="#Aegean_Sea"/>
+    <rdf:type rdf:resource="#Island"/>
+  </Greece_country>
+  <Austria_country rdf:ID="Styria"/>
+  <England_country rdf:ID="Scotland"/>
+  <Ireland_country rdf:ID="Ireland"/>
+  <Turkey_country rdf:ID="Turkey"/>
+  <Aegean_Sea rdf:ID="Attica">
+    <rdf:type rdf:resource="#Greece_country"/>
+  </Aegean_Sea>
+  <Egypt_country rdf:ID="Egypt"/>
+  <Portugal_country rdf:ID="Portugal"/>
+  <Lake rdf:ID="Carinthia">
+    <rdf:type rdf:resource="#Mountain"/>
+    <rdf:type rdf:resource="#Austria_country"/>
+  </Lake>
+  <Mediterranean rdf:ID="CostaBrava">
+    <rdf:type rdf:resource="#Spain_country"/>
+  </Mediterranean>
+  <Canary_Islands rdf:ID="Fuerteventura"/>
+  <TurkishAegean_Sea rdf:ID="TurkishAegeanSea"/>
+  <Baltic_Sea rdf:ID="Lolland">
+    <rdf:type rdf:resource="#Denmark_country"/>
+    <rdf:type rdf:resource="#Island"/>
+  </Baltic_Sea>
+  <Poland_country rdf:ID="Poland"/>
+  <Balearic_Islands rdf:ID="Ibiza"/>
+  <Italy_country rdf:ID="LakeGarda">
+    <rdf:type rdf:resource="#Lake"/>
+  </Italy_country>
+  <Balearic_Islands rdf:ID="BalearicIslands"/>
+  <Switzerland_country rdf:ID="Switzerland"/>
+  <Balearic_Islands rdf:ID="Mallorca"/>
+  <Germany_country rdf:ID="Bavaria"/>
+  <Mediterranean rdf:ID="AdriaticSea">
+    <rdf:type rdf:resource="#Adriatic_Sea"/>
+  </Mediterranean>
+  <Italy_country rdf:ID="Tyrol">
+    <rdf:type rdf:resource="#Austria_country"/>
+  </Italy_country>
+  <Czechia_country rdf:ID="ErzGebirge">
+    <rdf:type rdf:resource="#Germany_country"/>
+    <rdf:type rdf:resource="#Mountain"/>
+  </Czechia_country>
+  <Italy_country rdf:ID="Italy"/>
+  <Canary_Islands rdf:ID="CanaryIslands"/>
+  <Adriatic_Sea rdf:ID="Fano">
+    <rdf:type rdf:resource="#Italy_country"/>
+  </Adriatic_Sea>
+  <Turkey_country rdf:ID="TurkishRiviera">
+    <rdf:type rdf:resource="#TurkishAegean_Sea"/>
+  </Turkey_country>
+  <France_country rdf:ID="France"/>
+  <Denmark_country rdf:ID="Denmark"/>
+  <Germany_country rdf:ID="BlackForest">
+    <rdf:type rdf:resource="#Forest"/>
+  </Germany_country>
+  <Mediterranean rdf:ID="CostaBlanca">
+    <rdf:type rdf:resource="#Spain_country"/>
+  </Mediterranean>
+  <France_country rdf:ID="Riviera">
+    <rdf:type rdf:resource="#Mediterranean"/>
+  </France_country>
+  <City rdf:ID="Cairo">
+    <rdf:type rdf:resource="#Egypt_country"/>
+  </City>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->
