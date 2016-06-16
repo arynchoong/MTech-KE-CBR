@@ -142,16 +142,16 @@ public class RecipeRecommender implements StandardCBRApplication {
 		if(autoAdaptDialog.adapt_Duration_Price())
 		{
 			// Compute a direct proportion between the "Duration" and "Price" attributes.
-			NumericDirectProportionMethod.directProportion(	new Attribute("Duration",TravelDescription.class), 
-				 											new Attribute("price",TravelSolution.class), 
+			NumericDirectProportionMethod.directProportion(	new Attribute("Duration",RecipeDescription.class), 
+				 											new Attribute("price",RecipeSolution.class), 
 				 											query, selectedcases);
 		}
 		
 		if(autoAdaptDialog.adapt_NumberOfPersons_Price())
 		{
 			// Compute a direct proportion between the "Duration" and "Price" attributes.
-			NumericDirectProportionMethod.directProportion(	new Attribute("NumberOfPersons",TravelDescription.class), 
-				 											new Attribute("price",TravelSolution.class), 
+			NumericDirectProportionMethod.directProportion(	new Attribute("NumberOfPersons",RecipeDescription.class), 
+				 											new Attribute("price",RecipeSolution.class), 
 				 											query, selectedcases);
 		}
 		
