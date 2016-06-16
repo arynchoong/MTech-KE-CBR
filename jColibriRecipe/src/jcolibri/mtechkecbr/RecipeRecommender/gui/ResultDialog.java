@@ -27,9 +27,9 @@ import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 
 import jcolibri.cbrcore.CBRCase;
-import jcolibri.mtechkecbr.RecipeRecommender.TravelDescription;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
-import jcolibri.mtechkecbr.RecipeRecommender.TravelSolution;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeSolution;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.util.FileIO;
 
@@ -230,7 +230,7 @@ public class ResultDialog extends JDialog {
 		CBRCase _case = rr.get_case();
 		this.caseId.setText(_case.getID().toString()+" -> "+sim+" ("+(currentCase+1)+"/"+cases.size()+")");
 		
-		TravelDescription desc = (TravelDescription) _case.getDescription();
+		RecipeDescription desc = (RecipeDescription) _case.getDescription();
 		this.accommodation.setText(desc.getAccommodation().toString());
 		this.duration.setText(desc.getDuration().toString());
 		this.holidayType.setText(desc.getHolidayType());
@@ -239,7 +239,7 @@ public class ResultDialog extends JDialog {
 		this.season.setText(desc.getSeason().toString());
 		this.transportation.setText(desc.getTransportation());
 		
-		TravelSolution sol = (TravelSolution) _case.getSolution();
+		RecipeSolution sol = (RecipeSolution) _case.getSolution();
 		this.price.setText(sol.getPrice().toString());
 		this.hotel.setText(sol.getHotel());
 	}

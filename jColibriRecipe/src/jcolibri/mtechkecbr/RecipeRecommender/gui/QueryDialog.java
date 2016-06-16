@@ -16,6 +16,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -27,10 +28,10 @@ import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 
 import jcolibri.cbrcore.CBRQuery;
-import jcolibri.mtechkecbr.RecipeRecommender.TravelDescription;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
-import jcolibri.mtechkecbr.RecipeRecommender.TravelDescription.AccommodationTypes;
-import jcolibri.mtechkecbr.RecipeRecommender.TravelDescription.Seasons;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription.AccommodationTypes;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription.Seasons;
 import jcolibri.util.FileIO;
 
 /**
@@ -44,13 +45,16 @@ public class QueryDialog extends JDialog {
 
 	JLabel image;
 	
-	JComboBox holidayType;
-	SpinnerNumberModel  numberOfPersons;
+	JComboBox MainIngredient;
+	JComboBox TypeOfMeal;
+	JComboBox DietaryRequirement;
+	JComboBox TypeOfCuisine;
+	JComboBox DifficultyLevel;
+	JCheckBox HealthyOption;
+	SpinnerNumberModel numberOfPersons;
+	SpinnerNumberModel CookingDuration;
 	RegionSelector region;
-	JComboBox transportation;
 	SpinnerNumberModel  duration;
-	JComboBox season;
-	JComboBox accommodation;
 	
 	public QueryDialog(JFrame parent)
 	{
@@ -82,40 +86,41 @@ public class QueryDialog extends JDialog {
 		panel.setLayout(new SpringLayout());
 		
 		JLabel label;
-		panel.add(label = new JLabel("Attribute"));
+		panel.add(label = new JLabel("Criteria"));
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
-		panel.add(label = new JLabel("Value"));
+		panel.add(label = new JLabel("Value(s)"));
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
 		
-		panel.add(new JLabel("HolidayType"));
-		String[] holidayTypes = {"Skiing", "Recreation", "Active", "Wandering", "Education", "Bathing", "City", "Language"};
-		panel.add(holidayType = new JComboBox(holidayTypes));
+		panel.add(new JLabel("Main Ingredient"));
+		String[] MainIngredients = {"Anything", "Chicken", "Duck", "Pork", "Dough", "Vegetables", "Fruits"};
+		panel.add(MainIngredient = new JComboBox(MainIngredients));
 		
-		panel.add(new JLabel("Number of persons"));
-		numberOfPersons = new SpinnerNumberModel(2,1,12,1); 
+		panel.add(new JLabel("Type Of Meal"));
+		String[] TypeOfMeals = {"Anything", "Appetizer", "Main Course", "Dessert", "Drinks"};
+		panel.add(TypeOfMeal = new JComboBox(TypeOfMeals));
+
+		panel.add(new JLabel("Dietary Requirement"));
+		String[] DietaryRequirements = {"None","Vegan","Halal","Nuts Free", "Non Spicy"};
+		panel.add(DietaryRequirement = new JComboBox(DietaryRequirements));
+
+		panel.add(new JLabel("Type Of Cuisine"));
+		String[] TypeOfCuisines = {"Anything", "Chinese", "Indian", "Malay/Indonesian", "Nyonya", "Western"};
+		panel.add(TypeOfCuisine = new JComboBox(TypeOfCuisines));
+
+		panel.add(new JLabel("Cooking Duration (Maximum)"));
+		CookingDuration = new SpinnerNumberModel(30,10,120,10); 
+		panel.add(new JSpinner(CookingDuration));
+
+		panel.add(new JLabel("Difficulty Level"));
+		String[] DifficultyLevels = {"Anything", "Easy", "Medium", "Hard"};
+		panel.add(DifficultyLevel = new JComboBox(DifficultyLevels));
+
+		panel.add(new JLabel("Size Of Meal (Number of Persons)"));
+		numberOfPersons = new SpinnerNumberModel(2,2,20,1); 
 		panel.add(new JSpinner(numberOfPersons));
 		
-		panel.add(new JLabel("Region"));
-		//String[] regions = {
-		//		"AdriaticSea","Algarve","Allgaeu","Alps","Atlantic","Attica","Balaton","BalticSea","Bavaria","Belgium","BlackForest","Bornholm","Brittany","Bulgaria","Cairo","Carinthia","Chalkidiki","Corfu","Corsica","CostaBlanca","CostaBrava","CotedAzur","Crete","Czechia","Denmark","Egypt","England","ErzGebirge","Fano","France","Fuerteventura","GiantMountains","GranCanaria","Harz","Holland","Ibiza","Ireland","LakeGarda","Lolland","Madeira","Mallorca","Malta","Normandy","NorthSea","Poland","Rhodes","Riviera","SalzbergerLand","Scotland","Slowakei","Styria","Sweden","Teneriffe","Thuringia","Tunisia","TurkishAegeanSea","TurkishRiviera","Tyrol","Wales"};
-		panel.add(region = new RegionSelector(this));
-		
-		panel.add(new JLabel("Transportation"));
-		String[] transportations = {"Plane","Car","Coach","Train"};
-		panel.add(transportation = new JComboBox(transportations));
-		
-		panel.add(new JLabel("Duration"));
-		duration = new SpinnerNumberModel(7,2,31,1); 
-		panel.add(new JSpinner(duration));
-		
-		panel.add(new JLabel("Season"));
-		String[] seasons = {"January","February","March","April","May","June","July","August","September","October","November","December"};
-		panel.add(season = new JComboBox(seasons));
-		
-		panel.add(new JLabel("Accommodation"));
-		String[] accommodations = {"FiveStars","FourStars","HolidayFlat","ThreeStars","TwoStars","OneStar"};
-		panel.add(accommodation = new JComboBox(accommodations));
-		
+		panel.add(new JLabel("Others"));
+		panel.add(HealthyOption = new JCheckBox("Healthy Options /(less oil, non deep fry, etc/)"));
 		
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
@@ -175,14 +180,14 @@ public class QueryDialog extends JDialog {
 	
 	public CBRQuery getQuery()
 	{
-		TravelDescription desc = new TravelDescription();
-		desc.setAccommodation(AccommodationTypes.valueOf((String)this.accommodation.getSelectedItem()));
-		desc.setDuration(this.duration.getNumber().intValue());
-		desc.setHolidayType((String)this.holidayType.getSelectedItem());
-		desc.setNumberOfPersons(this.numberOfPersons.getNumber().intValue());
-		desc.setRegion(this.region.getSelectedInstance());
-		desc.setSeason(Seasons.valueOf((String)this.season.getSelectedItem()));
-		desc.setTransportation((String)this.transportation.getSelectedItem());
+		RecipeDescription desc = new RecipeDescription();
+//		desc.setAccommodation(AccommodationTypes.valueOf((String)this.accommodation.getSelectedItem()));
+//		desc.setDuration(this.duration.getNumber().intValue());
+//		desc.setHolidayType((String)this.holidayType.getSelectedItem());
+//		desc.setNumberOfPersons(this.numberOfPersons.getNumber().intValue());
+//		desc.setRegion(this.region.getSelectedInstance());
+//		desc.setSeason(Seasons.valueOf((String)this.season.getSelectedItem()));
+//		desc.setTransportation((String)this.transportation.getSelectedItem());
 		
 		CBRQuery query = new CBRQuery();
 		query.setDescription(desc);

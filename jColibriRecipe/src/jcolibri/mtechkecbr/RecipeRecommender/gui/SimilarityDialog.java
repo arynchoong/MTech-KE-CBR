@@ -30,7 +30,7 @@ import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 
 import jcolibri.cbrcore.Attribute;
-import jcolibri.mtechkecbr.RecipeRecommender.TravelDescription;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
 import jcolibri.method.retrieve.NNretrieval.similarity.LocalSimilarityFunction;
@@ -221,43 +221,43 @@ public class SimilarityDialog extends JDialog {
 		LocalSimilarityFunction function;
 		
 		similConfig = holidayType;
-		attribute = new Attribute("HolidayType",TravelDescription.class);
+		attribute = new Attribute("HolidayType",RecipeDescription.class);
 		function = localSimilFactory(similConfig.getSimilFuntion(), similConfig.getParam()); 
 		config.addMapping(attribute, function);
 		config.setWeight(attribute, similConfig.getWeight());
 
 		similConfig = this.persons;
-		attribute = new Attribute("NumberOfPersons",TravelDescription.class);
+		attribute = new Attribute("NumberOfPersons",RecipeDescription.class);
 		function = localSimilFactory(similConfig.getSimilFuntion(), similConfig.getParam()); 
 		config.addMapping(attribute, function);
 		config.setWeight(attribute, similConfig.getWeight());
 
 		similConfig = this.region;
-		attribute = new Attribute("Region",TravelDescription.class);
+		attribute = new Attribute("Region",RecipeDescription.class);
 		function = localSimilFactory(similConfig.getSimilFuntion(), similConfig.getParam()); 
 		config.addMapping(attribute, function);
 		config.setWeight(attribute, similConfig.getWeight());
 
 		similConfig = this.transportation;
-		attribute = new Attribute("Transportation",TravelDescription.class);
+		attribute = new Attribute("Transportation",RecipeDescription.class);
 		function = localSimilFactory(similConfig.getSimilFuntion(), similConfig.getParam()); 
 		config.addMapping(attribute, function);
 		config.setWeight(attribute, similConfig.getWeight());
 
 		similConfig = duration;
-		attribute = new Attribute("Duration",TravelDescription.class);
+		attribute = new Attribute("Duration",RecipeDescription.class);
 		function = localSimilFactory(similConfig.getSimilFuntion(), similConfig.getParam()); 
 		config.addMapping(attribute, function);
 		config.setWeight(attribute, similConfig.getWeight());
 
 		similConfig = this.season;
-		attribute = new Attribute("Season",TravelDescription.class);
+		attribute = new Attribute("Season",RecipeDescription.class);
 		function = localSimilFactory(similConfig.getSimilFuntion(), similConfig.getParam()); 
 		config.addMapping(attribute, function);
 		config.setWeight(attribute, similConfig.getWeight());
 
 		similConfig = this.accommodation;
-		attribute = new Attribute("Accommodation",TravelDescription.class);
+		attribute = new Attribute("Accommodation",RecipeDescription.class);
 		function = localSimilFactory(similConfig.getSimilFuntion(), similConfig.getParam()); 
 		config.addMapping(attribute, function);
 		config.setWeight(attribute, similConfig.getWeight());

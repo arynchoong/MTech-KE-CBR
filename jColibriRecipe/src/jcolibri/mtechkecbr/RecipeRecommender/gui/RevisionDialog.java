@@ -31,10 +31,10 @@ import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 
 import jcolibri.cbrcore.CBRCase;
-import jcolibri.mtechkecbr.RecipeRecommender.TravelDescription;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription.Seasons;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
-import jcolibri.mtechkecbr.RecipeRecommender.TravelSolution;
-import jcolibri.mtechkecbr.RecipeRecommender.TravelDescription.Seasons;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeSolution;
 import jcolibri.util.FileIO;
 
 /**
@@ -240,7 +240,7 @@ public class RevisionDialog extends JDialog {
 		CBRCase _case = cases.get(currentCase);
 		this.caseId.setText(_case.getID().toString()+" ("+(currentCase+1)+"/"+cases.size()+")");
 		
-		TravelDescription desc = (TravelDescription) _case.getDescription();
+		RecipeDescription desc = (RecipeDescription) _case.getDescription();
 		
 		this.accommodation.setSelectedItem(desc.getAccommodation().toString());
 		this.duration.setValue(desc.getDuration());
@@ -250,7 +250,7 @@ public class RevisionDialog extends JDialog {
 		this.season.setSelectedItem(desc.getSeason());
 		this.transportation.setSelectedItem(desc.getTransportation());
 		
-		TravelSolution sol = (TravelSolution) _case.getSolution();
+		RecipeSolution sol = (RecipeSolution) _case.getSolution();
 		this.price.setValue(sol.getPrice());
 		this.hotel.setText(sol.getHotel());
 	}
@@ -260,9 +260,9 @@ public class RevisionDialog extends JDialog {
 		CBRCase _case = cases.get(currentCase);
 		this.caseId.setText(_case.getID().toString()+" ("+(currentCase+1)+"/"+cases.size()+")");
 		
-		TravelDescription desc = (TravelDescription) _case.getDescription();
+		RecipeDescription desc = (RecipeDescription) _case.getDescription();
 		
-		desc.setAccommodation(TravelDescription.AccommodationTypes.valueOf((String)this.accommodation.getSelectedItem()));
+		desc.setAccommodation(RecipeDescription.AccommodationTypes.valueOf((String)this.accommodation.getSelectedItem()));
 		desc.setDuration(this.duration.getNumber().intValue());
 		desc.setHolidayType((String)this.holidayType.getSelectedItem());
 		desc.setNumberOfPersons(this.numberOfPersons.getNumber().intValue());
@@ -270,7 +270,7 @@ public class RevisionDialog extends JDialog {
 		desc.setSeason(Seasons.valueOf((String)this.season.getSelectedItem()));
 		desc.setTransportation((String)this.transportation.getSelectedItem());
 		
-		TravelSolution sol = (TravelSolution) _case.getSolution();
+		RecipeSolution sol = (RecipeSolution) _case.getSolution();
 		sol.setPrice(this.price.getNumber().intValue());
 		sol.setHotel(this.hotel.getText());
 	}
