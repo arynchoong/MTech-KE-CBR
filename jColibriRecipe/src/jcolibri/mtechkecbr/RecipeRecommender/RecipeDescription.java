@@ -19,124 +19,66 @@ import jcolibri.datatypes.Instance;
  */
 public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	
-	public enum AccommodationTypes  { OneStar, TwoStars, ThreeStars, HolidayFlat, FourStars, FiveStars};
-	public enum Seasons { January,February,March,April,May,June,July,August,September,October,November,December };
+	public enum TypeOfCuisines { AnyCuisine, Chinese, Indian, Malay_Indonesian, Nyonya, Western}
+	public enum MainIngredients { AnyIngredient, Chicken, Duck, Port, Dough, Vegetables, Fruits}
+	public enum TypeOfMeals {AnyMeal, Appetizer, MainCourse, Dessert, Drinks}
+	public enum DifficultyLevels { AnyLevel, Easy, Medium, Hard}
+	public enum DietaryRequirements { None, Vegan, Halal, NutsFree, NonSpicy }
+
 	
-	String  caseId;
-	String  HolidayType;
-	Integer NumberOfPersons;
-	Instance  Region;
-	String  Transportation;
-	Integer Duration;
-	Seasons  Season;
-	AccommodationTypes  Accommodation;
+	String  szCaseId;
+	MainIngredients enumMainIngredient;
+	TypeOfMeals enumTypeOfMeal;
+	TypeOfCuisines TypeOfCuisine;
+	Integer nCookingDuration;
+	DifficultyLevels enumDifficultyLevel;
+	Integer nNumberOfPersons;
+	DietaryRequirements enumDietaryRequirement;
+	Boolean bHealthyOption; //Healthy Options, Less Oil
+	
 	
 	
 	public String toString()
 	{
-		return "("+caseId+";"+HolidayType+";"+NumberOfPersons+";"+Region+";"+Transportation+";"+Duration+";"+Season+";"+Accommodation+")";
+		return "("+szCaseId+";"+enumMainIngredient+";"+enumTypeOfMeal+";"+TypeOfCuisine+";"+nCookingDuration+";"+enumDifficultyLevel+";"+nNumberOfPersons+";"+enumDietaryRequirement+";"+bHealthyOption+")";
 	}
 	
-	/**
-	 * @return the accomodation
-	 */
-	public AccommodationTypes getAccommodation() {
-		return Accommodation;
+	// @return the TypeOfCuisine
+	public TypeOfCuisines getTypeOfCuisine() {
+		return TypeOfCuisine;
 	}
-	/**
-	 * @param accomodation the accomodation to set
-	 */
-	public void setAccommodation(AccommodationTypes accomodation) {
-		Accommodation = accomodation;
+	// @set the TypeOfCuisine
+	public void setTypeOfCuisine(TypeOfCuisines CuisineType) {
+		TypeOfCuisine = CuisineType;
 	}
-	/**
-	 * @return the caseId
-	 */
+
+	// @return the caseId
 	public String getCaseId() {
-		return caseId;
+		return szCaseId;
 	}
-	/**
-	 * @param caseId the caseId to set
-	 */
-	public void setCaseId(String caseId) {
-		this.caseId = caseId;
+	// @set the caseId
+	public void setCaseId(String caseid) {
+		this.szCaseId = caseid;
 	}
-	/**
-	 * @return the duration
-	 */
-	public Integer getDuration() {
-		return Duration;
+	// @return the duration
+	public Integer getCookingDuration() {
+		return nCookingDuration;
 	}
-	/**
-	 * @param duration the duration to set
-	 */
-	public void setDuration(Integer duration) {
-		Duration = duration;
+	// @set the Cooking Duration
+	public void setCookingDuration(Integer duration) {
+		nCookingDuration = duration;
 	}
-	/**
-	 * @return the holidayType
-	 */
-	public String getHolidayType() {
-		return HolidayType;
-	}
-	/**
-	 * @param holidayType the holidayType to set
-	 */
-	public void setHolidayType(String holidayType) {
-		HolidayType = holidayType;
-	}
-	/**
-	 * @return the numberOfPersons
-	 */
+	// @set the Cooking Duration
 	public Integer getNumberOfPersons() {
-		return NumberOfPersons;
+		return nNumberOfPersons;
 	}
-	/**
-	 * @param numberOfPersons the numberOfPersons to set
-	 */
-	public void setNumberOfPersons(Integer numberOfPersons) {
-		NumberOfPersons = numberOfPersons;
-	}
-	/**
-	 * @return the region
-	 */
-	public Instance getRegion() {
-		return Region;
-	}
-	/**
-	 * @param region the region to set
-	 */
-	public void setRegion(Instance region) {
-		Region = region;
-	}
-	/**
-	 * @return the season
-	 */
-	public Seasons getSeason() {
-		return Season;
-	}
-	/**
-	 * @param season the season to set
-	 */
-	public void setSeason(Seasons season) {
-		Season = season;
-	}
-	/**
-	 * @return the transportation
-	 */
-	public String getTransportation() {
-		return Transportation;
-	}
-	/**
-	 * @param transportation the transportation to set
-	 */
-	public void setTransportation(String transportation) {
-		Transportation = transportation;
+	// @set the Cooking Duration
+	public void setNumberOfPersons(Integer NoOfPersons) {
+		nNumberOfPersons = NoOfPersons;
 	}
 
 
 	public Attribute getIdAttribute() {
 		return new Attribute("caseId", this.getClass());
-	}
-	
+	}	
 }
