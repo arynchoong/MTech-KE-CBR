@@ -1,10 +1,3 @@
-/**
- * Travel Recommender example for the jCOLIBRI2 framework. 
- * @author Juan A. Recio-García.
- * GAIA - Group for Artificial Intelligence Applications
- * http://gaia.fdi.ucm.es
- * 25/07/2006
- */
 package jcolibri.mtechkecbr.RecipeRecommender.gui;
 
 import java.awt.BorderLayout;
@@ -12,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
@@ -37,11 +29,6 @@ import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
 import jcolibri.util.FileIO;
 
-/**
- * Query dialgo
- * @author Juan A. Recio-Garcia
- * @version 1.0
- */
 public class QueryDialog extends JDialog {
 
 	private static final long serialVersionUID = 1L;
@@ -61,8 +48,7 @@ public class QueryDialog extends JDialog {
 	SpinnerNumberModel  duration;
     JList<String> PreferenceList;	
     DefaultListModel<String> listModel;
-
-	private Object String;
+    Boolean m_bFirstTimeRunning = true;
 
 	public QueryDialog(JFrame parent)
 	{
@@ -134,14 +120,7 @@ public class QueryDialog extends JDialog {
 		panel.add(SelectionsMade = new JLabel("Selections Made"));
 	    //create the model and add elements
         listModel = new DefaultListModel<>();
-        listModel.addElement("Nothing Added");
-        listModel.addElement("Nothing Added");
-        listModel.addElement("Nothing Added");
-        listModel.addElement("Nothing Added");
-        listModel.addElement("Nothing Added");
-        listModel.addElement("Nothing Added");
-        listModel.addElement("Nothing Added");
-        listModel.addElement("Nothing Added");
+        UpdatePreference();
         PreferenceList = new JList<>(listModel);        
         PreferenceList.addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -255,21 +234,24 @@ public class QueryDialog extends JDialog {
 	private void UpdatePreference()
 	{
 		if (listModel.size() > 0)
-		{
 			listModel.removeAllElements();
-			listModel.addElement("Main Ingredient: " + (java.lang.String) MainIngredient.getSelectedItem());
-			listModel.addElement("Type Of Meal: " + (java.lang.String) TypeOfMeal.getSelectedItem());
-			listModel.addElement("Dietary Req: " + (java.lang.String) DietaryRequirement.getSelectedItem());
-			listModel.addElement("Type Of Cuisine: " + (java.lang.String) TypeOfCuisine.getSelectedItem());
-			listModel.addElement("Diff. Level:" + (java.lang.String) DifficultyLevel.getSelectedItem());
-			listModel.addElement("Number Of Persons: " + numberOfPersons.getNumber().toString());
-			listModel.addElement("Cooking Duration: " + CookingDuration.getNumber());
-			if (HealthyOption.isSelected())
-				listModel.addElement("Healthy Option:" + "Yes");
-			else
-				listModel.addElement("Healthy Option:" + "No");
-			PreferenceList.updateUI();
+		listModel.addElement("Main Ingredient: " + (java.lang.String) MainIngredient.getSelectedItem());
+		listModel.addElement("Type Of Meal: " + (java.lang.String) TypeOfMeal.getSelectedItem());
+		listModel.addElement("Dietary Req: " + (java.lang.String) DietaryRequirement.getSelectedItem());
+		listModel.addElement("Type Of Cuisine: " + (java.lang.String) TypeOfCuisine.getSelectedItem());
+		listModel.addElement("Diff. Level:" + (java.lang.String) DifficultyLevel.getSelectedItem());
+		listModel.addElement("Number Of Persons: " + numberOfPersons.getNumber().toString());
+		listModel.addElement("Cooking Duration: " + CookingDuration.getNumber());
+		if (HealthyOption.isSelected())
+			listModel.addElement("Healthy Option:" + "Yes");
+		else
+			listModel.addElement("Healthy Option:" + "No");
+		if (!m_bFirstTimeRunning)
+		{		
+			PreferenceList.updateUI();			
 		}
+		else
+			m_bFirstTimeRunning = false;
 	}
 	
 	private void SelectionMoveUp()
@@ -284,7 +266,10 @@ public class QueryDialog extends JDialog {
 			{
 				String szSwappedListItem = listModel.getElementAt(nSelectedListItem-1);
 				listModel.setElementAt(szSelectedListItem, nSelectedListItem-1);				
-				listModel.setElementAt(szSwappedListItem, nSelectedListItem);				
+				listModel.setElementAt(szSwappedListItem, nSelectedListItem);	
+				PreferenceList.updateUI();
+				PreferenceList.setSelectedIndex(nSelectedListItem-1);
+				PreferenceList.updateUI();
 			}
 			else
 				JOptionPane.showMessageDialog(null, "Cannot move up anymore!", "Move Up", JOptionPane.INFORMATION_MESSAGE);				
@@ -303,7 +288,10 @@ public class QueryDialog extends JDialog {
 			{
 				String szSwappedListItem = listModel.getElementAt(nSelectedListItem+1);
 				listModel.setElementAt(szSelectedListItem, nSelectedListItem+1);				
-				listModel.setElementAt(szSwappedListItem, nSelectedListItem);				
+				listModel.setElementAt(szSwappedListItem, nSelectedListItem);
+				PreferenceList.updateUI();
+				PreferenceList.setSelectedIndex(nSelectedListItem+1);
+				PreferenceList.updateUI();
 			}
 			else
 				JOptionPane.showMessageDialog(null, "Cannot move down anymore!", "Move Down", JOptionPane.INFORMATION_MESSAGE);				
