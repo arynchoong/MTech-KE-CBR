@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -21,17 +22,19 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import jcolibri.cbrcore.CBRQuery;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
-import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription.AccommodationTypes;
-import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription.Seasons;
 import jcolibri.util.FileIO;
 
 /**
@@ -45,17 +48,22 @@ public class QueryDialog extends JDialog {
 
 	JLabel image;
 	
-	JComboBox MainIngredient;
-	JComboBox TypeOfMeal;
-	JComboBox DietaryRequirement;
-	JComboBox TypeOfCuisine;
-	JComboBox DifficultyLevel;
+	JComboBox<String> MainIngredient;
+	JComboBox<String> TypeOfMeal;
+	JComboBox<String> DietaryRequirement;
+	JComboBox<String> TypeOfCuisine;
+	JComboBox<String> DifficultyLevel;
 	JCheckBox HealthyOption;
+	JLabel SelectionsMade;
 	SpinnerNumberModel numberOfPersons;
 	SpinnerNumberModel CookingDuration;
 	RegionSelector region;
 	SpinnerNumberModel  duration;
-	
+    JList<String> PreferenceList;	
+    DefaultListModel<String> listModel;
+
+	private Object String;
+
 	public QueryDialog(JFrame parent)
 	{
 		super(parent,true);
@@ -93,27 +101,27 @@ public class QueryDialog extends JDialog {
 		
 		panel.add(new JLabel("Main Ingredient"));
 		String[] MainIngredients = {"Anything", "Chicken", "Duck", "Pork", "Dough", "Vegetables", "Fruits"};
-		panel.add(MainIngredient = new JComboBox(MainIngredients));
+		panel.add(MainIngredient = new JComboBox<String>(MainIngredients));
 		
 		panel.add(new JLabel("Type Of Meal"));
 		String[] TypeOfMeals = {"Anything", "Appetizer", "Main Course", "Dessert", "Drinks"};
-		panel.add(TypeOfMeal = new JComboBox(TypeOfMeals));
+		panel.add(TypeOfMeal = new JComboBox<String>(TypeOfMeals));
 
 		panel.add(new JLabel("Dietary Requirement"));
 		String[] DietaryRequirements = {"None","Vegan","Halal","Nuts Free", "Non Spicy"};
-		panel.add(DietaryRequirement = new JComboBox(DietaryRequirements));
+		panel.add(DietaryRequirement = new JComboBox<String>(DietaryRequirements));
 
 		panel.add(new JLabel("Type Of Cuisine"));
 		String[] TypeOfCuisines = {"Anything", "Chinese", "Indian", "Malay/Indonesian", "Nyonya", "Western"};
-		panel.add(TypeOfCuisine = new JComboBox(TypeOfCuisines));
+		panel.add(TypeOfCuisine = new JComboBox<String>(TypeOfCuisines));
 
 		panel.add(new JLabel("Cooking Duration (Maximum)"));
-		CookingDuration = new SpinnerNumberModel(30,10,120,10); 
+		CookingDuration = new SpinnerNumberModel(120,10,120,10); 
 		panel.add(new JSpinner(CookingDuration));
 
 		panel.add(new JLabel("Difficulty Level"));
 		String[] DifficultyLevels = {"Anything", "Easy", "Medium", "Hard"};
-		panel.add(DifficultyLevel = new JComboBox(DifficultyLevels));
+		panel.add(DifficultyLevel = new JComboBox<String>(DifficultyLevels));
 
 		panel.add(new JLabel("Size Of Meal (Number of Persons)"));
 		numberOfPersons = new SpinnerNumberModel(2,2,20,1); 
@@ -121,12 +129,35 @@ public class QueryDialog extends JDialog {
 		
 		panel.add(new JLabel("Others"));
 		panel.add(HealthyOption = new JCheckBox("Healthy Options /(less oil, non deep fry, etc/)"));
-		
+
+        //create the list
+		panel.add(SelectionsMade = new JLabel("Selections Made"));
+	    //create the model and add elements
+        listModel = new DefaultListModel<>();
+        listModel.addElement("Nothing Added");
+        listModel.addElement("Nothing Added");
+        listModel.addElement("Nothing Added");
+        listModel.addElement("Nothing Added");
+        listModel.addElement("Nothing Added");
+        listModel.addElement("Nothing Added");
+        listModel.addElement("Nothing Added");
+        listModel.addElement("Nothing Added");
+        PreferenceList = new JList<>(listModel);        
+        PreferenceList.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent arg0) {
+                if (!arg0.getValueIsAdjusting()) {
+                	SelectionsMade.setText(PreferenceList.getSelectedValue().toString());
+                }
+            }
+        });
+        panel.add(PreferenceList);       
+                
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
-		                8, 2, //rows, cols
+		                10, 2, //rows, cols
 		                6, 6,        //initX, initY
-		                10, 10);       //xPad, yPad
+		                10, 15);       //xPad, yPad
 		
 		JPanel panelAux = new JPanel();
 		panelAux.setLayout(new BorderLayout());
@@ -134,10 +165,53 @@ public class QueryDialog extends JDialog {
 
 		panelAux.add(panel,BorderLayout.NORTH);
 		
+		JPanel buttonsUpdateUpDown = new JPanel();
+		buttonsUpdateUpDown.setLayout(new BorderLayout());
+		
+		JButton buttonUpdate = new JButton("Update");
+		buttonUpdate.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
+		buttonsUpdateUpDown.add(buttonUpdate, BorderLayout.WEST);
+
+		JButton buttonMoveUp = new JButton("Move Up");
+		buttonMoveUp.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				SelectionMoveUp();
+			}
+		});
+		buttonsUpdateUpDown.add(buttonMoveUp, BorderLayout.CENTER);
+		JButton buttonMoveDown = new JButton("Move Down");
+		buttonMoveDown.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				SelectionMoveDown();
+			}
+		});
+		buttonsUpdateUpDown.add(buttonMoveDown, BorderLayout.EAST);
+
+		panelAux.add(buttonsUpdateUpDown, BorderLayout.AFTER_LINE_ENDS);
+
 		JPanel buttons = new JPanel();
 		buttons.setLayout(new BorderLayout());
-		
-		JButton ok = new JButton("Set Query >>");
+
+		JButton ok = new JButton("Submit Query >>");
 		ok.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				setQuery();
@@ -157,14 +231,14 @@ public class QueryDialog extends JDialog {
 		});
 		buttons.add(exit,BorderLayout.WEST);
 		
-		panelAux.add(buttons, BorderLayout.SOUTH);
+		panelAux.add(buttons, BorderLayout.AFTER_LAST_LINE);
 		this.getContentPane().add(panelAux, BorderLayout.CENTER);
 		
 		/**********************************************************/
 		
 		
 		this.pack();
-		this.setSize(600, this.getHeight());
+		this.setSize(800, this.getHeight());
 		this.setResizable(false);
 		Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds((screenSize.width - this.getWidth()) / 2,
@@ -178,6 +252,64 @@ public class QueryDialog extends JDialog {
 		this.setVisible(false);
 	}
 	
+	private void UpdatePreference()
+	{
+		if (listModel.size() > 0)
+		{
+			listModel.removeAllElements();
+			listModel.addElement("Main Ingredient: " + (java.lang.String) MainIngredient.getSelectedItem());
+			listModel.addElement("Type Of Meal: " + (java.lang.String) TypeOfMeal.getSelectedItem());
+			listModel.addElement("Dietary Req: " + (java.lang.String) DietaryRequirement.getSelectedItem());
+			listModel.addElement("Type Of Cuisine: " + (java.lang.String) TypeOfCuisine.getSelectedItem());
+			listModel.addElement("Diff. Level:" + (java.lang.String) DifficultyLevel.getSelectedItem());
+			listModel.addElement("Number Of Persons: " + numberOfPersons.getNumber().toString());
+			listModel.addElement("Cooking Duration: " + CookingDuration.getNumber());
+			if (HealthyOption.isSelected())
+				listModel.addElement("Healthy Option:" + "Yes");
+			else
+				listModel.addElement("Healthy Option:" + "No");
+			PreferenceList.updateUI();
+		}
+	}
+	
+	private void SelectionMoveUp()
+	{
+		if ( PreferenceList.isSelectionEmpty() )
+			JOptionPane.showMessageDialog(null, "nothing selected", "Move Up", JOptionPane.INFORMATION_MESSAGE);
+		else
+		{
+			String szSelectedListItem =  PreferenceList.getSelectedValue().toString();
+			int nSelectedListItem = PreferenceList.getSelectedIndex();
+			if ( (nSelectedListItem > 0) ) 
+			{
+				String szSwappedListItem = listModel.getElementAt(nSelectedListItem-1);
+				listModel.setElementAt(szSelectedListItem, nSelectedListItem-1);				
+				listModel.setElementAt(szSwappedListItem, nSelectedListItem);				
+			}
+			else
+				JOptionPane.showMessageDialog(null, "Cannot move up anymore!", "Move Up", JOptionPane.INFORMATION_MESSAGE);				
+		}
+	}
+	
+	private void SelectionMoveDown()
+	{
+		if ( PreferenceList.isSelectionEmpty() )
+			JOptionPane.showMessageDialog(null, "nothing selected", "Move Down", JOptionPane.INFORMATION_MESSAGE);
+		else
+		{
+			String szSelectedListItem =  PreferenceList.getSelectedValue().toString();
+			int nSelectedListItem = PreferenceList.getSelectedIndex();
+			if ( nSelectedListItem < (PreferenceList.getModel().getSize()-1) ) 
+			{
+				String szSwappedListItem = listModel.getElementAt(nSelectedListItem+1);
+				listModel.setElementAt(szSelectedListItem, nSelectedListItem+1);				
+				listModel.setElementAt(szSwappedListItem, nSelectedListItem);				
+			}
+			else
+				JOptionPane.showMessageDialog(null, "Cannot move down anymore!", "Move Down", JOptionPane.INFORMATION_MESSAGE);				
+		}
+	}	
+
 	public CBRQuery getQuery()
 	{
 		RecipeDescription desc = new RecipeDescription();

@@ -32,8 +32,6 @@ import javax.swing.UIManager;
 
 import jcolibri.cbrcore.CBRCase;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
-import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription.Seasons;
-import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeSolution;
 import jcolibri.util.FileIO;
 
@@ -197,9 +195,9 @@ public class RevisionDialog extends JDialog {
 		exit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
-					RecipeRecommender.getInstance().postCycle();
+//					RecipeRecommender.getInstance().postCycle();
 				} catch (Exception ex) {
-					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+//					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
 				}
 				System.exit(-1);
 			}
@@ -242,13 +240,13 @@ public class RevisionDialog extends JDialog {
 		
 		RecipeDescription desc = (RecipeDescription) _case.getDescription();
 		
-		this.accommodation.setSelectedItem(desc.getAccommodation().toString());
-		this.duration.setValue(desc.getDuration());
-		this.holidayType.setSelectedItem(desc.getHolidayType());
+//		this.accommodation.setSelectedItem(desc.getAccommodation().toString());
+//		this.duration.setValue(desc.getDuration());
+//		this.holidayType.setSelectedItem(desc.getHolidayType());
 		this.numberOfPersons.setValue(desc.getNumberOfPersons());
-		this.region.setSelectedInstance(desc.getRegion());
-		this.season.setSelectedItem(desc.getSeason());
-		this.transportation.setSelectedItem(desc.getTransportation());
+//		this.region.setSelectedInstance(desc.getRegion());
+//		this.season.setSelectedItem(desc.getSeason());
+//		this.transportation.setSelectedItem(desc.getTransportation());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
 		this.price.setValue(sol.getPrice());
@@ -262,13 +260,13 @@ public class RevisionDialog extends JDialog {
 		
 		RecipeDescription desc = (RecipeDescription) _case.getDescription();
 		
-		desc.setAccommodation(RecipeDescription.AccommodationTypes.valueOf((String)this.accommodation.getSelectedItem()));
-		desc.setDuration(this.duration.getNumber().intValue());
-		desc.setHolidayType((String)this.holidayType.getSelectedItem());
+//		desc.setAccommodation(RecipeDescription.AccommodationTypes.valueOf((String)this.accommodation.getSelectedItem()));
+//		desc.setDuration(this.duration.getNumber().intValue());
+//		desc.setHolidayType((String)this.holidayType.getSelectedItem());
 		desc.setNumberOfPersons(this.numberOfPersons.getNumber().intValue());
-		desc.setRegion(this.region.getSelectedInstance());
-		desc.setSeason(Seasons.valueOf((String)this.season.getSelectedItem()));
-		desc.setTransportation((String)this.transportation.getSelectedItem());
+//		desc.setRegion(this.region.getSelectedInstance());
+//		desc.setSeason(Seasons.valueOf((String)this.season.getSelectedItem()));
+//		desc.setTransportation((String)this.transportation.getSelectedItem());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
 		sol.setPrice(this.price.getNumber().intValue());

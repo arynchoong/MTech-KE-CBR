@@ -265,13 +265,13 @@ public class RetainDialog extends JDialog {
 		this.caseId.setText(_case.getID().toString()+" ("+(currentCase+1)+"/"+cases.size()+")");
 		
 		RecipeDescription desc = (RecipeDescription) _case.getDescription();
-		this.accommodation.setText(desc.getAccommodation().toString());
-		this.duration.setText(desc.getDuration().toString());
-		this.holidayType.setText(desc.getHolidayType());
+//		this.accommodation.setText(desc.getAccommodation().toString());
+//		this.duration.setText(desc.getDuration().toString());
+//		this.holidayType.setText(desc.getHolidayType());
 		this.numberOfPersons.setText(desc.getNumberOfPersons().toString());
-		this.region.setText(desc.getRegion().toString());
-		this.season.setText(desc.getSeason().toString());
-		this.transportation.setText(desc.getTransportation());
+//		this.region.setText(desc.getRegion().toString());
+//		this.season.setText(desc.getSeason().toString());
+//		this.transportation.setText(desc.getTransportation());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
 		this.price.setText(sol.getPrice().toString());
