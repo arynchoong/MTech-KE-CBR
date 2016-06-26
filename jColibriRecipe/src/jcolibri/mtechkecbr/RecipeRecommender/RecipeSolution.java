@@ -17,12 +17,13 @@ import jcolibri.cbrcore.Attribute;
 public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 
 	String id;
-	Integer price;
-	String hotel;
+	String szCookingMethod;
+	int nCookingDuration;
+	String szTypeOfCuisine;
 	
 	public String toString()
 	{
-		return "("+id+";"+price+";"+hotel+")";
+		return "("+id+";"+")";
 	}
 	
 	public Attribute getIdAttribute() {
@@ -30,18 +31,31 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 		return new Attribute("id", this.getClass());
 	}
 
-	/**
-	 * @return Returns the hotel.
-	 */
-	public String getHotel() {
-		return hotel;
+	// @return the TypeOfCuisine
+	public String getTypeOfCuisine() {
+		return szTypeOfCuisine;
 	}
-
-	/**
-	 * @param hotel The hotel to set.
-	 */
-	public void setHotel(String hotel) {
-		this.hotel = hotel;
+	// @set the TypeOfCuisine
+	public void setTypeOfCuisine(String CuisineType) {
+	//	TypeOfCuisine = CuisineType;
+		this.szTypeOfCuisine = CuisineType;
+	}
+	
+	// @return the CookingDuration
+	public Integer getCookingDuration() {
+		return nCookingDuration;
+	}
+	// @set the CookingDuration
+	public void setCookingDuration(Integer duration) {
+		nCookingDuration = duration;
+	}
+	// @return the CookingMethod
+	public String getCookingMethod () {
+		return this.szCookingMethod;
+	}
+	
+	public void setCookingMethod(String cookingMethod) {
+		this.szCookingMethod = cookingMethod;
 	}
 
 	/**
@@ -57,19 +71,4 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	/**
-	 * @return Returns the price.
-	 */
-	public Integer getPrice() {
-		return price;
-	}
-
-	/**
-	 * @param price The price to set.
-	 */
-	public void setPrice(Integer price) {
-		this.price = price;
-	}
-	
 }

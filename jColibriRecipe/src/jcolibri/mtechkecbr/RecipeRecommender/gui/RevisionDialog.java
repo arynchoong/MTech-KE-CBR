@@ -249,8 +249,8 @@ public class RevisionDialog extends JDialog {
 //		this.transportation.setSelectedItem(desc.getTransportation());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-		this.price.setValue(sol.getPrice());
-		this.hotel.setText(sol.getHotel());
+//		this.price.setValue(sol.getPrice());
+//		this.hotel.setText(sol.getHotel());
 	}
 	
 	void saveCase()
@@ -269,8 +269,8 @@ public class RevisionDialog extends JDialog {
 //		desc.setTransportation((String)this.transportation.getSelectedItem());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-		sol.setPrice(this.price.getNumber().intValue());
-		sol.setHotel(this.hotel.getText());
+//		sol.setPrice(this.price.getNumber().intValue());
+//		sol.setHotel(this.hotel.getText());
 	}
 	
 	/**

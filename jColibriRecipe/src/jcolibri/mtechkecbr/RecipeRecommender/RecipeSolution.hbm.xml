@@ -4,8 +4,9 @@
 <class name="jcolibri.mtechkecbr.RecipeRecommender.RecipeSolution" table="recipe">
 	<id name="id" column="caseId">
 	</id>
-	<property name="price" column="CookTime"/>
-	<property name="hotel" column="Cuisine"/>	
+	<property name="CookingDuration" column="CookTime"/>
+	<property name="TypeOfCuisine" column="Cuisine"/>
+	<property name="CookingMethod" column="Method"/>	
 </class>
 
 </hibernate-mapping>

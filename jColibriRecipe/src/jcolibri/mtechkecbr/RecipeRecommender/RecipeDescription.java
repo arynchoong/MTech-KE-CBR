@@ -33,21 +33,15 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	String  szTypeOfCuisine;
 	String  szTypeOfMeal;
 	String  szMainIngredient;
-	String  szenumDietaryRequirement;
-//	MainIngredients MainIngredient;
-//	TypeOfMeals TypeOfMeal;
-//	TypeOfCuisines TypeOfCuisine;
+	String  szDietaryRequirement;
 	Integer nCookingDuration;
-//	DifficultyLevels DifficultyLevel;
 	Integer nNumberOfPersons;
-//	DietaryRequirements enumDietaryRequirement;
 	Boolean bHealthyOption; //Healthy Options, Less Oil
-	
-	
-	
+	String szCookingMethod;
+			
 	public String toString()
 	{
-		return "("+caseId+";"+szMainIngredient+";"+szTypeOfMeal+";"+szTypeOfCuisine+";"+nCookingDuration+";"+szDifficult+";"+nNumberOfPersons+";"+szenumDietaryRequirement+";"+bHealthyOption+")";
+		return "("+caseId+";"+szMainIngredient+";"+szTypeOfMeal+";"+szTypeOfCuisine+";"+nCookingDuration+";"+szDifficult+";"+nNumberOfPersons+";"+szDietaryRequirement+";"+bHealthyOption+")";
 	}
 	
 	// @return the TypeOfCuisine
@@ -110,7 +104,15 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public void setMainIngredient(String Ingredient) {
 		this.szMainIngredient = Ingredient;
 	}
-
+	// @return the CookingMethod
+	public String getCookingMethod () {
+		return this.szCookingMethod;
+	}
+	
+	public void setCookingMethod(String cookingMethod) {
+		this.szCookingMethod = cookingMethod;
+	}
+	
 	public Attribute getIdAttribute() {
 		return new Attribute("caseId", this.getClass());
 	}	

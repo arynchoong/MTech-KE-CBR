@@ -240,8 +240,8 @@ public class ResultDialog extends JDialog {
 //		this.transportation.setText(desc.getTransportation());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-		this.price.setText(sol.getPrice().toString());
-		this.hotel.setText(sol.getHotel());
+//		this.price.setText(sol.getPrice().toString());
+//		this.hotel.setText(sol.getHotel());
 	}
 	
 	/**
