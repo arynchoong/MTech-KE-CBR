@@ -28,55 +28,62 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public enum DietaryRequirements { None, Vegan, Halal, NutsFree, NonSpicy }
 
 	
-	String  szCaseId;
-	MainIngredients MainIngredient;
-	TypeOfMeals TypeOfMeal;
-	TypeOfCuisines TypeOfCuisine;
+	String  caseId;
+	String  szDifficult;
+	String  szTypeOfCuisine;
+	String  szTypeOfMeal;
+	String  szMainIngredient;
+	String  szenumDietaryRequirement;
+//	MainIngredients MainIngredient;
+//	TypeOfMeals TypeOfMeal;
+//	TypeOfCuisines TypeOfCuisine;
 	Integer nCookingDuration;
-	DifficultyLevels DifficultyLevel;
+//	DifficultyLevels DifficultyLevel;
 	Integer nNumberOfPersons;
-	DietaryRequirements enumDietaryRequirement;
+//	DietaryRequirements enumDietaryRequirement;
 	Boolean bHealthyOption; //Healthy Options, Less Oil
 	
 	
 	
 	public String toString()
 	{
-		return "("+szCaseId+";"+MainIngredient+";"+TypeOfMeal+";"+TypeOfCuisine+";"+nCookingDuration+";"+DifficultyLevel+";"+nNumberOfPersons+";"+enumDietaryRequirement+";"+bHealthyOption+")";
+		return "("+caseId+";"+szMainIngredient+";"+szTypeOfMeal+";"+szTypeOfCuisine+";"+nCookingDuration+";"+szDifficult+";"+nNumberOfPersons+";"+szenumDietaryRequirement+";"+bHealthyOption+")";
 	}
 	
 	// @return the TypeOfCuisine
-	public TypeOfCuisines getTypeOfCuisine() {
-		return TypeOfCuisine;
+	public String getTypeOfCuisine() {
+		return szTypeOfCuisine;
 	}
 	// @set the TypeOfCuisine
-	public void setTypeOfCuisine(TypeOfCuisines CuisineType) {
-		TypeOfCuisine = CuisineType;
+	public void setTypeOfCuisine(String CuisineType) {
+	//	TypeOfCuisine = CuisineType;
+		this.szTypeOfCuisine = CuisineType;
 	}
 	// @return the TypeOfMeal
-	public TypeOfMeals getTypeOfMeal() {
-		return TypeOfMeal;
+	public String getTypeOfMeal() {
+		return szTypeOfMeal;
 	}
 	// @set the TypeOfMeal
-	public void setTypeOfMeal(TypeOfMeals MealType) {
-		TypeOfMeal = MealType;
+	public void setTypeOfMeal(String MealType) {
+		this.szTypeOfMeal = MealType;
 	}
 	
 	// @return the DifficultyLevel
-	public DifficultyLevels getDifficultyLevel() {
-		return DifficultyLevel;
+	public String getDifficultyLevel() {
+		return szDifficult;
 	}
 	// @set the DifficultyLevel
-	public void setDifficultyLevel(DifficultyLevels Difficulty) {
-		DifficultyLevel = Difficulty;
+	public void setDifficultyLevel(String Difficulty) {
+	//	DifficultyLevel = Difficulty;
+		this.szDifficult = Difficulty;
 	}
 	// @return the caseId
 	public String getCaseId() {
-		return szCaseId;
+		return caseId;
 	}
 	// @set the caseId
-	public void setCaseId(String caseid) {
-		this.szCaseId = caseid;
+	public void setCaseId(String caseId) {
+		this.caseId = caseId;
 	}
 	
 	// @return the CookingDuration
@@ -96,12 +103,12 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 		nNumberOfPersons = NoOfPersons;
 	}
 	// @return the MainIngredient
-	public MainIngredients getMainIngredient() {
-		return MainIngredient;
+	public String getMainIngredient() {
+		return szMainIngredient;
 	}
 	// @set the MainIngredient
-	public void setMainIngredient(MainIngredients Ingredient) {
-		MainIngredient = Ingredient;
+	public void setMainIngredient(String Ingredient) {
+		this.szMainIngredient = Ingredient;
 	}
 
 	public Attribute getIdAttribute() {

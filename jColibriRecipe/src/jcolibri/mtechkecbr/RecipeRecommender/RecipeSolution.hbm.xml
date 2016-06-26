@@ -2,10 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-lazy="false">
 <class name="jcolibri.mtechkecbr.RecipeRecommender.RecipeSolution" table="recipe">
-	<id name="id" column="caseId">
+	<id name="id" column="Name">
 	</id>
-	<property name="price" column="Price"/>
-	<property name="hotel" column="Hotel"/>	
+	<property name="price" column="CookTime"/>
+	<property name="hotel" column="Cuisine"/>	
 </class>
 
 </hibernate-mapping>
