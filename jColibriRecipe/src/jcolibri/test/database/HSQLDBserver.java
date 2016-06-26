@@ -40,11 +40,11 @@ public class HSQLDBserver
         org.apache.commons.logging.LogFactory.getLog(HSQLDBserver.class).info("Creating data base ...");
 
 	server = new Server();
-	server.setDatabaseName(0, "travel");
-	server.setDatabasePath(0, "mem:travel;sql.enforce_strict_size=true");
+	server.setDatabaseName(0, "recipe");
+	server.setDatabasePath(0, "mem:recipe;sql.enforce_strict_size=true");
 	
-	server.setDatabaseName(1, "travelext");
-	server.setDatabasePath(1, "mem:travelext;sql.enforce_strict_size=true");
+	server.setDatabaseName(1, "recipeext");
+	server.setDatabasePath(1, "mem:recipeext;sql.enforce_strict_size=true");
 	
 	server.setLogWriter(null);
 	server.setErrWriter(null);
@@ -57,14 +57,14 @@ public class HSQLDBserver
 	    Class.forName("org.hsqldb.jdbcDriver");
 
 	    PrintStream out = new PrintStream(new ByteArrayOutputStream());
-	    Connection conn = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/travel", "sa", "");
+	    Connection conn = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/recipe", "sa", "");
 	    SqlFile file = new SqlFile(new
-	    File(FileIO.findFile("jcolibri/test/database/travel.sql").getFile()),false,new HashMap());
+	    File(FileIO.findFile("jcolibri/test/database/recipe.sql").getFile()),false,new HashMap());
 	    file.execute(conn,out,out, true);
 	    
-	    Connection connExt = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/travelext", "sa", "");
+	    Connection connExt = DriverManager.getConnection("jdbc:hsqldb:hsql://localhost/recipeext", "sa", "");
 	    SqlFile fileExt = new SqlFile(new
-	    File(FileIO.findFile("jcolibri/test/database/travelext.sql").getFile()),false,new HashMap());
+	    File(FileIO.findFile("jcolibri/test/database/recipeext.sql").getFile()),false,new HashMap());
 	    fileExt.execute(connExt,out,out, true);
 
 	    org.apache.commons.logging.LogFactory.getLog(HSQLDBserver.class).info("Data base generation finished");

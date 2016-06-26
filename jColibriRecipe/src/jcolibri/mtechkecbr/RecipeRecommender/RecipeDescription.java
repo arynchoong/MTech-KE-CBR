@@ -1,4 +1,6 @@
 /**
+ * Recipe Recommender for MTech KE CBR project PT-02
+ * adapted from:
  * Travel Recommender example for the jCOLIBRI2 framework. 
  * @author Juan A. Recio-García.
  * GAIA - Group for Artificial Intelligence Applications
@@ -60,19 +62,19 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public void setCaseId(String caseid) {
 		this.szCaseId = caseid;
 	}
-	// @return the duration
+	// @return the CookingDuration
 	public Integer getCookingDuration() {
 		return nCookingDuration;
 	}
-	// @set the Cooking Duration
+	// @set the CookingDuration
 	public void setCookingDuration(Integer duration) {
 		nCookingDuration = duration;
 	}
-	// @set the Cooking Duration
+	// @set the NumberOfPersons
 	public Integer getNumberOfPersons() {
 		return nNumberOfPersons;
 	}
-	// @set the Cooking Duration
+	// @set the NumberOfPersons
 	public void setNumberOfPersons(Integer NoOfPersons) {
 		nNumberOfPersons = NoOfPersons;
 	}

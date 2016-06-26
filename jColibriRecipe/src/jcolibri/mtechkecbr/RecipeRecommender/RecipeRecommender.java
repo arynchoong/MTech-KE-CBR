@@ -1,4 +1,6 @@
 /**
+ * Recipe Recommender for MTech KE CBR project PT-02
+ * adapted from:
  * Travel Recommender example for the jCOLIBRI2 framework. 
  * @author Juan A. Recio-García.
  * GAIA - Group for Artificial Intelligence Applications
@@ -175,7 +177,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 	static JFrame main;
 	void showMainFrame()
 	{
-		main = new JFrame("Travel Recommender");
+		main = new JFrame("Recipe Recommender");
 		main.setResizable(false);
 		main.setUndecorated(true);
 		JLabel label = new JLabel(new ImageIcon(jcolibri.util.FileIO.findFile("/jcolibri/test/main/jcolibri2.jpg")));
