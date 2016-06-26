@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#"
+  xml:base="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="French">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="Europe"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Europe">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="Western"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="American">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Western"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Peranakan">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="Asian"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Nyonya">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="#Asian"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Asian"/>
+  <owl:Class rdf:ID="Western"/>
+  <owl:Class rdf:ID="Indonesian">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Asian"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Singaporean">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Asian"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Chinese">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Asian"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="Malay">
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="#Asian"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="Indian">
+    <rdfs:subClassOf rdf:resource="#Asian"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Vegetarian"/>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.2.1, Build 365)  http://protege.stanford.edu -->

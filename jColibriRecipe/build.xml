@@ -307,13 +307,13 @@
             <classpath refid="jCOLIBRI2.classpath"/>
         </java>
     </target>
-    <target name="TravelDescription (1)">
-        <java classname="jcolibri.test.test2.TravelDescription" failonerror="true" fork="yes">
+    <target name="RecipeDescription (1)">
+        <java classname="jcolibri.test.test2.RecipeDescription" failonerror="true" fork="yes">
             <classpath refid="jCOLIBRI2.classpath"/>
         </java>
     </target>
-    <target name="TravelDescription">
-        <java classname="jcolibri.test.test1.TravelDescription" failonerror="true" fork="yes">
+    <target name="RecipeDescription">
+        <java classname="jcolibri.test.test1.RecipeDescription" failonerror="true" fork="yes">
             <classpath refid="jCOLIBRI2.classpath"/>
         </java>
     </target>

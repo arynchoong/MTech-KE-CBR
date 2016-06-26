@@ -92,8 +92,8 @@ public class RecipeRecommender implements StandardCBRApplication {
 			// Configure it to work with the Pellet reasoner
 			ob.initWithPelletReasoner();
 			// Setup the main ontology
-			OntologyDocument mainOnto = new OntologyDocument("http://gaia.fdi.ucm.es/ontologies/travel-destinations.owl", 
-									 FileIO.findFile("jcolibri/mtechkecbr/RecipeRecommender/travel-destinations.owl").toExternalForm());
+			OntologyDocument mainOnto = new OntologyDocument("http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl", 
+									 FileIO.findFile("jcolibri/mtechkecbr/RecipeRecommender/recipe-cuisines.owl").toExternalForm());
 			// There are not subontologies
 			ArrayList<OntologyDocument> subOntologies = new ArrayList<OntologyDocument>();
 			// Load the ontology

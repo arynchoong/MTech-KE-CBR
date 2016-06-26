@@ -6,7 +6,7 @@
 
         <!-- Database connection settings -->
         <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
-        <property name="connection.url">jdbc:hsqldb:hsql://localhost/travel</property>
+        <property name="connection.url">jdbc:hsqldb:hsql://localhost/recipe</property>
         <property name="connection.username">sa</property>
 		<property name="connection.password"></property>
 		
