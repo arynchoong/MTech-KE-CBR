@@ -37,19 +37,21 @@ public class QueryDialog extends JDialog {
 	
 	JComboBox<String> MainIngredient;
 	JComboBox<String> TypeOfMeal;
-	JComboBox<String> DietaryRequirement;
 	JComboBox<String> TypeOfCuisine;
 	JComboBox<String> DifficultyLevel;
 	JCheckBox HealthyOption;
+	JCheckBox HalalOption;
+	JCheckBox VeganOption;
+	JCheckBox NutsFreeOption;
+	JCheckBox NonSpicyOption;	
 	JLabel SelectionsMade;
 	SpinnerNumberModel numberOfPersons;
 	SpinnerNumberModel CookingDuration;
 	RegionSelector region;
-	SpinnerNumberModel  duration;
     JList<String> PreferenceList;	
     DefaultListModel<String> listModel;
     Boolean m_bFirstTimeRunning = true;
-
+    
 	public QueryDialog(JFrame parent)
 	{
 		super(parent,true);
@@ -90,12 +92,8 @@ public class QueryDialog extends JDialog {
 		panel.add(MainIngredient = new JComboBox<String>(MainIngredients));
 		
 		panel.add(new JLabel("Type Of Meal"));
-		String[] TypeOfMeals = {"Anything", "Appetizer", "Main Course", "Dessert", "Drinks"};
+		String[] TypeOfMeals = {"Anything", "Appetizer", "Main", "Dessert", "Snacks", "Drinks"};
 		panel.add(TypeOfMeal = new JComboBox<String>(TypeOfMeals));
-
-		panel.add(new JLabel("Dietary Requirement"));
-		String[] DietaryRequirements = {"None","Vegan","Halal","Nuts Free", "Non Spicy"};
-		panel.add(DietaryRequirement = new JComboBox<String>(DietaryRequirements));
 
 		panel.add(new JLabel("Type Of Cuisine"));
 		String[] TypeOfCuisines = {"Anything", "Chinese", "Indian", "Malay/Indonesian", "Nyonya", "Western"};
@@ -106,15 +104,19 @@ public class QueryDialog extends JDialog {
 		panel.add(new JSpinner(CookingDuration));
 
 		panel.add(new JLabel("Difficulty Level"));
-		String[] DifficultyLevels = {"Anything", "Easy", "Medium", "Hard"};
+		String[] DifficultyLevels = {"Anything", "easy", "medium", "hard"};
 		panel.add(DifficultyLevel = new JComboBox<String>(DifficultyLevels));
 
 		panel.add(new JLabel("Size Of Meal (Number of Persons)"));
 		numberOfPersons = new SpinnerNumberModel(2,2,20,1); 
 		panel.add(new JSpinner(numberOfPersons));
 		
-		panel.add(new JLabel("Others"));
+		panel.add(new JLabel("Other Dietary Requirements"));
 		panel.add(HealthyOption = new JCheckBox("Healthy Options /(less oil, non deep fry, etc/)"));
+		panel.add(HalalOption = new JCheckBox("Halal"));
+		panel.add(VeganOption = new JCheckBox("Vegetarian"));
+		panel.add(NutsFreeOption = new JCheckBox("Nuts Free"));
+		panel.add(NonSpicyOption = new JCheckBox("Non Spicy"));
 
         //create the list
 		panel.add(SelectionsMade = new JLabel("Selections Made"));
@@ -134,7 +136,7 @@ public class QueryDialog extends JDialog {
                 
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
-		                10, 2, //rows, cols
+		                11, 2, //rows, cols
 		                6, 6,        //initX, initY
 		                10, 15);       //xPad, yPad
 		
@@ -237,15 +239,30 @@ public class QueryDialog extends JDialog {
 			listModel.removeAllElements();
 		listModel.addElement("Main Ingredient: " + (java.lang.String) MainIngredient.getSelectedItem());
 		listModel.addElement("Type Of Meal: " + (java.lang.String) TypeOfMeal.getSelectedItem());
-		listModel.addElement("Dietary Req: " + (java.lang.String) DietaryRequirement.getSelectedItem());
 		listModel.addElement("Type Of Cuisine: " + (java.lang.String) TypeOfCuisine.getSelectedItem());
-		listModel.addElement("Diff. Level:" + (java.lang.String) DifficultyLevel.getSelectedItem());
+		listModel.addElement("Difficulty Level:" + (java.lang.String) DifficultyLevel.getSelectedItem());
 		listModel.addElement("Number Of Persons: " + numberOfPersons.getNumber().toString());
 		listModel.addElement("Cooking Duration: " + CookingDuration.getNumber());
 		if (HealthyOption.isSelected())
 			listModel.addElement("Healthy Option:" + "Yes");
 		else
 			listModel.addElement("Healthy Option:" + "No");
+		if (HalalOption.isSelected())
+			listModel.addElement("Halal Option:" + "Yes");
+		else
+			listModel.addElement("Halal Option:" + "No");
+		if (VeganOption.isSelected())
+			listModel.addElement("Vegetarian Option:" + "Yes");
+		else
+			listModel.addElement("Vegetarian Option:" + "No");
+		if (NutsFreeOption.isSelected())
+			listModel.addElement("Nuts Free Option" + "Yes");
+		else
+			listModel.addElement("Nuts Free Option:" + "No");
+		if (NonSpicyOption.isSelected())
+			listModel.addElement("Non Spicy Option:" + "Yes");
+		else
+			listModel.addElement("Non Spicy Option:" + "No");
 		if (!m_bFirstTimeRunning)
 		{		
 			PreferenceList.updateUI();			
@@ -301,17 +318,87 @@ public class QueryDialog extends JDialog {
 	public CBRQuery getQuery()
 	{
 		RecipeDescription desc = new RecipeDescription();
-//		desc.setAccommodation(AccommodationTypes.valueOf((String)this.accommodation.getSelectedItem()));
-//		desc.setDuration(this.duration.getNumber().intValue());
-//		desc.setHolidayType((String)this.holidayType.getSelectedItem());
-//		desc.setNumberOfPersons(this.numberOfPersons.getNumber().intValue());
-//		desc.setRegion(this.region.getSelectedInstance());
-//		desc.setSeason(Seasons.valueOf((String)this.season.getSelectedItem()));
-//		desc.setTransportation((String)this.transportation.getSelectedItem());
 		
+		desc.setCookingDuration((Integer) CookingDuration.getNumber());
+		if (desc.getCookingDuration() < 120)
+		{
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
+			{
+				if (listModel.getElementAt(i).contains("Cooking Duration"))
+					desc.setCookingDurationPriority(i+1);
+			}			
+		}
+		else
+			desc.setCookingDurationPriority(99);
+		JOptionPane.showMessageDialog(null, "Cooking Duration = "+desc.getCookingDurationPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+		
+		desc.setDifficultyLevel((String) DifficultyLevel.getSelectedItem());
+		if (!desc.getDifficultyLevel().contains("Anything"))
+		{
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
+			{
+				if (listModel.getElementAt(i).contains("Difficulty Level"))
+					desc.setDifficultyLevelPriority(i+1);
+			}			
+		}
+		else
+			desc.setDifficultyLevelPriority(99);
+		JOptionPane.showMessageDialog(null, "Difficulty = "+desc.getDifficultyLevelPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+	
+		desc.setTypeOfCuisine((String) TypeOfCuisine.getSelectedItem());
+		if (!desc.getTypeOfCuisine().contains("Anything"))
+		{
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
+			{
+				if (listModel.getElementAt(i).contains("Type Of Cuisine"))
+					desc.setTypeOfCuisinePriority(i+1);
+			}			
+		}
+		else
+			desc.setTypeOfCuisinePriority(99);
+		JOptionPane.showMessageDialog(null, "Type Of Cuisine = "+desc.getTypeOfCuisinePriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+		
+		desc.setMainIngredient((String) MainIngredient.getSelectedItem());
+		if (!desc.getMainIngredient().contains("Anything"))
+		{
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
+			{
+				if (listModel.getElementAt(i).contains("Main Ingredient"))
+					desc.setMainIngredientPriority(i+1);
+			}			
+		}
+		else
+			desc.setMainIngredientPriority(99);
+		JOptionPane.showMessageDialog(null, "Main Ingredient = "+desc.getMainIngredientPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+		
+		desc.setNumberOfPersons((Integer) numberOfPersons.getNumber());
+		if ( !(desc.getNumberOfPersons() == 2) )
+		{
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
+			{
+				if (listModel.getElementAt(i).contains("Number Of Persons"))
+					desc.setNumberOfPersonsPriority(i+1);
+			}			
+		}
+		else
+			desc.setNumberOfPersonsPriority(99);
+		JOptionPane.showMessageDialog(null, "Number Of Persons = "+desc.getNumberOfPersonsPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+		
+		desc.setTypeOfMeal((String) TypeOfMeal.getSelectedItem());
+		if (!desc.getTypeOfMeal().contains("Anything"))
+		{
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
+			{
+				if (listModel.getElementAt(i).contains("Type Of Meal"))
+					desc.setTypeOfMealPriority(i+1);
+			}			
+		}
+		else
+			desc.setTypeOfMealPriority(99);		
+		JOptionPane.showMessageDialog(null, "Type Of Meal = "+desc.getTypeOfMealPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+	
 		CBRQuery query = new CBRQuery();
 		query.setDescription(desc);
-		
 		return query;
 	}
 	

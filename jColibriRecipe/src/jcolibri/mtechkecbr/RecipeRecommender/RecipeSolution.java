@@ -54,20 +54,17 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 		return this.szCookingMethod;
 	}
 	
+	// @sets the CookingMethod
 	public void setCookingMethod(String cookingMethod) {
 		this.szCookingMethod = cookingMethod;
 	}
 
-	/**
-	 * @return Returns the id.
-	 */
+	// returns the Id
 	public String getId() {
 		return id;
 	}
 
-	/**
-	 * @param id The id to set.
-	 */
+	// sets the Id
 	public void setId(String id) {
 		this.id = id;
 	}
