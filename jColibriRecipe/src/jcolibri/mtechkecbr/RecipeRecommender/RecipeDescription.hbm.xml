@@ -6,9 +6,12 @@
 	<id name="caseId" column="Name">
 	  <generator class="native"/>
 	</id>
+	<property name="DifficultyLevel" column="DifficultyLevel"/>
 	<property name="NumberOfPersons" column="Servings"/>
 	<property name="CookingDuration" column="CookTime"/>
 	<property name="TypeOfCuisine" column="Cuisine"/>
-
+	<property name="TypeOfMeal" column="DishType"/>
+	<property name="MainIngredient" column="IngredientsCategory"/>
+	
 </class>
 </hibernate-mapping>

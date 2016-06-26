@@ -29,11 +29,11 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 
 	
 	String  szCaseId;
-	MainIngredients enumMainIngredient;
-	TypeOfMeals enumTypeOfMeal;
+	MainIngredients MainIngredient;
+	TypeOfMeals TypeOfMeal;
 	TypeOfCuisines TypeOfCuisine;
 	Integer nCookingDuration;
-	DifficultyLevels enumDifficultyLevel;
+	DifficultyLevels DifficultyLevel;
 	Integer nNumberOfPersons;
 	DietaryRequirements enumDietaryRequirement;
 	Boolean bHealthyOption; //Healthy Options, Less Oil
@@ -42,7 +42,7 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	
 	public String toString()
 	{
-		return "("+szCaseId+";"+enumMainIngredient+";"+enumTypeOfMeal+";"+TypeOfCuisine+";"+nCookingDuration+";"+enumDifficultyLevel+";"+nNumberOfPersons+";"+enumDietaryRequirement+";"+bHealthyOption+")";
+		return "("+szCaseId+";"+MainIngredient+";"+TypeOfMeal+";"+TypeOfCuisine+";"+nCookingDuration+";"+DifficultyLevel+";"+nNumberOfPersons+";"+enumDietaryRequirement+";"+bHealthyOption+")";
 	}
 	
 	// @return the TypeOfCuisine
@@ -53,7 +53,23 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public void setTypeOfCuisine(TypeOfCuisines CuisineType) {
 		TypeOfCuisine = CuisineType;
 	}
-
+	// @return the TypeOfMeal
+	public TypeOfMeals getTypeOfMeal() {
+		return TypeOfMeal;
+	}
+	// @set the TypeOfMeal
+	public void setTypeOfMeal(TypeOfMeals MealType) {
+		TypeOfMeal = MealType;
+	}
+	
+	// @return the DifficultyLevel
+	public DifficultyLevels getDifficultyLevel() {
+		return DifficultyLevel;
+	}
+	// @set the DifficultyLevel
+	public void setDifficultyLevel(DifficultyLevels Difficulty) {
+		DifficultyLevel = Difficulty;
+	}
 	// @return the caseId
 	public String getCaseId() {
 		return szCaseId;
@@ -62,6 +78,7 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public void setCaseId(String caseid) {
 		this.szCaseId = caseid;
 	}
+	
 	// @return the CookingDuration
 	public Integer getCookingDuration() {
 		return nCookingDuration;
@@ -78,7 +95,14 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public void setNumberOfPersons(Integer NoOfPersons) {
 		nNumberOfPersons = NoOfPersons;
 	}
-
+	// @return the MainIngredient
+	public MainIngredients getMainIngredient() {
+		return MainIngredient;
+	}
+	// @set the MainIngredient
+	public void setMainIngredient(MainIngredients Ingredient) {
+		MainIngredient = Ingredient;
+	}
 
 	public Attribute getIdAttribute() {
 		return new Attribute("caseId", this.getClass());
