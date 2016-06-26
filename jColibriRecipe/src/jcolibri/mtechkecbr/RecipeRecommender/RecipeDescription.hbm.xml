@@ -3,7 +3,7 @@
 <hibernate-mapping default-lazy="false">
 <class name="jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription" table="Recipe">
 
-	<id name="caseId" column="Name">
+	<id name="caseId" column="caseId">
 	  <generator class="native"/>
 	</id>
 	<property name="DifficultyLevel" column="DifficultyLevel"/>
