@@ -2,7 +2,7 @@
  * Recipe Recommender for MTech KE CBR project PT-02
  * adapted from:
  * Travel Recommender example for the jCOLIBRI2 framework. 
- * @author Juan A. Recio-García.
+ * @author Juan A. Recio-GarcÃ­a.
  * GAIA - Group for Artificial Intelligence Applications
  * http://gaia.fdi.ucm.es
  * 25/07/2006
@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.annotation.Generated;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -110,6 +111,67 @@ public class RecipeRecommender implements StandardCBRApplication {
 			throw new ExecutionException(e);
 		}
 	}
+
+	
+	//******************************************************************/
+	// Similarity
+	//******************************************************************/
+	
+	/** Configures the similarity */
+	@Generated(value = { "CS-Similarity" })	
+	private NNConfig getSimilarityConfig() {
+		NNConfig simConfig = new NNConfig();
+		
+		simConfig
+				.setDescriptionSimFunction(new jcolibri.method.retrieve.NNretrieval.similarity.global.Average());
+		Attribute attribute0 = new Attribute("Difficulty",
+				RecipeDescription.class);		
+		simConfig
+				.addMapping(
+						attribute0,
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute0, 0.7);
+		Attribute attribute1 = new Attribute("TypeOfCuisine", RecipeDescription.class);
+		simConfig
+				.addMapping(
+						attribute1,
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute1, 0.5);
+		Attribute attribute2 = new Attribute("TypeOfMeal", RecipeDescription.class);
+		simConfig
+				.addMapping(
+						attribute2,
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute2, 0.6);
+		//
+		Attribute attribute3 = new Attribute("MainIngredient", RecipeDescription.class);
+		simConfig
+				.addMapping(
+						attribute3,
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute3, 0.5);
+		//
+		Attribute attribute4 = new Attribute("CookingDuration",
+				RecipeDescription.class);
+		simConfig
+				.addMapping(
+						attribute4,
+						//new jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute4, 1.00);
+		//
+		Attribute attribute5 = new Attribute("NumberOfPersons",
+				RecipeDescription.class);
+		simConfig
+				.addMapping(
+						attribute5,
+						//new jcolibri.method.retrieve.NNretrieval.similarity.local.EqualsStringIgnoreCase());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute5, 1.00);
+		//
+		return simConfig;
+	}
+	
 	
 	public CBRCaseBase preCycle() throws ExecutionException {
 		// Load cases from connector into the case base
@@ -122,16 +184,13 @@ public class RecipeRecommender implements StandardCBRApplication {
 	}
 
 	public void cycle(CBRQuery query) throws ExecutionException {
-		// Obtain configuration for KNN
-		similarityDialog.setVisible(true);
-		NNConfig simConfig = similarityDialog.getSimilarityConfig();
-		simConfig.setDescriptionSimFunction(new Average());
-		
-		// Execute NN
-		Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(_caseBase.getCases(), query, simConfig);
-		
+		// SIMILARITY ALGORITHM
+		NNConfig simConfig = getSimilarityConfig();
+		Collection<RetrievalResult> eval = NNScoringMethod.evaluateSimilarity(
+				_caseBase.getCases(), query, simConfig);
 		// Select k cases
-		Collection<CBRCase> selectedcases = SelectCases.selectTopK(eval, similarityDialog.getK());
+		Collection<CBRCase> selectedcases = SelectCases.selectTopK(eval, 5);
+		System.out.println(selectedcases);
 		
 		// Show result
 		resultDialog.showCases(eval, selectedcases);
