@@ -23,6 +23,8 @@ import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import jcolibri.cbrcore.CBRQuery;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
@@ -90,49 +92,160 @@ public class QueryDialog extends JDialog {
 		panel.add(new JLabel("Main Ingredient"));
 		String[] MainIngredients = {"Anything", "Chicken", "Duck", "Pork", "Dough", "Vegetables", "Fruits"};
 		panel.add(MainIngredient = new JComboBox<String>(MainIngredients));
+		MainIngredient.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 		
 		panel.add(new JLabel("Type Of Meal"));
 		String[] TypeOfMeals = {"Anything", "Appetizer", "Main", "Dessert", "Snacks", "Drinks"};
 		panel.add(TypeOfMeal = new JComboBox<String>(TypeOfMeals));
+		TypeOfMeal.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 
 		panel.add(new JLabel("Type Of Cuisine"));
 		String[] TypeOfCuisines = {"Anything", "Chinese", "Indian", "Malay/Indonesian", "Nyonya", "Western"};
 		panel.add(TypeOfCuisine = new JComboBox<String>(TypeOfCuisines));
+		TypeOfCuisine.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 
 		panel.add(new JLabel("Cooking Duration (Maximum)"));
 		CookingDuration = new SpinnerNumberModel(120,10,120,10); 
 		panel.add(new JSpinner(CookingDuration));
+		CookingDuration.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 
 		panel.add(new JLabel("Difficulty Level"));
 		String[] DifficultyLevels = {"Anything", "easy", "medium", "hard"};
 		panel.add(DifficultyLevel = new JComboBox<String>(DifficultyLevels));
+		DifficultyLevel.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 
 		panel.add(new JLabel("Size Of Meal (Number of Persons)"));
 		numberOfPersons = new SpinnerNumberModel(2,2,20,1); 
 		panel.add(new JSpinner(numberOfPersons));
+		numberOfPersons.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 		
 		panel.add(new JLabel("Other Dietary Requirements"));
 		panel.add(HealthyOption = new JCheckBox("Healthy Options /(less oil, non deep fry, etc/)"));
+		HealthyOption.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
+		
 		panel.add(HalalOption = new JCheckBox("Halal"));
+		HealthyOption.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 		panel.add(VeganOption = new JCheckBox("Vegetarian"));
+		VeganOption.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 		panel.add(NutsFreeOption = new JCheckBox("Nuts Free"));
+		NutsFreeOption.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 		panel.add(NonSpicyOption = new JCheckBox("Non Spicy"));
+		NonSpicyOption.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				try {
+					RecipeRecommender.getInstance().postCycle();
+				} catch (Exception ex) {
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+				}
+				UpdatePreference();
+			}
+		});
 
         //create the list
 		panel.add(SelectionsMade = new JLabel("Selections Made"));
 	    //create the model and add elements
         listModel = new DefaultListModel<>();
-        UpdatePreference();
         PreferenceList = new JList<>(listModel);        
         PreferenceList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent arg0) {
                 if (!arg0.getValueIsAdjusting()) {
-                	SelectionsMade.setText(PreferenceList.getSelectedValue().toString());
+//                	SelectionsMade.setText(PreferenceList.getSelectedValue().toString());
                 }
             }
         });
         panel.add(PreferenceList);       
+        UpdatePreference();
                 
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
@@ -149,19 +262,19 @@ public class QueryDialog extends JDialog {
 		JPanel buttonsUpdateUpDown = new JPanel();
 		buttonsUpdateUpDown.setLayout(new BorderLayout());
 		
-		JButton buttonUpdate = new JButton("Update");
-		buttonUpdate.addActionListener(new ActionListener(){
+		JButton buttonResetDefault = new JButton("Reset Default");
+		buttonResetDefault.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
 					RecipeRecommender.getInstance().postCycle();
 				} catch (Exception ex) {
 					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
 				}
-				UpdatePreference();
+				ResetDefault();
 			}
 		});
-		buttonsUpdateUpDown.add(buttonUpdate, BorderLayout.WEST);
-
+		buttonsUpdateUpDown.add(buttonResetDefault, BorderLayout.WEST);
+		
 		JButton buttonMoveUp = new JButton("Move Up");
 		buttonMoveUp.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -235,40 +348,119 @@ public class QueryDialog extends JDialog {
 	
 	private void UpdatePreference()
 	{
-		if (listModel.size() > 0)
-			listModel.removeAllElements();
-		listModel.addElement("Main Ingredient: " + (java.lang.String) MainIngredient.getSelectedItem());
-		listModel.addElement("Type Of Meal: " + (java.lang.String) TypeOfMeal.getSelectedItem());
-		listModel.addElement("Type Of Cuisine: " + (java.lang.String) TypeOfCuisine.getSelectedItem());
-		listModel.addElement("Difficulty Level:" + (java.lang.String) DifficultyLevel.getSelectedItem());
-		listModel.addElement("Number Of Persons: " + numberOfPersons.getNumber().toString());
-		listModel.addElement("Cooking Duration: " + CookingDuration.getNumber());
-		if (HealthyOption.isSelected())
-			listModel.addElement("Healthy Option:" + "Yes");
-		else
-			listModel.addElement("Healthy Option:" + "No");
-		if (HalalOption.isSelected())
-			listModel.addElement("Halal Option:" + "Yes");
-		else
-			listModel.addElement("Halal Option:" + "No");
-		if (VeganOption.isSelected())
-			listModel.addElement("Vegetarian Option:" + "Yes");
-		else
-			listModel.addElement("Vegetarian Option:" + "No");
-		if (NutsFreeOption.isSelected())
-			listModel.addElement("Nuts Free Option" + "Yes");
-		else
-			listModel.addElement("Nuts Free Option:" + "No");
-		if (NonSpicyOption.isSelected())
-			listModel.addElement("Non Spicy Option:" + "Yes");
-		else
-			listModel.addElement("Non Spicy Option:" + "No");
-		if (!m_bFirstTimeRunning)
+		if (m_bFirstTimeRunning)
 		{		
-			PreferenceList.updateUI();			
+			if (listModel.size() > 0)
+				listModel.removeAllElements();
+			listModel.addElement("Main Ingredient: " + (java.lang.String) MainIngredient.getSelectedItem());
+			listModel.addElement("Type Of Meal: " + (java.lang.String) TypeOfMeal.getSelectedItem());
+			listModel.addElement("Type Of Cuisine: " + (java.lang.String) TypeOfCuisine.getSelectedItem());
+			listModel.addElement("Difficulty Level:" + (java.lang.String) DifficultyLevel.getSelectedItem());
+			listModel.addElement("Number Of Persons: " + numberOfPersons.getNumber().toString());
+			listModel.addElement("Cooking Duration: " + CookingDuration.getNumber());
+			if (HealthyOption.isSelected())
+				listModel.addElement("Healthy Option: " + "Yes");
+			else
+				listModel.addElement("Healthy Option: " + "No");
+			if (HalalOption.isSelected())
+				listModel.addElement("Halal Option: " + "Yes");
+			else
+				listModel.addElement("Halal Option: " + "No");
+			if (VeganOption.isSelected())
+				listModel.addElement("Vegetarian Option: " + "Yes");
+			else
+				listModel.addElement("Vegetarian Option: " + "No");
+			if (NutsFreeOption.isSelected())
+				listModel.addElement("Nuts Free Option: " + "Yes");
+			else
+				listModel.addElement("Nuts Free Option: " + "No");
+			if (NonSpicyOption.isSelected())
+				listModel.addElement("Non Spicy Option: " + "Yes");
+			else
+				listModel.addElement("Non Spicy Option: " + "No");
 		}
 		else
-			m_bFirstTimeRunning = false;
+		{
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
+			{
+				if (listModel.getElementAt(i).contains("Cooking Duration"))
+				{
+					listModel.setElementAt("Cooking Duration: " + CookingDuration.getNumber(), i);
+				}
+				else if (listModel.getElementAt(i).contains("Difficulty Level"))
+				{
+					listModel.setElementAt("Difficulty Level: " + (java.lang.String) DifficultyLevel.getSelectedItem(), i);					
+				}
+				else if (listModel.getElementAt(i).contains("Type Of Cuisine"))
+				{
+					listModel.setElementAt("Type Of Cuisine: " + (java.lang.String) TypeOfCuisine.getSelectedItem(), i);					
+				}
+				else if (listModel.getElementAt(i).contains("Main Ingredient"))
+				{
+					listModel.setElementAt("Main Ingredient: " + (java.lang.String) MainIngredient.getSelectedItem(), i);				
+				}
+				else if (listModel.getElementAt(i).contains("Type Of Meal"))
+				{
+					listModel.setElementAt("Type Of Meal: " + (java.lang.String) TypeOfMeal.getSelectedItem(), i);				
+				}
+				else if (listModel.getElementAt(i).contains("Number Of Persons"))
+				{
+					listModel.setElementAt("Number Of Persons: " + numberOfPersons.getNumber().toString(), i);					
+				}
+				else if (listModel.getElementAt(i).contains("Healthy Option"))
+				{
+					if (HealthyOption.isSelected())
+						listModel.setElementAt("Healthy Option: " + "Yes", i);
+					else
+						listModel.setElementAt("Healthy Option: " + "No", i);				
+				}
+				else if (listModel.getElementAt(i).contains("Halal Option"))
+				{
+					if (HalalOption.isSelected())
+						listModel.setElementAt("Halal Option: " + "Yes", i);
+					else
+						listModel.setElementAt("Halal Option: " + "No", i);					
+				}
+				else if (listModel.getElementAt(i).contains("Vegetarian Option"))
+				{
+					if (VeganOption.isSelected())
+						listModel.setElementAt("Vegetarian Option: " + "Yes", i);
+					else
+						listModel.setElementAt("Vegetarian Option: " + "No", i);					
+				}
+				else if (listModel.getElementAt(i).contains("Nuts Free Option"))
+				{
+					if (NutsFreeOption.isSelected())
+						listModel.setElementAt("Nuts Free Option: " + "Yes", i);
+					else
+						listModel.setElementAt("Nuts Free Option: " + "No", i);					
+				}
+				else if (listModel.getElementAt(i).contains("Non Spicy Option"))
+				{
+					if (NonSpicyOption.isSelected())
+						listModel.setElementAt("Non Spicy Option: " + "Yes", i);
+					else
+						listModel.setElementAt("Non Spicy Option: " + "No", i);
+				}								
+			}						
+		}
+		PreferenceList.updateUI();			
+		m_bFirstTimeRunning = false;
+	}
+	
+	private void ResetDefault()
+	{
+		MainIngredient.setSelectedIndex(0);
+		TypeOfMeal.setSelectedIndex(0);			
+		TypeOfCuisine.setSelectedIndex(0);
+		DifficultyLevel.setSelectedIndex(0);
+		numberOfPersons.setValue((java.lang.Integer)2);
+		CookingDuration.setValue((java.lang.Integer)120);
+		HealthyOption.setSelected(false);
+		HalalOption.setSelected(false);
+		VeganOption.setSelected(false);
+		NutsFreeOption.setSelected(false);
+		NonSpicyOption.setSelected(false);
 	}
 	
 	private void SelectionMoveUp()
@@ -467,9 +659,7 @@ public class QueryDialog extends JDialog {
 		return query;
 	}
 	
-	/**
-	 * @param args
-	 */
+	// @param args
 	public static void main(String[] args) {
 		QueryDialog qf = new QueryDialog(null);
 		qf.setVisible(true);
