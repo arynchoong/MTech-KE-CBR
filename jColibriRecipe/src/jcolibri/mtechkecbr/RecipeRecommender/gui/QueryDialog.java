@@ -506,7 +506,7 @@ public class QueryDialog extends JDialog {
 				JOptionPane.showMessageDialog(null, "Cannot move down anymore!", "Move Down", JOptionPane.INFORMATION_MESSAGE);				
 		}
 	}	
-
+/*
 	public CBRQuery getQuery()
 	{
 		RecipeDescription desc = new RecipeDescription();
@@ -658,7 +658,101 @@ public class QueryDialog extends JDialog {
 		query.setDescription(desc);
 		return query;
 	}
-	
+*/	
+
+	public ArrayList getVals()
+	{
+		int nPriorityLevel=0;
+		String sAttribValue;
+		String sAttribName;
+		ArrayList<SimilAlgo> simConfig = new ArrayList<SimilAlgo>();
+		
+		sAttribName = "DifficultyLevel";
+		sAttribValue = (String) DifficultyLevel.getSelectedItem();
+		if (!sAttribValue.contains("Anything")) {
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
+				if (listModel.getElementAt(i).contains("Difficulty Level"))
+					nPriorityLevel=i+1;
+			}			
+		}
+		else {
+			nPriorityLevel=99;	
+			sAttribValue = "null";
+		}
+		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
+		
+		sAttribName = "NumberOfPersons";
+		sAttribValue = numberOfPersons.getNumber().toString();
+		if ( ((Integer) numberOfPersons.getNumber() > 1) ) {
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
+				if (listModel.getElementAt(i).contains("Number Of Persons"))
+					nPriorityLevel=i+1;
+			}			
+		}
+		else {
+			nPriorityLevel=99;	
+			sAttribValue = "null";
+		}
+		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
+		
+		sAttribName = "CookingDuration";
+		sAttribValue = CookingDuration.getNumber().toString();
+		if ((Integer) CookingDuration.getNumber() < 120) {
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
+				if (listModel.getElementAt(i).contains("Cooking Duration"))
+					nPriorityLevel=i+1;
+			}			
+		}
+		else {
+			nPriorityLevel=99;	
+			sAttribValue = "null";
+		}
+		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
+		
+		sAttribName = "TypeOfCuisine";
+		sAttribValue = (String) TypeOfCuisine.getSelectedItem();
+		if (!sAttribValue.contains("Anything")) {
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
+				if (listModel.getElementAt(i).contains("Type Of Cuisine"))
+					nPriorityLevel=i+1;
+			}			
+		}
+		else {
+			nPriorityLevel=99;	
+			sAttribValue = "null";
+		}
+		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
+		
+		sAttribName = "TypeOfMeal";
+		sAttribValue = (String) TypeOfMeal.getSelectedItem();
+		if (!sAttribValue.contains("Anything")) {
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
+				if (listModel.getElementAt(i).contains("Type Of Meal"))
+					nPriorityLevel=i+1;
+			}			
+		}
+		else {
+			nPriorityLevel=99;	
+			sAttribValue = "null";
+		}
+		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
+		
+		sAttribName = "MainIngredient";
+		sAttribValue = (String) MainIngredient.getSelectedItem();
+		if (!sAttribValue.contains("Anything")) {
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
+				if (listModel.getElementAt(i).contains("Main Ingredient"))
+					nPriorityLevel=i+1;
+			}			
+		}
+		else {
+			nPriorityLevel=99;	
+			sAttribValue = "null";
+		}
+		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
+
+		return simConfig;
+	}
 	// @param args
 	public static void main(String[] args) {
 		QueryDialog qf = new QueryDialog(null);
