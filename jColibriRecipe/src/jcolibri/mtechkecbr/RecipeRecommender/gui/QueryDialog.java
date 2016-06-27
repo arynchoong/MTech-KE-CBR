@@ -522,7 +522,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setCookingDurationPriority(99);
-		JOptionPane.showMessageDialog(null, "Cooking Duration = "+desc.getCookingDurationPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Cooking Duration = "+desc.getCookingDurationPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 		
 		desc.setDifficultyLevel((String) DifficultyLevel.getSelectedItem());
 		if (!desc.getDifficultyLevel().contains("Anything"))
@@ -535,7 +535,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setDifficultyLevelPriority(99);
-		JOptionPane.showMessageDialog(null, "Difficulty = "+desc.getDifficultyLevelPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Difficulty = "+desc.getDifficultyLevelPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 	
 		desc.setTypeOfCuisine((String) TypeOfCuisine.getSelectedItem());
 		if (!desc.getTypeOfCuisine().contains("Anything"))
@@ -548,7 +548,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setTypeOfCuisinePriority(99);
-		JOptionPane.showMessageDialog(null, "Type Of Cuisine = "+desc.getTypeOfCuisinePriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Type Of Cuisine = "+desc.getTypeOfCuisinePriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 		
 		desc.setMainIngredient((String) MainIngredient.getSelectedItem());
 		if (!desc.getMainIngredient().contains("Anything"))
@@ -561,7 +561,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setMainIngredientPriority(99);
-		JOptionPane.showMessageDialog(null, "Main Ingredient = "+desc.getMainIngredientPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Main Ingredient = "+desc.getMainIngredientPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 		
 		desc.setNumberOfPersons((Integer) numberOfPersons.getNumber());
 		if ( !(desc.getNumberOfPersons() == 2) )
@@ -574,7 +574,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setNumberOfPersonsPriority(99);
-		JOptionPane.showMessageDialog(null, "Number Of Persons = "+desc.getNumberOfPersonsPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Number Of Persons = "+desc.getNumberOfPersonsPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 		
 		desc.setTypeOfMeal((String) TypeOfMeal.getSelectedItem());
 		if (!desc.getTypeOfMeal().contains("Anything"))
@@ -587,7 +587,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setTypeOfMealPriority(99);		
-		JOptionPane.showMessageDialog(null, "Type Of Meal = "+desc.getTypeOfMealPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Type Of Meal = "+desc.getTypeOfMealPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 
 		desc.setHealthyOption(HealthyOption.isSelected());
 		if (HealthyOption.isSelected())
@@ -600,7 +600,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setHealthyOptionPriority(99);		
-		JOptionPane.showMessageDialog(null, "Healthy Option = "+desc.getHealthyOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Healthy Option = "+desc.getHealthyOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 		
 		desc.setHalalOption(HalalOption.isSelected());
 		if (HalalOption.isSelected())
@@ -613,7 +613,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setHalalOptionPriority(99);		
-		JOptionPane.showMessageDialog(null, "Halal Option = "+desc.getHalalOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Halal Option = "+desc.getHalalOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 
 		desc.setVeganOption(VeganOption.isSelected());
 		if (VeganOption.isSelected())
@@ -626,7 +626,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setVeganOptionPriority(99);		
-		JOptionPane.showMessageDialog(null, "Vegan Option = "+desc.getVeganOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Vegan Option = "+desc.getVeganOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 		
 		desc.setNutsFreeOption(NutsFreeOption.isSelected());
 		if (NutsFreeOption.isSelected())
@@ -639,7 +639,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setNutsFreeOptionPriority(99);		
-		JOptionPane.showMessageDialog(null, "Nuts Free Option = "+desc.getNutsFreeOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Nuts Free Option = "+desc.getNutsFreeOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 		
 		desc.setNonSpicyOption(NonSpicyOption.isSelected());
 		if (NonSpicyOption.isSelected())
@@ -652,7 +652,7 @@ public class QueryDialog extends JDialog {
 		}
 		else
 			desc.setNonSpicyOptionPriority(99);		
-		JOptionPane.showMessageDialog(null, "Non Spicy Option = "+desc.getNonSpicyOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+//		JOptionPane.showMessageDialog(null, "Non Spicy Option = "+desc.getNonSpicyOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 
 		CBRQuery query = new CBRQuery();
 		query.setDescription(desc);
