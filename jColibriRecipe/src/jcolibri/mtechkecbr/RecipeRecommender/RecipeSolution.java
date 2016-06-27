@@ -20,7 +20,9 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 	String szCookingMethod;
 	int nCookingDuration;
 	String szTypeOfCuisine;
-	
+	String szDetailedIngredients;
+	String szMethod;
+
 	public String toString()
 	{
 		return "("+id+";"+")";
@@ -58,7 +60,20 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 	public void setCookingMethod(String cookingMethod) {
 		this.szCookingMethod = cookingMethod;
 	}
-
+	
+	public String getDetailedIngredients() {
+		return szDetailedIngredients;
+	}
+	public void setDetailedIngredients(String DetailedIngredients) {
+		this.szDetailedIngredients = DetailedIngredients;
+	}
+	
+	public String getMethod() {
+		return szMethod;
+	}
+	public void setMethod(String Method) {
+		this.szMethod = Method;
+	}
 	// returns the Id
 	public String getId() {
 		return id;

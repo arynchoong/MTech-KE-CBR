@@ -29,6 +29,7 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	String TypeOfMeal;
 	String MainIngredient;
 	String CookingMethod;
+	String Ingredients;
 	
 	public String getCaseId() {
 		return caseId;
@@ -84,6 +85,12 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	}
 	public void setCookingMethod(String cookingMethod) {
 		this.CookingMethod = cookingMethod;
+	}
+	public String getIngredients() {
+		return Ingredients;
+	}
+	public void setIngredients(String Ingredients) {
+		this.Ingredients = Ingredients;
 	}
 
 	public String toString() {

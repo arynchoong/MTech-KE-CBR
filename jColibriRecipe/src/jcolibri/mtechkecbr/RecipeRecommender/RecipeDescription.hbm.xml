@@ -12,6 +12,8 @@
 	<property name="TypeOfCuisine" column="Cuisine"/>
 	<property name="TypeOfMeal" column="DishType"/>
 	<property name="MainIngredient" column="IngredientsCategory"/>
-	<property name="CookingMethod" column="Method"/>
+	<property name="CookingMethod" column="CookingMethod"/>
+	<property name="Ingredients" column="IngredientsOnly"/>
+	
 </class>
 </hibernate-mapping>

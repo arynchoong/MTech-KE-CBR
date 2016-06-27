@@ -6,7 +6,9 @@
 	</id>
 	<property name="CookingDuration" column="CookTime"/>
 	<property name="TypeOfCuisine" column="Cuisine"/>
-	<property name="CookingMethod" column="Method"/>	
+	<property name="CookingMethod" column="CookingMethod"/>
+	<property name="DetailedIngredients" column="Ingredients"/>
+	<property name="Method" column="Method"/>
 </class>
 
 </hibernate-mapping>
