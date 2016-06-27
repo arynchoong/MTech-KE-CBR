@@ -1,5 +1,6 @@
 package jcolibri.mtechkecbr.RecipeRecommender.gui;
 
+import java.util.ArrayList;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -29,6 +30,7 @@ import javax.swing.event.ChangeListener;
 import jcolibri.cbrcore.CBRQuery;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
+import jcolibri.mtechkecbr.RecipeRecommender.SimilAlgo;
 import jcolibri.util.FileIO;
 
 public class QueryDialog extends JDialog {
