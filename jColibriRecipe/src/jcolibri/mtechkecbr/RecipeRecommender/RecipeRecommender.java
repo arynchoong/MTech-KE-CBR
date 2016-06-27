@@ -201,19 +201,19 @@ public class RecipeRecommender implements StandardCBRApplication {
 		autoAdaptDialog.setVisible(true);
 		
 		// Adapt depending on user selection
-		if(autoAdaptDialog.adapt_Duration_Price())
+		if(autoAdaptDialog.adapt_Difficulty_Preptime())
 		{
-			// Compute a direct proportion between the "Duration" and "Price" attributes.
-			NumericDirectProportionMethod.directProportion(	new Attribute("Duration",RecipeDescription.class), 
-				 											new Attribute("price",RecipeSolution.class), 
+			// Compute a direct proportion between the "Difficulty Level" and "Prep time" attributes.
+			NumericDirectProportionMethod.directProportion(	new Attribute("DifficultyLevel",RecipeDescription.class), 
+				 											new Attribute("PrepDuration",RecipeSolution.class), 
 				 											query, selectedcases);
 		}
 		
-		if(autoAdaptDialog.adapt_NumberOfPersons_Price())
+		if(autoAdaptDialog.adapt_Servings_Cooktime())
 		{
-			// Compute a direct proportion between the "Duration" and "Price" attributes.
+			// Compute a direct proportion between the "Serving size" and "Cooking duration" attributes.
 			NumericDirectProportionMethod.directProportion(	new Attribute("NumberOfPersons",RecipeDescription.class), 
-				 											new Attribute("price",RecipeSolution.class), 
+				 											new Attribute("CookDuration",RecipeSolution.class), 
 				 											query, selectedcases);
 		}
 		
