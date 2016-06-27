@@ -2,7 +2,7 @@
  * Recipe Recommender for MTech KE CBR project PT-02
  * adapted from:
  * Travel Recommender example for the jCOLIBRI2 framework. 
- * @author Juan A. Recio-García.
+ * @author Juan A. Recio-GarcÃ­a.
  * GAIA - Group for Artificial Intelligence Applications
  * http://gaia.fdi.ucm.es
  * 25/07/2006
@@ -21,6 +21,142 @@ import jcolibri.datatypes.Instance;
  */
 public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 
+	String caseId;
+	String DifficultyLevel;
+	Integer NumberOfPersons;
+	Integer CookingDuration;
+	String TypeOfCuisine;
+	String TypeOfMeal;
+	String MainIngredient;
+	String CookingMethod;
+	
+	public String getCaseId() {
+		return caseId;
+	}
+	public void setCaseId(String caseId) {
+		this.caseId = caseId;
+	}
+
+	public String getDifficultyLevel() {
+		return DifficultyLevel;
+	}
+	public void setDifficultyLevel(String Difficulty) {
+		this.DifficultyLevel = Difficulty;
+	}
+	
+	public Integer getNumberOfPersons() {
+		return NumberOfPersons;
+	}
+	public void setNumberOfPersons(Integer NoOfPersons) {
+		this.NumberOfPersons = NoOfPersons;
+	}
+	
+	public Integer getCookingDuration() {
+		return CookingDuration;
+	}
+	public void setCookingDuration(Integer duration) {
+		this.CookingDuration = duration;
+	}
+
+	public String getTypeOfCuisine() {
+		return TypeOfCuisine;
+	}
+	public void setTypeOfCuisine(String CuisineType) {
+		this.TypeOfCuisine = CuisineType;
+	}
+
+	public String getTypeOfMeal() {
+		return TypeOfMeal;
+	}
+	public void setTypeOfMeal(String MealType) {
+		this.TypeOfMeal = MealType;
+	}
+	
+	public String getMainIngredient() {
+		return MainIngredient;
+	}
+	public void setMainIngredient(String Ingredient) {
+		this.MainIngredient = Ingredient;
+	}
+
+	public String getCookingMethod () {
+		return this.CookingMethod;
+	}
+	public void setCookingMethod(String cookingMethod) {
+		this.CookingMethod = cookingMethod;
+	}
+
+	public String toString() {
+		return "("+caseId+";"+DifficultyLevel+";"+NumberOfPersons+
+				";"+CookingDuration+";"+TypeOfCuisine+
+				";"+TypeOfMeal+";"+MainIngredient+";"+CookingMethod+")";
+	}
+	@Override
+	public Attribute getIdAttribute() {
+		// TODO Auto-generated method stub
+		return new Attribute("caseId", this.getClass());
+	}
+
+
+	
+	private Integer nDifficultyPriority;
+	private Integer nNumberOfPersonsPriority;
+	private Integer nCookingDurationPriority;
+	private Integer nTypeOfCuisinePriority;
+	private Integer nTypeOfMealPriority;
+	private Integer nMainIngredientPriority;
+	private Integer nCookingMethodPriority;
+	
+	
+	public Integer getDifficultyLevelPriority() {
+		return nDifficultyPriority;
+	}
+	public void setDifficultyLevelPriority(Integer pDifficulty) {
+		this.nDifficultyPriority = pDifficulty;
+	}
+	
+	public Integer getNumberOfPersonsPriority() {
+		return nNumberOfPersonsPriority;
+	}
+	public void setNumberOfPersonsPriority(Integer pNoOfPersons) {
+		nNumberOfPersonsPriority = pNoOfPersons;
+	}
+	
+	public Integer getCookingDurationPriority() {
+		return nCookingDurationPriority;
+	}
+	public void setCookingDurationPriority(Integer pDuration) {
+		nCookingDurationPriority = pDuration;
+	}
+	
+	public Integer getTypeOfCuisinePriority() {
+		return nTypeOfCuisinePriority;
+	}
+	public void setTypeOfCuisinePriority(Integer pCuisineType) {
+		this.nTypeOfCuisinePriority = pCuisineType;
+	}
+	
+	public Integer getTypeOfMealPriority() {
+		return nTypeOfMealPriority;
+	}
+	public void setTypeOfMealPriority(Integer pMealType) {
+		this.nTypeOfMealPriority = pMealType;
+	}
+	
+	public Integer getMainIngredientPriority() {
+		return nMainIngredientPriority;
+	}
+	public void setMainIngredientPriority(Integer pIngredient) {
+		this.nMainIngredientPriority = pIngredient;
+	}
+	
+	public Integer getCookingMethodPriority() {
+		return this.nCookingMethodPriority;
+	}	
+	public void setCookingMethodPriority(Integer pCookingMethod) {
+		this.nCookingMethodPriority = pCookingMethod;
+	}
+/*	
 	// this class is NOT working yet
 	public class RecipeItem {
 		   private String szName;
@@ -343,4 +479,6 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public Attribute getIdAttribute() {
 		return new Attribute("caseId", this.getClass());
 	}	
+	
+	*/
 }
