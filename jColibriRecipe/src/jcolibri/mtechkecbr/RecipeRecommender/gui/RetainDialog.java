@@ -44,19 +44,23 @@ public class RetainDialog extends JDialog {
 	private static final long serialVersionUID = 1L;
 
 	private static int numcases = 0;
+	private String recipeName;
 	
 	JLabel image;
 	
-	JLabel holidayType;
-	JLabel  numberOfPersons;
-	JLabel region;
-	JLabel transportation;
-	JLabel  duration;
-	JLabel season;
-	JLabel accommodation;
+	JLabel name;
+	JLabel servings;
+	JLabel cuisine;
+	JLabel preptime;
+	JLabel cooktime;
+	JLabel typeOfMeal;
+	JLabel equipment;
+	JLabel cookingMethod;
+	JLabel mainIngredient;
+	JLabel difficultyLevel;
 	JLabel caseId;
-	JLabel price;
-	JLabel hotel;
+	JLabel ingredients;
+	JLabel method;
 	JTextField idEditor;
 	JButton setId;
 	JCheckBox saveCheck;
@@ -101,42 +105,49 @@ public class RetainDialog extends JDialog {
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
 		panel.add(label = new JLabel());
 
+		panel.add(new JLabel("name"));
+		panel.add(name = new JLabel("adsfadfadsf"));
 		
-		panel.add(new JLabel("HolidayType"));
-		panel.add(holidayType = new JLabel("adsfadfadsf"));
+		panel.add(new JLabel("Difficulty Level"));
+		panel.add(this.difficultyLevel = new JLabel());
 		
-		panel.add(new JLabel("Number of persons"));
-		panel.add(this.numberOfPersons = new JLabel());
+		panel.add(new JLabel("Serving size"));
+		panel.add(this.servings = new JLabel());
+
+		panel.add(new JLabel("Prep time"));
+		panel.add(this.preptime = new JLabel());
 		
-		panel.add(new JLabel("Region"));
-		panel.add(this.region = new JLabel());
+		panel.add(new JLabel("Cooking time"));
+		panel.add(this.cooktime = new JLabel());
 		
-		panel.add(new JLabel("Transportation"));
-		panel.add(this.transportation = new JLabel());
+		panel.add(new JLabel("Cuisine"));
+		panel.add(this.cuisine = new JLabel());
 		
-		panel.add(new JLabel("Duration"));
-		panel.add(this.duration = new JLabel());
+		panel.add(new JLabel("Type Of Meal"));
+		panel.add(this.typeOfMeal = new JLabel());
 		
-		panel.add(new JLabel("Season"));
-		panel.add(this.season = new JLabel());
+		panel.add(new JLabel("Equipment"));
+		panel.add(this.equipment = new JLabel());
 		
-		panel.add(new JLabel("Accommodation"));
-		panel.add(this.accommodation = new JLabel());
+		panel.add(new JLabel("Cooking method"));
+		panel.add(this.cookingMethod = new JLabel());
+		
+		panel.add(new JLabel("Main Ingredient"));
+		panel.add(this.mainIngredient = new JLabel());
 		
 		panel.add(label = new JLabel("Solution"));
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
 		panel.add(label = new JLabel());
 
+		panel.add(new JLabel("Ingredients"));
+		panel.add(ingredients = new JLabel());
 		
-		panel.add(new JLabel("Price"));
-		panel.add(price = new JLabel());
-		
-		panel.add(new JLabel("Hotel"));
-		panel.add(hotel = new JLabel());
+		panel.add(new JLabel("Method"));
+		panel.add(method = new JLabel());
 		
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
-		                11, 2, //rows, cols
+		                14, 2, //rows, cols
 		                6, 6,        //initX, initY
 		                30, 10);       //xPad, yPad
 		
@@ -254,7 +265,7 @@ public class RetainDialog extends JDialog {
 		currentCase = 0;
 		if(numcases<casebasesize)
 			numcases = casebasesize+1;
-		idEditor.setText("Journey"+(++numcases));
+		idEditor.setText("Recipe"+(++numcases));
 		showCase();
 	}
 	
@@ -265,17 +276,19 @@ public class RetainDialog extends JDialog {
 		this.caseId.setText(_case.getID().toString()+" ("+(currentCase+1)+"/"+cases.size()+")");
 		
 		RecipeDescription desc = (RecipeDescription) _case.getDescription();
-//		this.accommodation.setText(desc.getAccommodation().toString());
-//		this.duration.setText(desc.getDuration().toString());
-//		this.holidayType.setText(desc.getHolidayType());
-		this.numberOfPersons.setText(desc.getNumberOfPersons().toString());
-//		this.region.setText(desc.getRegion().toString());
-//		this.season.setText(desc.getSeason().toString());
-//		this.transportation.setText(desc.getTransportation());
+		this.name.setText(desc.getCaseId());
+		this.recipeName = desc.getCaseId();
+
+		this.servings.setText(desc.getNumberOfPersons().toString());
+		this.typeOfMeal.setText(desc.getTypeOfMeal());
+		this.cooktime.setText(desc.getCookingDuration().toString());
+		this.mainIngredient.setText(desc.getMainIngredient());
+		this.difficultyLevel.setText(desc.getDifficultyLevel().toString());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-//		this.price.setText(sol.getPrice().toString());
-//		this.hotel.setText(sol.getHotel());
+		this.cuisine.setText(sol.getCuisine().toString()); // temporarily placed in recipeSolution until field mapping is resolved.
+		this.ingredients.setText(sol.getDetailedIngredients().toString());
+		this.method.setText(sol.getMethod());
 	}
 	
 	
