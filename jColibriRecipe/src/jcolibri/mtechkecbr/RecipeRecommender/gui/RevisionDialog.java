@@ -25,7 +25,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SpringLayout;
@@ -59,8 +61,8 @@ public class RevisionDialog extends JDialog {
 	JComboBox cookingMethod;
 	JComboBox mainIngredient;
 	JLabel caseId;
-	JTextField ingredients;
-	JTextField method;
+	JTextArea ingredients;
+	JTextArea method;
 	
 	ArrayList<CBRCase> cases;
 	int currentCase;
@@ -144,11 +146,23 @@ public class RevisionDialog extends JDialog {
 		panel.add(label = new JLabel());
 
 		panel.add(new JLabel("Ingredients"));
-		panel.add(ingredients = new JTextField());
+		ingredients = new JTextArea(2,1);
+		JScrollPane scroller1 = new JScrollPane(ingredients,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		panel.add(scroller1);
+		ingredients.setAutoscrolls(false);
+		ingredients.setWrapStyleWord(true);
+		ingredients.setLineWrap(true);
+		ingredients.setEditable(false);
 		
 		panel.add(new JLabel("Method"));
-		panel.add(method = new JTextField());
-	
+		method = new JTextArea(3,1);
+		JScrollPane scroller = new JScrollPane(method,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);	
+		panel.add(scroller);		
+		method.setAutoscrolls(false);
+		method.setWrapStyleWord(true);
+		method.setLineWrap(true);
+		method.setEditable(false);
+		
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
 		                14, 2, //rows, cols
@@ -281,8 +295,12 @@ public class RevisionDialog extends JDialog {
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
 		this.cuisine.setSelectedInstance(sol.getCuisine()); // temporarily placed in recipeSolution until field mapping is resolved.
-		this.ingredients.setText(sol.getDetailedIngredients().toString());
-		this.method.setText(sol.getMethod());
+		String Str_ingre = sol.getDetailedIngredients().toString();
+		String new_str_ingre = Str_ingre.replaceAll(";", "\n");
+		this.ingredients.setText(new_str_ingre);
+		String str_method = sol.getMethod();
+		String new_str_method = str_method.replaceAll(";", "\n");
+		this.method.setText(new_str_method);
 	}
 
 	void ShowCookingMethodDetails()
