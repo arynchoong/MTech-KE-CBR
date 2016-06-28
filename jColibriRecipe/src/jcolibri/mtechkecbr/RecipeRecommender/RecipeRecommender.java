@@ -143,35 +143,35 @@ public class RecipeRecommender implements StandardCBRApplication {
 		simConfig
 				.addMapping(
 						attribute2,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
 		simConfig.setWeight(attribute2, AttrWeights[2]);
 		//
 		Attribute attribute3 = new Attribute("TypeOfCuisine", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute3,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
 		simConfig.setWeight(attribute3, AttrWeights[3]);
 		//
 		Attribute attribute4 = new Attribute("TypeOfMeal", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute4,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
 		simConfig.setWeight(attribute4, AttrWeights[4]);
 		//
 		Attribute attribute5 = new Attribute("MainIngredient", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute5,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
 		simConfig.setWeight(attribute5, AttrWeights[5]);
 		//
 		Attribute attribute6 = new Attribute("CookingMethod", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute6,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
 		simConfig.setWeight(attribute6, 0.0);
 		//
 		return simConfig;
