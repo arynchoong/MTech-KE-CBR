@@ -130,7 +130,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 				.addMapping(
 						attribute0,
 						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
-		simConfig.setWeight(attribute0, 1.0);
+		simConfig.setWeight(attribute0, 0.3);
 		
 		// Number Of Persons
 		Attribute attribute1 = new Attribute("NumberOfPersons", RecipeDescription.class);
@@ -146,46 +146,46 @@ public class RecipeRecommender implements StandardCBRApplication {
 				.addMapping(
 						attribute2,
 						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
-		simConfig.setWeight(attribute2, 0.6);
+		simConfig.setWeight(attribute2, 0.5);
 		
 		// TypeOfCuisine
 		Attribute attribute3 = new Attribute("TypeOfCuisine", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute3,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.textual.CosineCoefficient());
-		simConfig.setWeight(attribute3, 0.5);
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
+		simConfig.setWeight(attribute3, 1.0);
 		
 		// TypeOfMeal
 		Attribute attribute4 = new Attribute("TypeOfMeal", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute4,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
-		simConfig.setWeight(attribute4, 1.00);
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
+		simConfig.setWeight(attribute4, 1.0);
 		
 		// MainIngredient
 		Attribute attribute5 = new Attribute("MainIngredient", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute5,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
-		simConfig.setWeight(attribute5, 1.00);
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
+		simConfig.setWeight(attribute5, 1.0);
 		
 		// Ingredients
 		Attribute attribute6 = new Attribute("Ingredients", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute6,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
-		simConfig.setWeight(attribute6, 1.00);
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
+		simConfig.setWeight(attribute6, 0.5);
 
 		// CookingMethod
 		Attribute attribute7 = new Attribute("CookingMethod", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute7,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
 		simConfig.setWeight(attribute7, 0.1);
 		
 		return simConfig;
