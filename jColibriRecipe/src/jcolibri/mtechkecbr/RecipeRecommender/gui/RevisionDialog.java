@@ -192,17 +192,14 @@ public class RevisionDialog extends JDialog {
 		JButton MethodDetailed = new JButton("Method Detailed");
 		MethodDetailed.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				RecipeSolution sol = (RecipeSolution) cases.get(currentCase).getSolution();
-				ShowDetails("Method Detailed",sol.getMethod());				
+				ShowCookingMethodDetails();
 			}
 		});
 		buttonsDetailed.add(MethodDetailed, BorderLayout.CENTER);
 		JButton IngredientDetailed = new JButton("Ingredient Detailed");
 		IngredientDetailed.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				RecipeSolution sol = (RecipeSolution) cases.get(currentCase).getSolution();
-				ShowDetails("Ingredient Detailed",sol.getDetailedIngredients());				
-			}
+				ShowIngredientsDetails();			}
 		});
 		buttonsDetailed.add(IngredientDetailed, BorderLayout.EAST);
 
@@ -288,11 +285,21 @@ public class RevisionDialog extends JDialog {
 		this.method.setText(sol.getMethod());
 	}
 
-	void ShowDetails(String szTitle, String szMessage)
+	void ShowCookingMethodDetails()
 	{
+		String szMessage;
 		String szFormattedMessage;
+		szMessage = (String) this.method.getText();
 		szFormattedMessage = szMessage.replace(";", "\n");
-		JOptionPane.showMessageDialog (this, szFormattedMessage, szTitle, JOptionPane.INFORMATION_MESSAGE);	
+		JOptionPane.showMessageDialog (this, szFormattedMessage, "Method Detailed", JOptionPane.INFORMATION_MESSAGE);	
+	}
+	void ShowIngredientsDetails()
+	{
+		String szMessage;
+		String szFormattedMessage;
+		szMessage = (String) this.ingredients.getText();
+		szFormattedMessage = szMessage.replace(";", "\n");
+		JOptionPane.showMessageDialog (this, szFormattedMessage, "Ingredients Detailed", JOptionPane.INFORMATION_MESSAGE);	
 	}
 	void saveCase()
 	{
