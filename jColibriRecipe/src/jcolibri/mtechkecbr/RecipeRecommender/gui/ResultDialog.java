@@ -125,7 +125,6 @@ public class ResultDialog extends JDialog {
 		panel.add(label = new JLabel("Solution"));
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
 		panel.add(label = new JLabel());
-
 		
 		panel.add(new JLabel("Ingredients"));
 		ingredients = new JTextArea(3,1);
@@ -139,17 +138,11 @@ public class ResultDialog extends JDialog {
 		panel.add(new JLabel("Method"));
 		method = new JTextArea(3,1);
 		scroller = new JScrollPane(method,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);	
-		panel.add(scroller);
-		
+		panel.add(scroller);		
 		method.setAutoscrolls(false);
 		method.setWrapStyleWord(true);
 		method.setLineWrap(true);
 		method.setEditable(false);
-//		JScrollPane scroller = new JScrollPane(method);
-//      scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-//      scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-       
-
 		
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
@@ -265,9 +258,13 @@ public class ResultDialog extends JDialog {
 		this.difficultyLevel.setText(desc.getDifficultyLevel().toString());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-		this.ingredients.setText(sol.getDetailedIngredients().toString());
-		this.method.setText(sol.getMethod());
-		
+		String Str_ingre = sol.getDetailedIngredients().toString();
+		String new_str_ingre = Str_ingre.replaceAll(";", "\n");
+		this.ingredients.setText(new_str_ingre);
+		String str_method = sol.getMethod();
+		String new_str_method = str_method.replaceAll(";", "\n");
+		this.method.setText(new_str_method);
+	
 	}
 	
 	/**
