@@ -353,7 +353,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 							if (bHalalOption & !bVeganOption)						
 								AttrWeights[i] = 1;
 							else
-								AttrWeights[i] = 0.5;
+								AttrWeights[i] = 0.7;
 						}
 						else if (sconf.get(i).getAttributeName().contains("MainIngredient"))
 						{
@@ -362,10 +362,16 @@ public class RecipeRecommender implements StandardCBRApplication {
 							if (bVeganOption & !bHalalOption)
 								AttrWeights[i] = 1;								
 							else
-								AttrWeights[i] = 0.5;
+								AttrWeights[i] = 0.7;
 						}
-						else
-							AttrWeights[i] = 0;
+						else {
+							if (sconf.get(i).getAttributePriority()!=99) {
+								if (sconf.get(i).getAttributePriority()>6)
+									AttrWeights[i] = (7 - ((double) sconf.get(i).getAttributePriority()-5)) / 6;
+								else
+									AttrWeights[i] = (7 - (double) sconf.get(i).getAttributePriority()) / 6;
+							}							
+						}
 					}
 					else
 					{
