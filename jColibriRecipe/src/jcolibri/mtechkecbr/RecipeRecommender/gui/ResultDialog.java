@@ -130,6 +130,8 @@ public class ResultDialog extends JDialog {
 		
 		panel.add(new JLabel("Method"));
 		panel.add(method = new JTextArea(3,1));
+		method.setLineWrap(true);
+		method.setEditable(false);
 //		JScrollPane scroller = new JScrollPane(method);
 //       scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 //        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -208,7 +210,7 @@ public class ResultDialog extends JDialog {
 		
 		this.pack();
 		this.setSize(600, this.getHeight());
-		this.setResizable(false);
+		this.setResizable(true);
 		Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds((screenSize.width - this.getWidth()) / 2,
 			(screenSize.height - this.getHeight()) / 2, 
@@ -252,6 +254,7 @@ public class ResultDialog extends JDialog {
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
 		this.ingredients.setText(sol.getDetailedIngredients().toString());
 		this.method.setText(sol.getMethod());
+		
 	}
 	
 	/**
