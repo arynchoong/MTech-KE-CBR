@@ -164,70 +164,6 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 		this.nCookingMethodPriority = pCookingMethod;
 	}
 /*	
-	// this class is NOT working yet
-	public class RecipeItem {
-		   private String szName;
-		   private Integer nPriority;
-		   private GenericValue<Integer> nValue;
-		   private GenericValue<String> szValue;
-		   private GenericValue<Float>  dValue;
-		   private GenericValue<Boolean>  bValue;
-		   
-		   class GenericValue<T> {
-			   private T itemValue;
-			   public GenericValue(T myValue) { this.itemValue = myValue; }
-			   public T getVal() { return itemValue; }
-		   }
-		   // constructor
-		   public RecipeItem(String name, Integer priority, Integer value) {
-		      this.szName = name;
-		      this.nPriority = priority;
-		      this.nValue = new GenericValue<Integer>(value);
-		   }
-		   public RecipeItem(String name, Integer priority, String value) {
-			      this.szName = name;
-			      this.nPriority = priority;
-			      this.szValue = new GenericValue<String>(value);
-		   }   
-		   public RecipeItem(String name, Integer priority, Float value) {
-			      this.szName = name;
-			      this.nPriority = priority;
-			      this.dValue = new GenericValue<Float>(value);
-		   }
-		   public RecipeItem(String name, Integer priority, Boolean value) {
-			      this.szName = name;
-			      this.nPriority = priority;
-			      this.bValue = new GenericValue<Boolean>(value);			      
-		   }
-		   
-		   // getter
-	       public String getName() { return szName; }
-	       public Integer getPriority() { return nPriority; }
-	       public GenericValue<Integer> getValueAsInteger() { return nValue; }
-	       public GenericValue<String> getValueAsString() { return szValue; }
-	       public GenericValue<Float> getValueAsFloat() { return dValue; }
-	       public GenericValue<Boolean> getValueAsBoolean() { return bValue; }
-	       // setter
-	       public void setName(String name) { this.szName = name; }
-	       public void setPriority(Integer priority) { this.nPriority = priority; }
-	       public void setValueAsInteger(GenericValue<Integer> value) { this.nValue = value; }
-	       public void setValueAsString(GenericValue<String> value) { this.szValue = value; }
-	       public void setValueAsDouble(GenericValue<Float> value) { this.dValue = value; }
-	       public void setValueAsBoolean(GenericValue<Boolean> value) { this.bValue = value; }
-	}
-	
-	public RecipeItem Difficulty;
-	public RecipeItem TypeOfCuisine;
-	public RecipeItem TypeOfMeal;
-	public RecipeItem MainIngredient;
-	public RecipeItem CookingDuration;
-	public RecipeItem NumberOfPersons;
-	public RecipeItem HealthyOption;
-	public RecipeItem HalalOption;
-	public RecipeItem VeganOption;
-	public RecipeItem NutsFreeOption;
-	public RecipeItem NonSpicyOption;
-	
 	// Stick to standard calls for the time being
 	public String  caseId;	
 
@@ -259,17 +195,6 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 
 	public RecipeDescription()
 	{
-		Difficulty = new RecipeItem("Difficulty", 99, "Anything");
-		TypeOfCuisine = new RecipeItem("TypeOfCuisine", 99, "Anything");
-		TypeOfMeal = new RecipeItem("TypeOfMeal", 99, "Anything");
-		MainIngredient = new RecipeItem("MainIngredient", 99, "Anything");
-		CookingDuration = new RecipeItem("CookingDuration", 99, (java.lang.Integer)120);
-		NumberOfPersons = new RecipeItem("NumberOfPersons", 99, (java.lang.Integer)2);
-		HealthyOption = new RecipeItem("HealthyOption", 99, (java.lang.Boolean)false);
-		HalalOption = new RecipeItem("HalalOption", 99, (java.lang.Boolean)false);
-		VeganOption = new RecipeItem("VeganOption", 99, (java.lang.Boolean)false);
-		NutsFreeOption = new RecipeItem("NutsFreeOption", 99, (java.lang.Boolean)false);
-		NonSpicyOption = new RecipeItem("NonSpicyOption", 99, (java.lang.Boolean)false);
 	}
 	
 			
