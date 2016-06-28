@@ -113,6 +113,9 @@ public class RecipeRecommender implements StandardCBRApplication {
 		}
 	}
 	
+	private static Integer nullAttributes;
+	private static Integer AttributesSize;
+	private static double[] AttrWeights = new double[7];
 	//******************************************************************/
 	// Similarity
 	//******************************************************************/
@@ -123,71 +126,54 @@ public class RecipeRecommender implements StandardCBRApplication {
 		
 		simConfig
 				.setDescriptionSimFunction(new jcolibri.method.retrieve.NNretrieval.similarity.global.Average());
-		// DifficultyLevel
 		Attribute attribute0 = new Attribute("DifficultyLevel",
 				RecipeDescription.class);		
 		simConfig
 				.addMapping(
 						attribute0,
 						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
-		simConfig.setWeight(attribute0, 0.3);
-		
-		// Number Of Persons
+		simConfig.setWeight(attribute0, AttrWeights[0]);
 		Attribute attribute1 = new Attribute("NumberOfPersons", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute1,
 						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
-		simConfig.setWeight(attribute1, 0.5);
-		
-		// Cooking Duration
+		simConfig.setWeight(attribute1, AttrWeights[1]);
 		Attribute attribute2 = new Attribute("CookingDuration", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute2,
 						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
-		simConfig.setWeight(attribute2, 0.5);
-		
-		// TypeOfCuisine
+		simConfig.setWeight(attribute2, AttrWeights[2]);
+		//
 		Attribute attribute3 = new Attribute("TypeOfCuisine", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute3,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
-		simConfig.setWeight(attribute3, 1.0);
-		
-		// TypeOfMeal
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute3, AttrWeights[3]);
+		//
 		Attribute attribute4 = new Attribute("TypeOfMeal", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute4,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
-		simConfig.setWeight(attribute4, 1.0);
-		
-		// MainIngredient
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute4, AttrWeights[4]);
+		//
 		Attribute attribute5 = new Attribute("MainIngredient", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute5,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
-		simConfig.setWeight(attribute5, 1.0);
-		
-		// Ingredients
-		Attribute attribute6 = new Attribute("Ingredients", RecipeDescription.class);
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute5, AttrWeights[5]);
+		//
+		Attribute attribute6 = new Attribute("CookingMethod", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute6,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
-		simConfig.setWeight(attribute6, 0.5);
-
-		// CookingMethod
-		Attribute attribute7 = new Attribute("CookingMethod", RecipeDescription.class);
-		simConfig
-				.addMapping(
-						attribute7,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
-		simConfig.setWeight(attribute7, 0.1);
-		
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
+		simConfig.setWeight(attribute6, 0.0);
+		//
 		return simConfig;
 	}
 	
@@ -299,8 +285,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 			{
 				qf.setVisible(true);
 				ArrayList<SimilAlgo> sconf = qf.getVals();
-				System.out.println(sconf);
-				//JOptionPane.showMessageDialog(null, "Pause", "Priority", JOptionPane.INFORMATION_MESSAGE);				
+				System.out.println(sconf);			
 				
 				CBRQuery query = new CBRQuery();
 				RecipeDescription desc = new RecipeDescription();
@@ -309,6 +294,9 @@ public class RecipeRecommender implements StandardCBRApplication {
 				String sMethodVal;
 				java.lang.reflect.Method method;
 				
+				int k=0;
+				AttributesSize = sconf.size();
+				nullAttributes = 0;	
 				for (SimilAlgo p : sconf) {
 					sMethodName = "set"+p.getAttributeName();
 					if (p.getAttributeName().contains("NumberOfPersons") || p.getAttributeName().contains("CookingDuration")){
@@ -326,9 +314,20 @@ public class RecipeRecommender implements StandardCBRApplication {
 					}
 					else
 						method.invoke(desc, sMethodVal);
-				    System.out.println(p);
+				    //System.out.println(p);
 				}
-				JOptionPane.showMessageDialog(null, desc, "Priority", JOptionPane.INFORMATION_MESSAGE);	
+				System.out.println(AttributesSize.toString()+" "+nullAttributes.toString());
+				for (int i=0; i<sconf.size();i++){
+					if (sconf.get(i).getAttributePriority()!=99) {
+						if (sconf.get(i).getAttributePriority()>6)
+							AttrWeights[i] = (7 - ((double) sconf.get(i).getAttributePriority()-5)) / 6;
+						else
+							AttrWeights[i] = (7 - (double) sconf.get(i).getAttributePriority()) / 6;
+					}
+					System.out.print("["+sconf.get(i).getAttributePriority().toString()+"|"+AttrWeights[i]+"]");
+				}
+
+				//JOptionPane.showMessageDialog(null, desc, "Priority", JOptionPane.INFORMATION_MESSAGE);	
 				query.setDescription(desc);
 				recommender.cycle(query);
 				int ans = javax.swing.JOptionPane.showConfirmDialog(null, "CBR cycle finished, query again?", "Cycle finished", javax.swing.JOptionPane.YES_NO_OPTION);
@@ -344,3 +343,4 @@ public class RecipeRecommender implements StandardCBRApplication {
 		System.exit(0);
 	}
 }
+
