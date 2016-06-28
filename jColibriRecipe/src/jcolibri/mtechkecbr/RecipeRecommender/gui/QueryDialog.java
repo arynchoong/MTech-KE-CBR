@@ -92,7 +92,7 @@ public class QueryDialog extends JDialog {
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
 		
 		panel.add(new JLabel("Main Ingredient"));
-		String[] MainIngredients = {"Anything", "Chicken", "Duck", "Pork", "Dough", "Vegetables", "Fruits"};
+		String[] MainIngredients = {"Anything", "Chicken", "Duck", "Pork", "Beef", "Mutton", "Fish", "Vegetables", "Fruits", "Rice", "Noodles", "Flour"};
 		panel.add(MainIngredient = new JComboBox<String>(MainIngredients));
 		MainIngredient.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -106,7 +106,7 @@ public class QueryDialog extends JDialog {
 		});
 		
 		panel.add(new JLabel("Type Of Meal"));
-		String[] TypeOfMeals = {"Anything", "Appetizer", "Main", "Dessert", "Snacks", "Drinks"};
+		String[] TypeOfMeals = {"Anything", "Appetizer", "Main Course", "Dessert", "Snacks"};
 		panel.add(TypeOfMeal = new JComboBox<String>(TypeOfMeals));
 		TypeOfMeal.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
