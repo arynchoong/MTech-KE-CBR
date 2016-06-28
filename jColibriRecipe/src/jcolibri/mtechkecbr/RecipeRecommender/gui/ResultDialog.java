@@ -127,9 +127,13 @@ public class ResultDialog extends JDialog {
 		
 		panel.add(new JLabel("Ingredients"));
 		panel.add(ingredients = new JTextArea(3,1));
+		ingredients.setWrapStyleWord(true);
+		ingredients.setLineWrap(true);
+		ingredients.setEditable(false);
 		
 		panel.add(new JLabel("Method"));
 		panel.add(method = new JTextArea(3,1));
+		method.setWrapStyleWord(true);
 		method.setLineWrap(true);
 		method.setEditable(false);
 //		JScrollPane scroller = new JScrollPane(method);
