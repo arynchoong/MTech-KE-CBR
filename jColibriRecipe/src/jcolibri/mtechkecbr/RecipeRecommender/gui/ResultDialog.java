@@ -36,6 +36,7 @@ import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeSolution;
 import jcolibri.util.FileIO;
+import java.awt.ScrollPane;
 
 /**
  * Result dialog
@@ -59,13 +60,14 @@ public class ResultDialog extends JDialog {
 	JTextArea ingredients;
 	JTextArea method;
 	JScrollPane scroller;
-	
+	JScrollPane scroller1;
 	ArrayList<RetrievalResult> cases;
 	int currentCase;
 	
 	public ResultDialog(JFrame main)
 	{
 		super(main,true);
+		setPreferredSize(new Dimension(800, 600));
 		configureFrame();
 	}
 	
@@ -126,19 +128,26 @@ public class ResultDialog extends JDialog {
 
 		
 		panel.add(new JLabel("Ingredients"));
-		panel.add(ingredients = new JTextArea(3,1));
+		ingredients = new JTextArea(3,1);
+		scroller1 = new JScrollPane(ingredients,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		panel.add(scroller1);
+		ingredients.setAutoscrolls(false);
 		ingredients.setWrapStyleWord(true);
 		ingredients.setLineWrap(true);
 		ingredients.setEditable(false);
 		
 		panel.add(new JLabel("Method"));
-		panel.add(method = new JTextArea(3,1));
+		method = new JTextArea(3,1);
+		scroller = new JScrollPane(method,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);	
+		panel.add(scroller);
+		
+		method.setAutoscrolls(false);
 		method.setWrapStyleWord(true);
 		method.setLineWrap(true);
 		method.setEditable(false);
 //		JScrollPane scroller = new JScrollPane(method);
-//       scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-//        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+//      scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+//      scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
        
 
 		
