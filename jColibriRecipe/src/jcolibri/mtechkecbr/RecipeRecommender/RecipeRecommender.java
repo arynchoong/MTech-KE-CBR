@@ -1,32 +1,3 @@
-
-Skip to content
-This repository
-
-    Pull requests
-    Issues
-    Gist
-
-    @e0015274
-
-4
-0
-
-    2
-
-arynchoong/MTech-KE-CBR
-Code
-Issues 0
-Pull requests 1
-Wiki
-Pulse
-Graphs
-MTech-KE-CBR/jColibriRecipe/src/jcolibri/mtechkecbr/RecipeRecommender/RecipeRecommender.java
-b81f09a 34 minutes ago
-@TinOnnLee TinOnnLee Added one more attiribute and added comments.
-@arynchoong
-@e0015274
-@TinOnnLee
-347 lines (299 sloc) 11.3 KB
 /**
  * Recipe Recommender for MTech KE CBR project PT-02
  * adapted from:
@@ -372,8 +343,4 @@ public class RecipeRecommender implements StandardCBRApplication {
 		System.exit(0);
 	}
 }
-
-    Status API Training Shop Blog About 
-
-    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
 
