@@ -8,11 +8,13 @@
 	</id>
 	<property name="DifficultyLevel" column="DifficultyLevel"/>
 	<property name="NumberOfPersons" column="Servings"/>
+	<property name="PrepDuration" column="PrepTime"/>
 	<property name="CookingDuration" column="CookTime"/>
 	<property name="TypeOfCuisine" column="Cuisine"/>
 	<property name="TypeOfMeal" column="DishType"/>
-	<property name="MainIngredient" column="IngredientsCategory"/>
+	<property name="Equipment" column="Equipment"/>
 	<property name="CookingMethod" column="CookingMethod"/>
+	<property name="MainIngredient" column="IngredientsCategory"/>
 	<property name="Ingredients" column="IngredientsOnly"/>
 	
 </class>

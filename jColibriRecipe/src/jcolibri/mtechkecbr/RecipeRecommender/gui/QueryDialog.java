@@ -51,7 +51,7 @@ public class QueryDialog extends JDialog {
 	JLabel SelectionsMade;
 	SpinnerNumberModel numberOfPersons;
 	SpinnerNumberModel CookingDuration;
-	RegionSelector region;
+	CuisineSelector cuisine;
     JList<String> PreferenceList;	
     DefaultListModel<String> listModel;
     Boolean m_bFirstTimeRunning = true;

@@ -21,12 +21,17 @@ import jcolibri.datatypes.Instance;
  */
 public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 
+	public enum DifficultyLevels  { Easy, Medium, Hard };
+	
 	String caseId;
 	String DifficultyLevel;
+	DifficultyLevels eDifficulty;
 	Integer NumberOfPersons;
+	Integer PrepDuration;
 	Integer CookingDuration;
 	String TypeOfCuisine;
 	String TypeOfMeal;
+	String Equipment;
 	String MainIngredient;
 	String CookingMethod;
 	String Ingredients;
@@ -44,6 +49,12 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public void setDifficultyLevel(String Difficulty) {
 		this.DifficultyLevel = Difficulty;
 	}
+	public DifficultyLevels getDifficulty() {
+		return eDifficulty;
+	}
+	public void setDifficulty(DifficultyLevels Difficulty) {
+		this.eDifficulty = Difficulty;
+	}
 	
 	public Integer getNumberOfPersons() {
 		return NumberOfPersons;
@@ -51,7 +62,13 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public void setNumberOfPersons(Integer NoOfPersons) {
 		this.NumberOfPersons = NoOfPersons;
 	}
-	
+
+	public Integer getPrepDuration() {
+		return PrepDuration;
+	}
+	public void setPrepDuration(Integer duration) {
+		this.PrepDuration = duration;
+	}
 	public Integer getCookingDuration() {
 		return CookingDuration;
 	}
@@ -72,7 +89,14 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public void setTypeOfMeal(String MealType) {
 		this.TypeOfMeal = MealType;
 	}
-	
+
+	public String getEquipment() {
+		return Equipment;
+	}
+	public void setEquipment(String Equipment) {
+		this.Equipment = Equipment;
+	}
+
 	public String getMainIngredient() {
 		return MainIngredient;
 	}

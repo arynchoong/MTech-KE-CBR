@@ -1,4 +1,6 @@
 /**
+ * Recipe Recommender for MTech KE CBR project PT-02
+ * adapted from:
  * Travel Recommender example for the jCOLIBRI2 framework. 
  * @author Juan A. Recio-García.
  * GAIA - Group for Artificial Intelligence Applications
@@ -23,7 +25,8 @@ import es.ucm.fdi.gaia.ontobridge.OntoBridge;
 import es.ucm.fdi.gaia.ontobridge.test.gui.PnlSelectInstance;
 
 /**
- * Allows to choose the region
+ * Allows to choose the cuisine
+ * Adapted from:
  * @author Juan A. Recio-Garcia
  * @version 1.0
  */

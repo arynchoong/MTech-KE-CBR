@@ -33,6 +33,7 @@ import javax.swing.UIManager;
 import jcolibri.cbrcore.CBRCase;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeSolution;
+import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
 import jcolibri.util.FileIO;
 
 /**
@@ -46,16 +47,19 @@ public class RevisionDialog extends JDialog {
 
 	JLabel image;
 	
-	JComboBox holidayType;
-	SpinnerNumberModel  numberOfPersons;
-	RegionSelector region;
-	JComboBox transportation;
-	SpinnerNumberModel  duration;
-	JComboBox season;
-	JComboBox accommodation;
+	JTextField name;
+	JComboBox difficulty;
+	SpinnerNumberModel  servingSize;
+	SpinnerNumberModel  prepTime;
+	SpinnerNumberModel  cookTime;
+	CuisineSelector cuisine;
+	JComboBox dishType;
+	JComboBox equipment;
+	JComboBox cookingMethod;
+	JComboBox mainIngredient;
 	JLabel caseId;
-	SpinnerNumberModel price;
-	JTextField hotel;
+	JTextField ingredients;
+	JTextField method;
 	
 	ArrayList<CBRCase> cases;
 	int currentCase;
@@ -95,51 +99,58 @@ public class RevisionDialog extends JDialog {
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
 		panel.add(label = new JLabel());
 
+		panel.add(new JLabel("Name"));
+		panel.add(name = new JTextField());
+
+		panel.add(new JLabel("Difficulty level"));
+		String[] difficultyLevels = {"easy","medium","hard"};
+		panel.add(difficulty = new JComboBox(difficultyLevels));
+
+		panel.add(new JLabel("Serving size"));
+		servingSize = new SpinnerNumberModel(2,1,12,1); 
+		panel.add(new JSpinner(servingSize));
+	
+		panel.add(new JLabel("Prep duration"));
+		prepTime = new SpinnerNumberModel(180,10,180,10); 
+		panel.add(new JSpinner(prepTime));
 		
-		panel.add(new JLabel("HolidayType"));
-		String[] holidayTypes = {"Skiing", "Recreation", "Active", "Wandering", "Education", "Bathing", "City", "Language"};
-		panel.add(holidayType = new JComboBox(holidayTypes));
+		panel.add(new JLabel("Cooking duration"));
+		cookTime = new SpinnerNumberModel(180,30,180,30); 
+		panel.add(new JSpinner(cookTime));
 		
-		panel.add(new JLabel("Number of persons"));
-		numberOfPersons = new SpinnerNumberModel(2,1,12,1); 
-		panel.add(new JSpinner(numberOfPersons));
+		panel.add(new JLabel("Cuisine"));
+		//String[] cuisines = {
+		panel.add(cuisine = new CuisineSelector(this));
 		
-		panel.add(new JLabel("Region"));
-		//String[] regions = {
-		//		"AdriaticSea","Algarve","Allgaeu","Alps","Atlantic","Attica","Balaton","BalticSea","Bavaria","Belgium","BlackForest","Bornholm","Brittany","Bulgaria","Cairo","Carinthia","Chalkidiki","Corfu","Corsica","CostaBlanca","CostaBrava","CotedAzur","Crete","Czechia","Denmark","Egypt","England","ErzGebirge","Fano","France","Fuerteventura","GiantMountains","GranCanaria","Harz","Holland","Ibiza","Ireland","LakeGarda","Lolland","Madeira","Mallorca","Malta","Normandy","NorthSea","Poland","Rhodes","Riviera","SalzbergerLand","Scotland","Slowakei","Styria","Sweden","Teneriffe","Thuringia","Tunisia","TurkishAegeanSea","TurkishRiviera","Tyrol","Wales"};
-		panel.add(region = new RegionSelector(this));
+		panel.add(new JLabel("Type of Meal"));
+		String[] TypeOfMeals = {"Anything", "Appetizer", "Main", "Dessert", "Snacks", "Drinks"};
+		panel.add(dishType = new JComboBox(TypeOfMeals));
 		
-		panel.add(new JLabel("Transportation"));
-		String[] transportations = {"Plane","Car","Coach","Train"};
-		panel.add(transportation = new JComboBox(transportations));
+		panel.add(new JLabel("Equipment"));
+		String[] Equipments = {"Anything", "Wok", "Oven", "Pot", "Frying pan", "Blender"};
+		panel.add(equipment = new JComboBox(Equipments));
+
+		panel.add(new JLabel("Cooking method"));
+		String[] cookingMethods = {"Anything", "Stir frying", "Pan frying", "Deep frying", "Bake", "Steam", "Boiling", "Roasting", "Grill", "Mix"};
+		panel.add(cookingMethod = new JComboBox(cookingMethods));
 		
-		panel.add(new JLabel("Duration"));
-		duration = new SpinnerNumberModel(7,2,31,1); 
-		panel.add(new JSpinner(duration));
-		
-		panel.add(new JLabel("Season"));
-		String[] seasons = {"January","February","March","April","May","June","July","August","September","October","November","December"};
-		panel.add(season = new JComboBox(seasons));
-		
-		panel.add(new JLabel("Accommodation"));
-		String[] accommodations = {"FiveStars","FourStars","HolidayFlat","ThreeStars","TwoStars","OneStar"};
-		panel.add(accommodation = new JComboBox(accommodations));
+		panel.add(new JLabel("Main ingredient"));
+		String[] mainIngredients = {"Anything", "Seafood", "Chicken", "Pork", "Beef", "Mutton", "Vegetables", "Fruits", "Rice", "Tofu", "Eggs", "Sweet"};
+		panel.add(mainIngredient = new JComboBox(mainIngredients));
 		
 		panel.add(label = new JLabel("Solution"));
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
 		panel.add(label = new JLabel());
 
+		panel.add(new JLabel("Ingredients"));
+		panel.add(ingredients = new JTextField());
 		
-		panel.add(new JLabel("Price"));
-		price = new SpinnerNumberModel(); 
-		panel.add(new JSpinner(price));
-		
-		panel.add(new JLabel("Hotel"));
-		panel.add(hotel = new JTextField());
+		panel.add(new JLabel("Method"));
+		panel.add(method = new JTextField());
 		
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
-		                11, 2, //rows, cols
+		                14, 2, //rows, cols
 		                6, 6,        //initX, initY
 		                30, 10);       //xPad, yPad
 		
@@ -195,9 +206,9 @@ public class RevisionDialog extends JDialog {
 		exit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
-//					RecipeRecommender.getInstance().postCycle();
+					RecipeRecommender.getInstance().postCycle();
 				} catch (Exception ex) {
-//					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
+					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
 				}
 				System.exit(-1);
 			}
@@ -240,17 +251,20 @@ public class RevisionDialog extends JDialog {
 		
 		RecipeDescription desc = (RecipeDescription) _case.getDescription();
 		
-//		this.accommodation.setSelectedItem(desc.getAccommodation().toString());
-//		this.duration.setValue(desc.getDuration());
-//		this.holidayType.setSelectedItem(desc.getHolidayType());
-		this.numberOfPersons.setValue(desc.getNumberOfPersons());
-//		this.region.setSelectedInstance(desc.getRegion());
-//		this.season.setSelectedItem(desc.getSeason());
-//		this.transportation.setSelectedItem(desc.getTransportation());
+		this.name.setText(desc.getCaseId());
+		this.difficulty.setSelectedItem(desc.getDifficultyLevel().toString());
+		this.servingSize.setValue(desc.getNumberOfPersons());
+		this.prepTime.setValue(desc.getPrepDuration());
+		this.cookTime.setValue(desc.getCookingDuration());
+		this.dishType.setSelectedItem(desc.getTypeOfMeal());
+		this.equipment.setSelectedItem(desc.getEquipment());
+		this.cookingMethod.setSelectedItem(desc.getCookingMethod());
+		this.mainIngredient.setSelectedItem(desc.getMainIngredient());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-//		this.price.setValue(sol.getPrice());
-//		this.hotel.setText(sol.getHotel());
+		this.cuisine.setSelectedInstance(sol.getCuisine()); // temporarily placed in recipeSolution until field mapping is resolved.
+		this.ingredients.setText(sol.getDetailedIngredients().toString());
+		this.method.setText(sol.getMethod());
 	}
 	
 	void saveCase()
@@ -259,18 +273,19 @@ public class RevisionDialog extends JDialog {
 		this.caseId.setText(_case.getID().toString()+" ("+(currentCase+1)+"/"+cases.size()+")");
 		
 		RecipeDescription desc = (RecipeDescription) _case.getDescription();
-		
-//		desc.setAccommodation(RecipeDescription.AccommodationTypes.valueOf((String)this.accommodation.getSelectedItem()));
-//		desc.setDuration(this.duration.getNumber().intValue());
-//		desc.setHolidayType((String)this.holidayType.getSelectedItem());
-		desc.setNumberOfPersons(this.numberOfPersons.getNumber().intValue());
-//		desc.setRegion(this.region.getSelectedInstance());
-//		desc.setSeason(Seasons.valueOf((String)this.season.getSelectedItem()));
-//		desc.setTransportation((String)this.transportation.getSelectedItem());
+		desc.setCaseId(this.name.getText());
+		desc.setDifficultyLevel((String)this.difficulty.getSelectedItem());
+		desc.setNumberOfPersons(this.servingSize.getNumber().intValue());
+		desc.setPrepDuration(this.prepTime.getNumber().intValue());
+		desc.setCookingDuration(this.cookTime.getNumber().intValue());
+		desc.setTypeOfMeal((String)this.dishType.getSelectedItem());
+		desc.setCookingMethod((String)this.cookingMethod.getSelectedItem());
+		desc.setMainIngredient((String)this.mainIngredient.getSelectedItem());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-//		sol.setPrice(this.price.getNumber().intValue());
-//		sol.setHotel(this.hotel.getText());
+		sol.setCuisine(this.cuisine.getSelectedInstance()); 		// temporarily placed in recipeSolution until field mapping is resolved.
+		sol.setDetailedIngredients(this.ingredients.getText());
+		sol.setMethod(this.method.getText());
 	}
 	
 	/**

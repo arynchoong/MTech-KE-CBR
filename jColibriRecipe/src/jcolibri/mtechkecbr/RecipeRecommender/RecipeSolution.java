@@ -8,6 +8,7 @@
 package jcolibri.mtechkecbr.RecipeRecommender;
 
 import jcolibri.cbrcore.Attribute;
+import jcolibri.datatypes.Instance;
 
 /**
  * Bean that stores the solution of the case (trip)
@@ -17,12 +18,9 @@ import jcolibri.cbrcore.Attribute;
 public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 
 	String id;
-	String szCookingMethod;
-	int nCookingDuration;
-	int nPrepDuration;
-	String szTypeOfCuisine;
 	String szDetailedIngredients;
 	String szMethod;
+	Instance  Cuisine;
 
 	public String toString()
 	{
@@ -34,56 +32,37 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 		return new Attribute("id", this.getClass());
 	}
 
-	// @return the TypeOfCuisine
-	public String getTypeOfCuisine() {
-		return szTypeOfCuisine;
+	/**
+	 * @return the cuisine
+	 */
+	public Instance getCuisine() {
+		return Cuisine;
 	}
-	// @set the TypeOfCuisine
-	public void setTypeOfCuisine(String CuisineType) {
-	//	TypeOfCuisine = CuisineType;
-		this.szTypeOfCuisine = CuisineType;
+	/**
+	 * @param cuisine the cuisine to set
+	 */
+	public void setCuisine(Instance cuisine) {
+		Cuisine = cuisine;
 	}
-	
-	// @return the CookingDuration
-	public Integer getCookingDuration() {
-		return nCookingDuration;
-	}
-	// @set the CookingDuration
-	public void setCookingDuration(Integer duration) {
-		nCookingDuration = duration;
-	}
-	// @return the PrepDuration
-	public Integer getPrepDuration() {
-		return nPrepDuration;
-	}
-	// @set the PrepDuration
-	public void setPrepDuration(Integer duration) {
-		nPrepDuration = duration;
-	}
-	
-	// @return the CookingMethod
-	public String getCookingMethod () {
-		return this.szCookingMethod;
-	}
-	
-	// @sets the CookingMethod
-	public void setCookingMethod(String cookingMethod) {
-		this.szCookingMethod = cookingMethod;
-	}
-	
+
+	// @return the DetailedIngredients
 	public String getDetailedIngredients() {
 		return szDetailedIngredients;
 	}
+	// @sets the DetailedIngredients
 	public void setDetailedIngredients(String DetailedIngredients) {
 		this.szDetailedIngredients = DetailedIngredients;
 	}
 	
+	// @return the Method
 	public String getMethod() {
 		return szMethod;
 	}
+	// @sets the Method
 	public void setMethod(String Method) {
 		this.szMethod = Method;
 	}
+
 	// returns the Id
 	public String getId() {
 		return id;
