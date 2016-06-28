@@ -24,6 +24,8 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
@@ -48,19 +50,19 @@ public class RetainDialog extends JDialog {
 	
 	JLabel image;
 	
-	JLabel name;
-	JLabel servings;
-	JLabel cuisine;
-	JLabel preptime;
-	JLabel cooktime;
-	JLabel typeOfMeal;
-	JLabel equipment;
-	JLabel cookingMethod;
-	JLabel mainIngredient;
-	JLabel difficultyLevel;
+	JTextField name;
+	JTextField servings;
+	JTextField cuisine;
+	JTextField preptime;
+	JTextField cooktime;
+	JTextField typeOfMeal;
+	JTextField equipment;
+	JTextField cookingMethod;
+	JTextField mainIngredient;
+	JTextField difficultyLevel;
 	JLabel caseId;
-	JLabel ingredients;
-	JLabel method;
+	JTextArea ingredients;
+	JTextArea method;
 	JTextField idEditor;
 	JButton setId;
 	JCheckBox saveCheck;
@@ -106,44 +108,57 @@ public class RetainDialog extends JDialog {
 		panel.add(label = new JLabel());
 
 		panel.add(new JLabel("name"));
-		panel.add(name = new JLabel("adsfadfadsf"));
+		panel.add(name = new JTextField());
 		
 		panel.add(new JLabel("Difficulty Level"));
-		panel.add(this.difficultyLevel = new JLabel());
+		panel.add(this.difficultyLevel = new JTextField());
 		
 		panel.add(new JLabel("Serving size"));
-		panel.add(this.servings = new JLabel());
+		panel.add(this.servings = new JTextField());
 
 		panel.add(new JLabel("Prep time"));
-		panel.add(this.preptime = new JLabel());
+		panel.add(this.preptime = new JTextField());
 		
 		panel.add(new JLabel("Cooking time"));
-		panel.add(this.cooktime = new JLabel());
+		panel.add(this.cooktime = new JTextField());
 		
 		panel.add(new JLabel("Cuisine"));
-		panel.add(this.cuisine = new JLabel());
+		panel.add(this.cuisine = new JTextField());
 		
 		panel.add(new JLabel("Type Of Meal"));
-		panel.add(this.typeOfMeal = new JLabel());
+		panel.add(this.typeOfMeal = new JTextField());
 		
 		panel.add(new JLabel("Equipment"));
-		panel.add(this.equipment = new JLabel());
+		panel.add(this.equipment = new JTextField());
 		
 		panel.add(new JLabel("Cooking method"));
-		panel.add(this.cookingMethod = new JLabel());
+		panel.add(this.cookingMethod = new JTextField());
 		
 		panel.add(new JLabel("Main Ingredient"));
-		panel.add(this.mainIngredient = new JLabel());
+		panel.add(this.mainIngredient = new JTextField());
 		
 		panel.add(label = new JLabel("Solution"));
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
 		panel.add(label = new JLabel());
 
 		panel.add(new JLabel("Ingredients"));
-		panel.add(ingredients = new JLabel());
+		ingredients = new JTextArea(2,1);
+		JScrollPane scroller1 = new JScrollPane(ingredients,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+		panel.add(scroller1);
+		ingredients.setAutoscrolls(false);
+		ingredients.setWrapStyleWord(true);
+		ingredients.setLineWrap(true);
+		ingredients.setEditable(false);
 		
 		panel.add(new JLabel("Method"));
-		panel.add(method = new JLabel());
+		method = new JTextArea(3,1);
+		JScrollPane scroller = new JScrollPane(method,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);	
+		panel.add(scroller);		
+		method.setAutoscrolls(false);
+		method.setWrapStyleWord(true);
+		method.setLineWrap(true);
+		method.setEditable(false);
+		
 		
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
