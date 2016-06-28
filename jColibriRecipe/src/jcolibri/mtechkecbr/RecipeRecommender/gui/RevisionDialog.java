@@ -23,6 +23,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSpinner;
 import javax.swing.JTextField;
@@ -147,7 +148,7 @@ public class RevisionDialog extends JDialog {
 		
 		panel.add(new JLabel("Method"));
 		panel.add(method = new JTextField());
-		
+	
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
 		                14, 2, //rows, cols
@@ -184,12 +185,32 @@ public class RevisionDialog extends JDialog {
 		
 		casesPanel.add(casesIterPanel, BorderLayout.NORTH);
 		
-		
+		JPanel buttonsDetailed = new JPanel();
+		buttonsDetailed.setLayout(new BorderLayout());	
+		buttonsDetailed.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+		JButton MethodDetailed = new JButton("Method Detailed");
+		MethodDetailed.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				RecipeSolution sol = (RecipeSolution) cases.get(currentCase).getSolution();
+				ShowDetails("Method Detailed",sol.getMethod());				
+			}
+		});
+		buttonsDetailed.add(MethodDetailed, BorderLayout.CENTER);
+		JButton IngredientDetailed = new JButton("Ingredient Detailed");
+		IngredientDetailed.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				RecipeSolution sol = (RecipeSolution) cases.get(currentCase).getSolution();
+				ShowDetails("Ingredient Detailed",sol.getDetailedIngredients());				
+			}
+		});
+		buttonsDetailed.add(IngredientDetailed, BorderLayout.EAST);
+
 		JPanel panelAux = new JPanel();
 		panelAux.setLayout(new BorderLayout());
 		panelAux.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
 		panelAux.add(casesPanel,BorderLayout.NORTH);
+		panelAux.add(buttonsDetailed, BorderLayout.AFTER_LINE_ENDS);
 		
 		JPanel buttons = new JPanel();
 		buttons.setLayout(new BorderLayout());
@@ -266,7 +287,13 @@ public class RevisionDialog extends JDialog {
 		this.ingredients.setText(sol.getDetailedIngredients().toString());
 		this.method.setText(sol.getMethod());
 	}
-	
+
+	void ShowDetails(String szTitle, String szMessage)
+	{
+		String szFormattedMessage;
+		szFormattedMessage = szMessage.replace(";", "\n");
+		JOptionPane.showMessageDialog (this, szFormattedMessage, szTitle, JOptionPane.INFORMATION_MESSAGE);	
+	}
 	void saveCase()
 	{
 		CBRCase _case = cases.get(currentCase);
