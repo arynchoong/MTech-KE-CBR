@@ -31,6 +31,7 @@ import jcolibri.cbrcore.CBRQuery;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
 import jcolibri.mtechkecbr.RecipeRecommender.SimilAlgo;
+import jcolibri.mtechkecbr.RecipeRecommender.OtherUserOption;
 import jcolibri.util.FileIO;
 
 public class QueryDialog extends JDialog {
@@ -508,159 +509,96 @@ public class QueryDialog extends JDialog {
 				JOptionPane.showMessageDialog(null, "Cannot move down anymore!", "Move Down", JOptionPane.INFORMATION_MESSAGE);				
 		}
 	}	
-/*
-	public CBRQuery getQuery()
-	{
-		RecipeDescription desc = new RecipeDescription();
-		
-		desc.setCookingDuration((Integer) CookingDuration.getNumber());
-		if (desc.getCookingDuration() < 120)
-		{
-			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
-			{
-				if (listModel.getElementAt(i).contains("Cooking Duration"))
-					desc.setCookingDurationPriority(i+1);
-			}			
-		}
-		else
-			desc.setCookingDurationPriority(99);
-//		JOptionPane.showMessageDialog(null, "Cooking Duration = "+desc.getCookingDurationPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
-		
-		desc.setDifficultyLevel((String) DifficultyLevel.getSelectedItem());
-		if (!desc.getDifficultyLevel().contains("Anything"))
-		{
-			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
-			{
-				if (listModel.getElementAt(i).contains("Difficulty Level"))
-					desc.setDifficultyLevelPriority(i+1);
-			}			
-		}
-		else
-			desc.setDifficultyLevelPriority(99);
-//		JOptionPane.showMessageDialog(null, "Difficulty = "+desc.getDifficultyLevelPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
-	
-		desc.setTypeOfCuisine((String) TypeOfCuisine.getSelectedItem());
-		if (!desc.getTypeOfCuisine().contains("Anything"))
-		{
-			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
-			{
-				if (listModel.getElementAt(i).contains("Type Of Cuisine"))
-					desc.setTypeOfCuisinePriority(i+1);
-			}			
-		}
-		else
-			desc.setTypeOfCuisinePriority(99);
-//		JOptionPane.showMessageDialog(null, "Type Of Cuisine = "+desc.getTypeOfCuisinePriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
-		
-		desc.setMainIngredient((String) MainIngredient.getSelectedItem());
-		if (!desc.getMainIngredient().contains("Anything"))
-		{
-			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
-			{
-				if (listModel.getElementAt(i).contains("Main Ingredient"))
-					desc.setMainIngredientPriority(i+1);
-			}			
-		}
-		else
-			desc.setMainIngredientPriority(99);
-//		JOptionPane.showMessageDialog(null, "Main Ingredient = "+desc.getMainIngredientPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
-		
-		desc.setNumberOfPersons((Integer) numberOfPersons.getNumber());
-		if ( !(desc.getNumberOfPersons() == 2) )
-		{
-			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
-			{
-				if (listModel.getElementAt(i).contains("Number Of Persons"))
-					desc.setNumberOfPersonsPriority(i+1);
-			}			
-		}
-		else
-			desc.setNumberOfPersonsPriority(99);
-//		JOptionPane.showMessageDialog(null, "Number Of Persons = "+desc.getNumberOfPersonsPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
-		
-		desc.setTypeOfMeal((String) TypeOfMeal.getSelectedItem());
-		if (!desc.getTypeOfMeal().contains("Anything"))
-		{
-			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
-			{
-				if (listModel.getElementAt(i).contains("Type Of Meal"))
-					desc.setTypeOfMealPriority(i+1);
-			}			
-		}
-		else
-			desc.setTypeOfMealPriority(99);		
-//		JOptionPane.showMessageDialog(null, "Type Of Meal = "+desc.getTypeOfMealPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
 
-		desc.setHealthyOption(HealthyOption.isSelected());
+	public ArrayList getOtherUserOptions()
+	{
+		int nPriorityLevel=0;
+		Boolean bAttribValue;
+		String sAttribName;
+		ArrayList<OtherUserOption> OtherUserOptions = new ArrayList<OtherUserOption>();
+		
+		sAttribName = "HealthyOption";
+		bAttribValue = (Boolean) HealthyOption.isSelected();
 		if (HealthyOption.isSelected())
 		{
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
 			{
 				if (listModel.getElementAt(i).contains("Healthy Option"))
-					desc.setHealthyOptionPriority(i+1);
+					nPriorityLevel=i+1;
 			}			
 		}
-		else
-			desc.setHealthyOptionPriority(99);		
-//		JOptionPane.showMessageDialog(null, "Healthy Option = "+desc.getHealthyOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
-		
-		desc.setHalalOption(HalalOption.isSelected());
+		else {
+			nPriorityLevel=99;	
+			bAttribValue = false;
+		}		
+		OtherUserOptions.add(new OtherUserOption(sAttribName,bAttribValue,nPriorityLevel));
+
+		sAttribName = "HalalOption";
+		bAttribValue = (Boolean) HalalOption.isSelected();
 		if (HalalOption.isSelected())
 		{
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
 			{
 				if (listModel.getElementAt(i).contains("Halal Option"))
-					desc.setHalalOptionPriority(i+1);
+					nPriorityLevel=i+1;
 			}			
 		}
-		else
-			desc.setHalalOptionPriority(99);		
-//		JOptionPane.showMessageDialog(null, "Halal Option = "+desc.getHalalOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
+		else {
+			nPriorityLevel=99;	
+			bAttribValue = false;
+		}		
+		OtherUserOptions.add(new OtherUserOption(sAttribName,bAttribValue,nPriorityLevel));
 
-		desc.setVeganOption(VeganOption.isSelected());
+		sAttribName = "VeganOption";
+		bAttribValue = (Boolean) VeganOption.isSelected();
 		if (VeganOption.isSelected())
 		{
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
 			{
 				if (listModel.getElementAt(i).contains("Vegetarian Option"))
-					desc.setVeganOptionPriority(i+1);
+					nPriorityLevel=i+1;
 			}			
 		}
-		else
-			desc.setVeganOptionPriority(99);		
-//		JOptionPane.showMessageDialog(null, "Vegan Option = "+desc.getVeganOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
-		
-		desc.setNutsFreeOption(NutsFreeOption.isSelected());
+		else {
+			nPriorityLevel=99;	
+			bAttribValue = false;
+		}		
+		OtherUserOptions.add(new OtherUserOption(sAttribName,bAttribValue,nPriorityLevel));
+	
+		sAttribName = "NutsFreeOption";
+		bAttribValue = (Boolean) NutsFreeOption.isSelected();
 		if (NutsFreeOption.isSelected())
 		{
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
 			{
 				if (listModel.getElementAt(i).contains("Nuts Free Option"))
-					desc.setNutsFreeOptionPriority(i+1);
+					nPriorityLevel=i+1;
 			}			
 		}
-		else
-			desc.setNutsFreeOptionPriority(99);		
-//		JOptionPane.showMessageDialog(null, "Nuts Free Option = "+desc.getNutsFreeOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
-		
-		desc.setNonSpicyOption(NonSpicyOption.isSelected());
-		if (NonSpicyOption.isSelected())
+		else {
+			nPriorityLevel=99;	
+			bAttribValue = false;
+		}		
+		OtherUserOptions.add(new OtherUserOption(sAttribName,bAttribValue,nPriorityLevel));
+
+		sAttribName = "NonSpicyOption";
+		bAttribValue = (Boolean) NonSpicyOption.isSelected();
+		if (NutsFreeOption.isSelected())
 		{
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
 			{
 				if (listModel.getElementAt(i).contains("Non Spicy Option"))
-					desc.setNonSpicyOptionPriority(i+1);
+					nPriorityLevel=i+1;
 			}			
 		}
-		else
-			desc.setNonSpicyOptionPriority(99);		
-//		JOptionPane.showMessageDialog(null, "Non Spicy Option = "+desc.getNonSpicyOptionPriority(), "Priority", JOptionPane.INFORMATION_MESSAGE);				
-
-		CBRQuery query = new CBRQuery();
-		query.setDescription(desc);
-		return query;
+		else {
+			nPriorityLevel=99;	
+			bAttribValue = false;
+		}		
+		OtherUserOptions.add(new OtherUserOption(sAttribName,bAttribValue,nPriorityLevel));
+		
+		return OtherUserOptions;
 	}
-*/	
 
 	public ArrayList getVals()
 	{
@@ -751,6 +689,7 @@ public class QueryDialog extends JDialog {
 			nPriorityLevel=99;	
 			sAttribValue = "null";
 		}
+			
 		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
 
 		return simConfig;

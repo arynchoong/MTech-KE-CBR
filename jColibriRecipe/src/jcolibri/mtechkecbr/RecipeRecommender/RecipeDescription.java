@@ -35,6 +35,26 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	String MainIngredient;
 	String CookingMethod;
 	String Ingredients;
+	Boolean bHealthyOption;
+	Boolean bVeganOption;
+	Boolean bHalalOption;
+	Boolean bNutsFreeOption;
+	Boolean bNonSpicyOption;
+	Integer nDifficultyPriority;
+	Integer nNumberOfPersonsPriority;
+	Integer nCookingDurationPriority;
+	Integer nTypeOfCuisinePriority;
+	Integer nTypeOfMealPriority;
+	Integer nMainIngredientPriority;
+	Integer nCookingMethodPriority;
+	Integer nHealthyOptionPriority;
+	Integer nVeganOptionPriority;
+	Integer nHalalOptionPriority;
+	Integer nNutsFreeOptionPriority;
+	Integer nNonSpicyOptionPriority;
+	
+	
+	
 	
 	public String getCaseId() {
 		return caseId;
@@ -43,6 +63,7 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 		this.caseId = caseId;
 	}
 
+	////////////////////////// For DifficultyLevel //////////////////////////////////
 	public String getDifficultyLevel() {
 		return DifficultyLevel;
 	}
@@ -55,97 +76,20 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	public void setDifficulty(DifficultyLevels Difficulty) {
 		this.eDifficulty = Difficulty;
 	}
-	
-	public Integer getNumberOfPersons() {
-		return NumberOfPersons;
-	}
-	public void setNumberOfPersons(Integer NoOfPersons) {
-		this.NumberOfPersons = NoOfPersons;
-	}
-
-	public Integer getPrepDuration() {
-		return PrepDuration;
-	}
-	public void setPrepDuration(Integer duration) {
-		this.PrepDuration = duration;
-	}
-	public Integer getCookingDuration() {
-		return CookingDuration;
-	}
-	public void setCookingDuration(Integer duration) {
-		this.CookingDuration = duration;
-	}
-
-	public String getTypeOfCuisine() {
-		return TypeOfCuisine;
-	}
-	public void setTypeOfCuisine(String CuisineType) {
-		this.TypeOfCuisine = CuisineType;
-	}
-
-	public String getTypeOfMeal() {
-		return TypeOfMeal;
-	}
-	public void setTypeOfMeal(String MealType) {
-		this.TypeOfMeal = MealType;
-	}
-
-	public String getEquipment() {
-		return Equipment;
-	}
-	public void setEquipment(String Equipment) {
-		this.Equipment = Equipment;
-	}
-
-	public String getMainIngredient() {
-		return MainIngredient;
-	}
-	public void setMainIngredient(String Ingredient) {
-		this.MainIngredient = Ingredient;
-	}
-
-	public String getCookingMethod () {
-		return this.CookingMethod;
-	}
-	public void setCookingMethod(String cookingMethod) {
-		this.CookingMethod = cookingMethod;
-	}
-	public String getIngredients() {
-		return Ingredients;
-	}
-	public void setIngredients(String Ingredients) {
-		this.Ingredients = Ingredients;
-	}
-
-	public String toString() {
-		return "("+caseId+";"+DifficultyLevel+";"+NumberOfPersons+
-				";"+CookingDuration+";"+TypeOfCuisine+
-				";"+TypeOfMeal+";"+MainIngredient+";"+CookingMethod+")";
-	}
-	@Override
-	public Attribute getIdAttribute() {
-		// TODO Auto-generated method stub
-		return new Attribute("caseId", this.getClass());
-	}
-
-
-	
-	private Integer nDifficultyPriority;
-	private Integer nNumberOfPersonsPriority;
-	private Integer nCookingDurationPriority;
-	private Integer nTypeOfCuisinePriority;
-	private Integer nTypeOfMealPriority;
-	private Integer nMainIngredientPriority;
-	private Integer nCookingMethodPriority;
-	
-	
 	public Integer getDifficultyLevelPriority() {
 		return nDifficultyPriority;
 	}
 	public void setDifficultyLevelPriority(Integer pDifficulty) {
 		this.nDifficultyPriority = pDifficulty;
 	}
-	
+
+	////////////////////////// For NumberOfPersons //////////////////////////////////	
+	public Integer getNumberOfPersons() {
+		return NumberOfPersons;
+	}
+	public void setNumberOfPersons(Integer NoOfPersons) {
+		this.NumberOfPersons = NoOfPersons;
+	}
 	public Integer getNumberOfPersonsPriority() {
 		return nNumberOfPersonsPriority;
 	}
@@ -153,20 +97,49 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 		nNumberOfPersonsPriority = pNoOfPersons;
 	}
 	
+	
+	////////////////////////// For PrepDuration //////////////////////////////////	
+	public Integer getPrepDuration() {
+		return PrepDuration;
+	}
+	public void setPrepDuration(Integer duration) {
+		this.PrepDuration = duration;
+	}
+	
+	////////////////////////// For CookingDuration ////////////////////////////////		
+	public Integer getCookingDuration() {
+		return CookingDuration;
+	}
+	public void setCookingDuration(Integer duration) {
+		this.CookingDuration = duration;
+	}
 	public Integer getCookingDurationPriority() {
 		return nCookingDurationPriority;
 	}
 	public void setCookingDurationPriority(Integer pDuration) {
 		nCookingDurationPriority = pDuration;
 	}
-	
+	////////////////////////// For TypeOfCuisine //////////////////////////////////	
+	public String getTypeOfCuisine() {
+		return TypeOfCuisine;
+	}
+	public void setTypeOfCuisine(String CuisineType) {
+		this.TypeOfCuisine = CuisineType;
+	}
 	public Integer getTypeOfCuisinePriority() {
 		return nTypeOfCuisinePriority;
 	}
 	public void setTypeOfCuisinePriority(Integer pCuisineType) {
 		this.nTypeOfCuisinePriority = pCuisineType;
 	}
-	
+
+	////////////////////////// For TypeOfMeal //////////////////////////////////	
+	public String getTypeOfMeal() {
+		return TypeOfMeal;
+	}
+	public void setTypeOfMeal(String MealType) {
+		this.TypeOfMeal = MealType;
+	}
 	public Integer getTypeOfMealPriority() {
 		return nTypeOfMealPriority;
 	}
@@ -174,189 +147,51 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 		this.nTypeOfMealPriority = pMealType;
 	}
 	
+	////////////////////////// For Equipment //////////////////////////////////		
+	public String getEquipment() {
+		return Equipment;
+	}
+	public void setEquipment(String Equipment) {
+		this.Equipment = Equipment;
+	}
+
+	////////////////////////// For MainIngredient//////////////////////////////		
+	public String getMainIngredient() {
+		return MainIngredient;
+	}
+	public void setMainIngredient(String Ingredient) {
+		this.MainIngredient = Ingredient;
+	}
 	public Integer getMainIngredientPriority() {
 		return nMainIngredientPriority;
 	}
 	public void setMainIngredientPriority(Integer pIngredient) {
 		this.nMainIngredientPriority = pIngredient;
 	}
-	
+
+	////////////////////////// For CookingMethod //////////////////////////////////		
+	public String getCookingMethod () {
+		return this.CookingMethod;
+	}
+	public void setCookingMethod(String cookingMethod) {
+		this.CookingMethod = cookingMethod;
+	}
 	public Integer getCookingMethodPriority() {
 		return this.nCookingMethodPriority;
 	}	
 	public void setCookingMethodPriority(Integer pCookingMethod) {
 		this.nCookingMethodPriority = pCookingMethod;
 	}
-/*	
-	// Stick to standard calls for the time being
-	public String  caseId;	
-
-	private String szTypeOfCuisine;
-	private String szTypeOfMeal;
-	private String szDifficulty;
-	private Integer nCookingDuration;
-	private Integer nNumberOfPersons;
-	private String szMainIngredient;
-	private String szCookingMethod;
-	private Boolean bHealthyOption;
-	private Boolean bVeganOption;
-	private Boolean bHalalOption;
-	private Boolean bNutsFreeOption;
-	private Boolean bNonSpicyOption;
-
-	private Integer nTypeOfCuisinePriority;
-	private Integer nTypeOfMealPriority;
-	private Integer nDifficultyPriority;
-	private Integer nCookingDurationPriority;
-	private Integer nNumberOfPersonsPriority;
-	private Integer nMainIngredientPriority;
-	private Integer nCookingMethodPriority;
-	private Integer nHealthyOptionPriority;
-	private Integer nVeganOptionPriority;
-	private Integer nHalalOptionPriority;
-	private Integer nNutsFreeOptionPriority;
-	private Integer nNonSpicyOptionPriority;
-
-	public RecipeDescription()
-	{
-	}
 	
-			
-	public String toString()
-	{
-		return "("+caseId+";"+szMainIngredient+";"+szTypeOfMeal+";"+szTypeOfCuisine+";"+nCookingDuration+";"+szDifficulty+";"+nNumberOfPersons+";"+bHealthyOption+")";
+	////////////////////////// For Ingredients //////////////////////////////////		
+	public String getIngredients() {
+		return Ingredients;
 	}
-	
-	// @return the TypeOfCuisine
-	public String getTypeOfCuisine() {
-		return szTypeOfCuisine;
-	}
-	// @set the TypeOfCuisine
-	public void setTypeOfCuisine(String CuisineType) {
-	//	TypeOfCuisine = CuisineType;
-		this.szTypeOfCuisine = CuisineType;
-	}
-	// @return the TypeOfCuisine
-	public Integer getTypeOfCuisinePriority() {
-		return nTypeOfCuisinePriority;
-	}
-	// @set the TypeOfCuisine
-	public void setTypeOfCuisinePriority(Integer CuisineType) {
-		this.nTypeOfCuisinePriority = CuisineType;
-	}
-	
-	// @return the TypeOfMeal
-	public String getTypeOfMeal() {
-		return szTypeOfMeal;
-	}
-	// @set the TypeOfMeal
-	public void setTypeOfMeal(String MealType) {
-		this.szTypeOfMeal = MealType;
-	}
-	// @return the TypeOfMeal
-	public Integer getTypeOfMealPriority() {
-		return nTypeOfMealPriority;
-	}
-	// @set the TypeOfMeal
-	public void setTypeOfMealPriority(Integer MealType) {
-		this.nTypeOfMealPriority = MealType;
-	}
-	
-	// @return the DifficultyLevel
-	public String getDifficultyLevel() {
-		return szDifficulty;
-	}
-	// @set the DifficultyLevel
-	public void setDifficultyLevel(String Difficulty) {
-	//	DifficultyLevel = Difficulty;
-		this.szDifficulty = Difficulty;
-	}
-	// @return the DifficultyLevel
-	public Integer getDifficultyLevelPriority() {
-		return nDifficultyPriority;
-	}
-	// @set the DifficultyLevel
-	public void setDifficultyLevelPriority(Integer Difficulty) {
-		this.nDifficultyPriority = Difficulty;
+	public void setIngredients(String Ingredients) {
+		this.Ingredients = Ingredients;
 	}
 
-	
-	
-	// @return the caseId
-	public String getCaseId() {
-		return caseId;
-	}
-	// @set the caseId
-	public void setCaseId(String caseId) {
-		this.caseId = caseId;
-	}
-	
-	
-	// @return the CookingDuration
-	public Integer getCookingDuration() {
-		return nCookingDuration;
-	}
-	// @set the CookingDuration
-	public void setCookingDuration(Integer duration) {
-		nCookingDuration = duration;
-	}
-	// @return the CookingDuration
-	public Integer getCookingDurationPriority() {
-		return nCookingDurationPriority;
-	}
-	// @set the CookingDuration
-	public void setCookingDurationPriority(Integer duration) {
-		nCookingDurationPriority = duration;
-	}
 
-	// @set the NumberOfPersons
-	public Integer getNumberOfPersons() {
-		return nNumberOfPersons;
-	}
-	// @set the NumberOfPersons
-	public void setNumberOfPersons(Integer NoOfPersons) {
-		nNumberOfPersons = NoOfPersons;
-	}
-	public Integer getNumberOfPersonsPriority() {
-		return nNumberOfPersonsPriority;
-	}
-	// @set the NumberOfPersons
-	public void setNumberOfPersonsPriority(Integer NoOfPersons) {
-		nNumberOfPersonsPriority = NoOfPersons;
-	}
-	
-	// @return the MainIngredient
-	public String getMainIngredient() {
-		return szMainIngredient;
-	}
-	// @set the MainIngredient
-	public void setMainIngredient(String Ingredient) {
-		this.szMainIngredient = Ingredient;
-	}
-	// @return the MainIngredient
-	public Integer getMainIngredientPriority() {
-		return nMainIngredientPriority;
-	}
-	// @set the MainIngredient
-	public void setMainIngredientPriority(Integer Ingredient) {
-		this.nMainIngredientPriority = Ingredient;
-	}
-
-	// @return the CookingMethod
-	public String getCookingMethod () {
-		return this.szCookingMethod;
-	}
-	public void setCookingMethod(String cookingMethod) {
-		this.szCookingMethod = cookingMethod;
-	}
-	// @return the CookingMethod
-	public Integer getCookingMethodPriority() {
-		return this.nCookingMethodPriority;
-	}	
-	public void setCookingMethodPriority(Integer cookingMethod) {
-		this.nCookingMethodPriority = cookingMethod;
-	}
-	
 	// @return the HealthyOption
 	public Boolean getHealthyOption () {
 		return this.bHealthyOption;
@@ -432,9 +267,15 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 		this.nNonSpicyOptionPriority = NonSpicyOption;
 	}
 	
-	public Attribute getIdAttribute() {
-		return new Attribute("caseId", this.getClass());
-	}	
 	
-	*/
+	public String toString() {
+		return "("+caseId+";"+DifficultyLevel+";"+NumberOfPersons+
+				";"+CookingDuration+";"+TypeOfCuisine+
+				";"+TypeOfMeal+";"+MainIngredient+";"+CookingMethod+")";
+	}
+	@Override
+	public Attribute getIdAttribute() {
+		// TODO Auto-generated method stub
+		return new Attribute("caseId", this.getClass());
+	}
 }

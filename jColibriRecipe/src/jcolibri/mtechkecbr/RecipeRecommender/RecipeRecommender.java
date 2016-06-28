@@ -257,25 +257,21 @@ public class RecipeRecommender implements StandardCBRApplication {
 	
 		RecipeRecommender recommender = getInstance();
 		recommender.showMainFrame();
+		Boolean bHalalOption=false;
+		int nHalalOptionPriority=99;
+		Boolean bVeganOption=false;
+		int nVeganOptionPriority=99;
+		Boolean bNutsFreeOption=false;
+		int nNutsOptionPriority=99;
+		Boolean bHealthyOption=false;
+		int nHealthyOptionPriority=99;
+		Boolean bNonSpicyOption=false;
+		int nNonSpicyOptionPriority=99;
+		
 		try
 		{
 			recommender.configure();
 			recommender.preCycle();
-//
-			/*
-			CBRQuery query1 = new CBRQuery();
-			RecipeDescription desc1 = new RecipeDescription();
-			desc1.setDifficultyLevel("easy");
-			desc1.setCookingDuration(20);
-			desc1.setNumberOfPersons(2);
-			desc1.setTypeOfCuisine("Asian");
-			desc1.setTypeOfMeal("Main");
-			desc1.setMainIngredient("Chicken");
-			desc1.setCookingMethod("Stir frying");
-			query1.setDescription(desc1);
-			
-			recommender.cycle(query1);
-*/
 			
 			QueryDialog qf = new QueryDialog(main);
 			
@@ -285,6 +281,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 			{
 				qf.setVisible(true);
 				ArrayList<SimilAlgo> sconf = qf.getVals();
+				ArrayList<OtherUserOption> otheruseroptions = qf.getOtherUserOptions();
 				System.out.println(sconf);			
 				
 				CBRQuery query = new CBRQuery();
@@ -293,6 +290,35 @@ public class RecipeRecommender implements StandardCBRApplication {
 				String sMethodName;
 				String sMethodVal;
 				java.lang.reflect.Method method;
+				
+				for (OtherUserOption opt : otheruseroptions) {
+					if (opt.getAttributeName().contains("Healthy"))
+					{
+						bHealthyOption = opt.getAttributeValue();
+						nHealthyOptionPriority = opt.getAttributePriority();
+					}
+					else if (opt.getAttributeName().contains("Halal"))
+					{
+						bHalalOption = opt.getAttributeValue();
+						nHalalOptionPriority = opt.getAttributePriority();
+					}
+					else if (opt.getAttributeName().contains("Vegan"))
+					{
+						bVeganOption = opt.getAttributeValue();
+						nVeganOptionPriority = opt.getAttributePriority();
+					}
+					else if (opt.getAttributeName().contains("NutsFree"))
+					{
+						bNutsFreeOption = opt.getAttributeValue();
+						nVeganOptionPriority = opt.getAttributePriority();
+					}
+					else if (opt.getAttributeName().contains("NonSpicy"))
+					{
+						bNonSpicyOption = opt.getAttributeValue();
+						nNonSpicyOptionPriority = opt.getAttributePriority();
+					}
+				    System.out.println(opt);
+				}
 				
 				int k=0;
 				AttributesSize = sconf.size();
@@ -318,16 +344,41 @@ public class RecipeRecommender implements StandardCBRApplication {
 				}
 				System.out.println(AttributesSize.toString()+" "+nullAttributes.toString());
 				for (int i=0; i<sconf.size();i++){
-					if (sconf.get(i).getAttributePriority()!=99) {
-						if (sconf.get(i).getAttributePriority()>6)
-							AttrWeights[i] = (7 - ((double) sconf.get(i).getAttributePriority()-5)) / 6;
+					if (((bHalalOption == true)&&(nHalalOptionPriority != 99))||((bVeganOption==true)&&(nVeganOptionPriority != 99)))
+					{
+						if (sconf.get(i).getAttributeName().contains("TypeOfCuisine"))
+						{
+							method = desc.getClass().getDeclaredMethod("setTypeOfCuisine",String.class);
+							method.invoke(desc, "Indonesian");	
+							if (bHalalOption & !bVeganOption)						
+								AttrWeights[i] = 1;
+							else
+								AttrWeights[i] = 0.5;
+						}
+						else if (sconf.get(i).getAttributeName().contains("MainIngredient"))
+						{
+							method = desc.getClass().getDeclaredMethod("setMainIngredient",String.class);
+							method.invoke(desc, "Vegetable");								
+							if (bVeganOption & !bHalalOption)
+								AttrWeights[i] = 1;								
+							else
+								AttrWeights[i] = 0.5;
+						}
 						else
-							AttrWeights[i] = (7 - (double) sconf.get(i).getAttributePriority()) / 6;
+							AttrWeights[i] = 0;
+					}
+					else
+					{
+						if (sconf.get(i).getAttributePriority()!=99) {
+							if (sconf.get(i).getAttributePriority()>6)
+								AttrWeights[i] = (7 - ((double) sconf.get(i).getAttributePriority()-5)) / 6;
+							else
+								AttrWeights[i] = (7 - (double) sconf.get(i).getAttributePriority()) / 6;
+						}
 					}
 					System.out.print("["+sconf.get(i).getAttributePriority().toString()+"|"+AttrWeights[i]+"]");
 				}
 
-				//JOptionPane.showMessageDialog(null, desc, "Priority", JOptionPane.INFORMATION_MESSAGE);	
 				query.setDescription(desc);
 				recommender.cycle(query);
 				int ans = javax.swing.JOptionPane.showConfirmDialog(null, "CBR cycle finished, query again?", "Cycle finished", javax.swing.JOptionPane.YES_NO_OPTION);
