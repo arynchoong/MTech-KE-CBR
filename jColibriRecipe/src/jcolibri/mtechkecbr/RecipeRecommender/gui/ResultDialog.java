@@ -23,14 +23,18 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
+import javax.swing.JTextArea;
 
 import jcolibri.cbrcore.CBRCase;
+import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeSolution;
-import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.util.FileIO;
 
 /**
@@ -44,16 +48,17 @@ public class ResultDialog extends JDialog {
 
 	JLabel image;
 	
-	JLabel name;
-	JLabel servings;
-	JLabel cuisine;
-	JLabel typeOfMeal;
-	JLabel cooktime;
-	JLabel mainIngredient;
-	JLabel difficultyLevel;
+	JTextField name;
+	JTextField servings;
+	JTextField cuisine;
+	JTextField typeOfMeal;
+	JTextField cooktime;
+	JTextField mainIngredient;
+	JTextField difficultyLevel;
 	JLabel caseId;
-	JLabel ingredients;
-	JLabel method;
+	JTextArea ingredients;
+	JTextArea method;
+	JScrollPane scroller;
 	
 	ArrayList<RetrievalResult> cases;
 	int currentCase;
@@ -95,25 +100,25 @@ public class ResultDialog extends JDialog {
 
 		
 		panel.add(new JLabel("name"));
-		panel.add(name = new JLabel("adsfadfadsf"));
+		panel.add(name = new JTextField());
 		
 		panel.add(new JLabel("Serving size"));
-		panel.add(this.servings = new JLabel());
+		panel.add(this.servings = new JTextField());
 		
 		panel.add(new JLabel("Cuisine"));
-		panel.add(this.cuisine = new JLabel());
+		panel.add(this.cuisine = new JTextField());
 		
 		panel.add(new JLabel("Type Of Meal"));
-		panel.add(this.typeOfMeal = new JLabel());
+		panel.add(this.typeOfMeal = new JTextField());
 		
 		panel.add(new JLabel("Cooking time"));
-		panel.add(this.cooktime = new JLabel());
+		panel.add(this.cooktime = new JTextField());
 		
 		panel.add(new JLabel("Main Ingredient"));
-		panel.add(this.mainIngredient = new JLabel());
+		panel.add(this.mainIngredient = new JTextField());
 		
 		panel.add(new JLabel("Difficulty Level"));
-		panel.add(this.difficultyLevel = new JLabel());
+		panel.add(this.difficultyLevel = new JTextField());
 		
 		panel.add(label = new JLabel("Solution"));
 		label.setFont(label.getFont().deriveFont(Font.BOLD));
@@ -121,10 +126,15 @@ public class ResultDialog extends JDialog {
 
 		
 		panel.add(new JLabel("Ingredients"));
-		panel.add(ingredients = new JLabel());
+		panel.add(ingredients = new JTextArea(3,1));
 		
 		panel.add(new JLabel("Method"));
-		panel.add(method = new JLabel());
+		panel.add(method = new JTextArea(3,1));
+//		JScrollPane scroller = new JScrollPane(method);
+//       scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+//        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+       
+
 		
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
