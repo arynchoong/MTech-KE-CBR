@@ -219,7 +219,7 @@ public class ResultDialog extends JDialog {
 		
 		
 		this.pack();
-		this.setSize(600, this.getHeight());
+		this.setSize(600, this.getHeight()+30);
 		this.setResizable(true);
 		Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 		setBounds((screenSize.width - this.getWidth()) / 2,
