@@ -370,9 +370,9 @@ public class QueryDialog extends JDialog {
 			if (VeganOption.isSelected())
 				TagOptions = TagOptions + " Vegetarian";
 			if (NutsFreeOption.isSelected())
-				TagOptions = TagOptions + " NutsFree";
+				TagOptions = TagOptions + " Nuts Free";
 			if (SpicyOption.isSelected())
-				TagOptions = TagOptions + "Spicy";
+				TagOptions = TagOptions + " Spicy";
 			listModel.addElement(TagOptions);
 		}
 		else
@@ -416,9 +416,9 @@ public class QueryDialog extends JDialog {
 					if (VeganOption.isSelected())
 						TagOptions = TagOptions + " Vegetarian";
 					if (NutsFreeOption.isSelected())
-						TagOptions = TagOptions + " NutsFree";
+						TagOptions = TagOptions + " Nuts Free";
 					if (SpicyOption.isSelected())
-						TagOptions = TagOptions + "Spicy";
+						TagOptions = TagOptions + " Spicy";
 					listModel.setElementAt(TagOptions, i);
 				}								
 			}						
