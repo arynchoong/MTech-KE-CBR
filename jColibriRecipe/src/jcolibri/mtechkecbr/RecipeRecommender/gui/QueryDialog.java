@@ -48,7 +48,7 @@ public class QueryDialog extends JDialog {
 	JCheckBox HalalOption;
 	JCheckBox VeganOption;
 	JCheckBox NutsFreeOption;
-	JCheckBox NonSpicyOption;	
+	JCheckBox SpicyOption;	
 	JLabel SelectionsMade;
 	SpinnerNumberModel numberOfPersons;
 	SpinnerNumberModel CookingDuration;
@@ -220,8 +220,8 @@ public class QueryDialog extends JDialog {
 				UpdatePreference();
 			}
 		});
-		panel.add(NonSpicyOption = new JCheckBox("Non Spicy"));
-		NonSpicyOption.addActionListener(new ActionListener(){
+		panel.add(SpicyOption = new JCheckBox("Spicy"));
+		SpicyOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
 					RecipeRecommender.getInstance().postCycle();
@@ -378,10 +378,10 @@ public class QueryDialog extends JDialog {
 				listModel.addElement("Nuts Free Option: " + "Yes");
 			else
 				listModel.addElement("Nuts Free Option: " + "No");
-			if (NonSpicyOption.isSelected())
-				listModel.addElement("Non Spicy Option: " + "Yes");
+			if (SpicyOption.isSelected())
+				listModel.addElement("Spicy Option: " + "Yes");
 			else
-				listModel.addElement("Non Spicy Option: " + "No");
+				listModel.addElement("Spicy Option: " + "No");
 		}
 		else
 		{
@@ -442,12 +442,12 @@ public class QueryDialog extends JDialog {
 					else
 						listModel.setElementAt("Nuts Free Option: " + "No", i);					
 				}
-				else if (listModel.getElementAt(i).contains("Non Spicy Option"))
+				else if (listModel.getElementAt(i).contains("Spicy Option"))
 				{
-					if (NonSpicyOption.isSelected())
-						listModel.setElementAt("Non Spicy Option: " + "Yes", i);
+					if (SpicyOption.isSelected())
+						listModel.setElementAt("Spicy Option: " + "Yes", i);
 					else
-						listModel.setElementAt("Non Spicy Option: " + "No", i);
+						listModel.setElementAt("Spicy Option: " + "No", i);
 				}								
 			}						
 		}
@@ -467,7 +467,7 @@ public class QueryDialog extends JDialog {
 		HalalOption.setSelected(false);
 		VeganOption.setSelected(false);
 		NutsFreeOption.setSelected(false);
-		NonSpicyOption.setSelected(false);
+		SpicyOption.setSelected(false);
 	}
 	
 	private void SelectionMoveUp()
@@ -585,13 +585,13 @@ public class QueryDialog extends JDialog {
 		}		
 		OtherUserOptions.add(new OtherUserOption(sAttribName,bAttribValue,nPriorityLevel));
 
-		sAttribName = "NonSpicyOption";
-		bAttribValue = (Boolean) NonSpicyOption.isSelected();
+		sAttribName = "SpicyOption";
+		bAttribValue = (Boolean) SpicyOption.isSelected();
 		if (NutsFreeOption.isSelected())
 		{
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
 			{
-				if (listModel.getElementAt(i).contains("Non Spicy Option"))
+				if (listModel.getElementAt(i).contains("Spicy Option"))
 					nPriorityLevel=i+1;
 			}			
 		}
