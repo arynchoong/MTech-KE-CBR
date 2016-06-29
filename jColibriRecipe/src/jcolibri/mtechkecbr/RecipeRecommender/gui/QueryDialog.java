@@ -31,7 +31,6 @@ import jcolibri.cbrcore.CBRQuery;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeDescription;
 import jcolibri.mtechkecbr.RecipeRecommender.RecipeRecommender;
 import jcolibri.mtechkecbr.RecipeRecommender.SimilAlgo;
-import jcolibri.mtechkecbr.RecipeRecommender.OtherUserOption;
 import jcolibri.util.FileIO;
 
 public class QueryDialog extends JDialog {
@@ -55,6 +54,8 @@ public class QueryDialog extends JDialog {
     JList<String> PreferenceList;	
     DefaultListModel<String> listModel;
     Boolean m_bFirstTimeRunning = true;
+    Boolean m_bServingSizeChanged = false;
+    Boolean m_bCookDurationChanged = false;
     
 	public QueryDialog(JFrame parent)
 	{
@@ -142,6 +143,7 @@ public class QueryDialog extends JDialog {
 				} catch (Exception ex) {
 					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
 				}
+				m_bCookDurationChanged = true;
 				UpdatePreference();
 			}
 		});
@@ -170,6 +172,7 @@ public class QueryDialog extends JDialog {
 				} catch (Exception ex) {
 					org.apache.commons.logging.LogFactory.getLog(RecipeRecommender.class).error(ex);
 				}
+				m_bServingSizeChanged = true;
 				UpdatePreference();
 			}
 		});
@@ -509,7 +512,7 @@ public class QueryDialog extends JDialog {
 		
 		sAttribName = "NumberOfPersons";
 		sAttribValue = numberOfPersons.getNumber().toString();
-		if ( ((Integer) numberOfPersons.getNumber() > 1) ) {
+		if (m_bServingSizeChanged) {
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
 				if (listModel.getElementAt(i).contains("Number Of Persons"))
 					nPriorityLevel=i+1;
@@ -523,7 +526,7 @@ public class QueryDialog extends JDialog {
 		
 		sAttribName = "CookingDuration";
 		sAttribValue = CookingDuration.getNumber().toString();
-		if ((Integer) CookingDuration.getNumber() < 120) {
+		if (m_bCookDurationChanged) {
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
 				if (listModel.getElementAt(i).contains("Cooking Duration"))
 					nPriorityLevel=i+1;
