@@ -188,7 +188,7 @@ public class QueryDialog extends JDialog {
 		});
 		
 		panel.add(HalalOption = new JCheckBox("Halal"));
-		HealthyOption.addActionListener(new ActionListener(){
+		HalalOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
 					RecipeRecommender.getInstance().postCycle();
