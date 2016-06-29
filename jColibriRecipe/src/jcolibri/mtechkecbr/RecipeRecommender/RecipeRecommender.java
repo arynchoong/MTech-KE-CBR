@@ -157,7 +157,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 		simConfig
 				.addMapping(
 						attribute3,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.ontology.OntCosine());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Equal());
 		simConfig.setWeight(attribute3, AttrWeights[3]);
 		//
 		Attribute attribute4 = new Attribute("TypeOfMeal", RecipeDescription.class);
@@ -214,7 +214,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 		}				
 		
 		// Show result
-		resultDialog.showCases(eval, updatedcases);
+		resultDialog.showCases(eval, selectedcases);
 		resultDialog.setVisible(true);
 		
 		// Show adaptation dialog
