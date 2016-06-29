@@ -606,16 +606,43 @@ public class QueryDialog extends JDialog {
 
 	public String getTagsString() {
 		String TagAttributeValue = new String("");
+		Boolean emptyString = true;
 		if (HalalOption.isSelected())
-			TagAttributeValue = TagAttributeValue + "Halal;";
+		{
+			TagAttributeValue = TagAttributeValue + "Halal";
+			emptyString = false;
+		}
 		if (VeganOption.isSelected())
-			TagAttributeValue = TagAttributeValue + "Vegetarian;";
+		{
+			if(!emptyString)
+				TagAttributeValue = TagAttributeValue + "; ";
+			else
+				emptyString = false;
+			TagAttributeValue = TagAttributeValue + "Vegetarian";
+		}
 		if (HealthyOption.isSelected())
-			TagAttributeValue = TagAttributeValue + "Healthy;";
+		{
+			if(!emptyString)
+				TagAttributeValue = TagAttributeValue + "; ";
+			else
+				emptyString = false;
+			TagAttributeValue = TagAttributeValue + "Healthy";
+		}
 		if (NutsFreeOption.isSelected())
-			TagAttributeValue = TagAttributeValue + "NoNuts;";
+		{
+			if(!emptyString)
+				TagAttributeValue = TagAttributeValue + "; ";
+			else
+				emptyString = false;
+			TagAttributeValue = TagAttributeValue + "NoNuts";
+		}
 		if (SpicyOption.isSelected())
+		{
+			if(!emptyString)
+				TagAttributeValue = TagAttributeValue + "; ";
+			
 			TagAttributeValue = TagAttributeValue + "Spicy";
+		}
 		return TagAttributeValue;
 	}
 
