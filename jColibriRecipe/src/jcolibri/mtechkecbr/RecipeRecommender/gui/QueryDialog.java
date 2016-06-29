@@ -175,7 +175,7 @@ public class QueryDialog extends JDialog {
 		});
 		
 		panel.add(new JLabel("Other Dietary Requirements"));
-		panel.add(HealthyOption = new JCheckBox("Healthy Options (less oil, non deep fry, etc)"));
+		panel.add(HealthyOption = new JCheckBox("Healthy Options /(less oil, non deep fry, etc/)"));
 		HealthyOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -188,7 +188,7 @@ public class QueryDialog extends JDialog {
 		});
 		
 		panel.add(HalalOption = new JCheckBox("Halal"));
-		HalalOption.addActionListener(new ActionListener(){
+		HealthyOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
 					RecipeRecommender.getInstance().postCycle();
@@ -587,7 +587,7 @@ public class QueryDialog extends JDialog {
 
 		sAttribName = "NonSpicyOption";
 		bAttribValue = (Boolean) NonSpicyOption.isSelected();
-		if (NonSpicyOption.isSelected())
+		if (NutsFreeOption.isSelected())
 		{
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
 			{
@@ -696,11 +696,18 @@ public class QueryDialog extends JDialog {
 		}
 		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
 
-		
-		// Just a placeholder so similarity function later
-		sAttribName = "CookingMethod";
-		sAttribValue = "null";
-		nPriorityLevel=11;		
+		sAttribName = "Tags";
+		sAttribValue = getTagsString();
+		if (getTagsString().isEmpty()) {
+			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
+				if (listModel.getElementAt(i).contains("Main Ingredient"))
+					nPriorityLevel=i+1;
+			}			
+		}
+		else {
+			nPriorityLevel=99;	
+			sAttribValue = "null";
+		}
 		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
 
 		return simConfig;
@@ -712,6 +719,117 @@ public class QueryDialog extends JDialog {
 		System.out.println("Bye");
 	}
 
-	
+	public String getTagsString() {
+		Boolean bHalalOption=false;
+		int nHalalOptionPriority=99;
+		Boolean bVeganOption=false;
+		int nVeganOptionPriority=99;
+		Boolean bNutsFreeOption=false;
+		int nNutsFreeOptionPriority=99;
+		Boolean bHealthyOption=false;
+		int nHealthyOptionPriority=99;
+		Boolean bSpicyOption=false;
+		int nSpicyOptionPriority=99;
+		ArrayList<OtherUserOption> otheruseroptions = getOtherUserOptions();
+		
+		for (OtherUserOption opt : otheruseroptions) {
+			if (opt.getAttributeName().contains("Healthy"))
+			{
+				bHealthyOption = opt.getAttributeValue();
+				nHealthyOptionPriority = opt.getAttributePriority();
+			}
+			else if (opt.getAttributeName().contains("Halal"))
+			{
+				bHalalOption = opt.getAttributeValue();
+				nHalalOptionPriority = opt.getAttributePriority();
+			}
+			else if (opt.getAttributeName().contains("Vegan"))
+			{
+				bVeganOption = opt.getAttributeValue();
+				nVeganOptionPriority = opt.getAttributePriority();
+			}
+			else if (opt.getAttributeName().contains("NutsFree"))
+			{
+				bNutsFreeOption = opt.getAttributeValue();
+				nVeganOptionPriority = opt.getAttributePriority();
+			}
+			else if (opt.getAttributeName().contains("Spicy"))
+			{
+				bSpicyOption = opt.getAttributeValue();
+				nSpicyOptionPriority = opt.getAttributePriority();
+			}
+		    System.out.println(opt);
+		}
+
+		String TagAttributeValue = new String();
+		if (((bHalalOption == true)&&(nHalalOptionPriority != 99))
+				&&((bNutsFreeOption==true)&&(nNutsFreeOptionPriority != 99))
+				&&((bSpicyOption==true)&&(nSpicyOptionPriority != 99)))
+		{
+			TagAttributeValue = "Halal; NoNuts; Spicy";
+		}
+		else if (((bHalalOption == true)&&(nHalalOptionPriority != 99))
+				&&((bVeganOption==true)&&(nVeganOptionPriority != 99))
+				&&((bNutsFreeOption==true)&&(nNutsFreeOptionPriority != 99)))
+		{
+			TagAttributeValue = "Halal; Vegetarian; NoNuts";
+		}
+		else if (((bVeganOption == true)&&(nVeganOptionPriority != 99))
+				&&((bHealthyOption==true)&&(nHealthyOptionPriority != 99))
+				&&((bNutsFreeOption==true)&&(nNutsFreeOptionPriority != 99)))
+		{
+			TagAttributeValue = "Vegetarian; Healthy; NoNuts";
+		}
+		else if (((bVeganOption == true)&&(nVeganOptionPriority != 99))
+				&&((bNutsFreeOption==true)&&(nNutsFreeOptionPriority != 99))
+				&&((bSpicyOption==true)&&(nSpicyOptionPriority != 99)))
+		{
+			TagAttributeValue = "Vegetarian; NoNuts; Spicy";
+		}
+		else if (((bHalalOption == true)&&(nHalalOptionPriority != 99))
+				&&((bNutsFreeOption==true)&&(nNutsFreeOptionPriority != 99)))
+		{
+			TagAttributeValue = "Halal; NoNuts";
+		}
+		else if (((bHalalOption == true)&&(nHalalOptionPriority != 99))
+			&&((bVeganOption==true)&&(nVeganOptionPriority != 99)))
+		{
+			TagAttributeValue = "Halal; Vegetarian";
+		}
+		else if (((bHalalOption == true)&&(nHalalOptionPriority != 99))
+				&&((bSpicyOption==true)&&(nSpicyOptionPriority != 99)))
+		{
+			TagAttributeValue = "Halal; Spicy";
+		}
+		else if (((bVeganOption == true)&&(nVeganOptionPriority != 99))
+				&&((bNutsFreeOption==true)&&(nNutsFreeOptionPriority != 99)))
+		{
+			TagAttributeValue = "Vegetarian; NoNuts";
+		}
+		else if (((bHealthyOption == true)&&(nHealthyOptionPriority != 99))
+				&&((bNutsFreeOption==true)&&(nNutsFreeOptionPriority != 99)))
+		{
+			TagAttributeValue = "Healthy; NoNuts";
+		}
+		else if (((bHealthyOption == true)&&(nHealthyOptionPriority != 99))
+				&&((bSpicyOption==true)&&(nSpicyOptionPriority != 99)))
+		{
+			TagAttributeValue = "Healthy; Spicy";
+		}
+		else if ((bHalalOption == true)&&(nHalalOptionPriority != 99))
+		{
+			TagAttributeValue = "Halal";						
+		}
+		else if ((bVeganOption == true)&&(nVeganOptionPriority != 99))
+		{
+			TagAttributeValue = "Vegetarian";
+		}
+		else if ((bHealthyOption == true)&&(nHealthyOptionPriority != 99))
+		{
+			TagAttributeValue = "Healthy";
+		}
+		
+		return TagAttributeValue;
+	}
 
 }

@@ -17,6 +17,9 @@ public class SimilAlgo {
 	public String getAttributeValue(){
 		return AttributeValue;
 	}
+	public void setAttributeValue(String Value){
+		this.AttributeValue = Value;
+	}
 	public Integer getAttributePriority(){
 		return AttributePriority;
 	}

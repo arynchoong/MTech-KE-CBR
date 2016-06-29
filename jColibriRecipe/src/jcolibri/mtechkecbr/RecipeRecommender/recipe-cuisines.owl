@@ -27,9 +27,17 @@
     
 
 
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Chinese_cuisine -->
+
+    <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Chinese_cuisine">
+        <rdfs:subClassOf rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:Class>
+    
+
+
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe -->
 
-    <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe_cuisine">
+    <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe">
         <rdfs:subClassOf rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Western_cuisine"/>
     </owl:Class>
     
@@ -38,6 +46,20 @@
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Fusion_cuisine -->
 
     <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Fusion_cuisine"/>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Halal_cuisine -->
+
+    <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Halal_cuisine"/>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#SEA_cuisine -->
+
+    <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#SEA_cuisine">
+        <rdfs:subClassOf rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:Class>
     
 
 
@@ -77,7 +99,7 @@
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Chinese -->
 
     <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Chinese">
-        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Chinese_cuisine"/>
     </owl:NamedIndividual>
     
 
@@ -93,7 +115,7 @@
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#French -->
 
     <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#French">
-        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe"/>
     </owl:NamedIndividual>
     
 
@@ -109,7 +131,7 @@
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Hokkien -->
 
     <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Hokkien">
-        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Chinese_cuisine"/>
     </owl:NamedIndividual>
     
 
@@ -125,7 +147,8 @@
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Indonesian -->
 
     <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Indonesian">
-        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Halal_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#SEA_cuisine"/>
     </owl:NamedIndividual>
     
 
@@ -133,7 +156,8 @@
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Malay -->
 
     <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Malay">
-        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Halal_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#SEA_cuisine"/>
     </owl:NamedIndividual>
     
 
@@ -141,7 +165,8 @@
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Nyonya -->
 
     <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Nyonya">
-        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#SEA_cuisine"/>
+        <owl:sameAs rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Peranakan"/>
     </owl:NamedIndividual>
     
 
@@ -149,7 +174,7 @@
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Peranakan -->
 
     <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Peranakan">
-        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#SEA_cuisine"/>
     </owl:NamedIndividual>
     
 
@@ -157,7 +182,7 @@
     <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Singaporean -->
 
     <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Singaporean">
-        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#SEA_cuisine"/>
     </owl:NamedIndividual>
     
 
