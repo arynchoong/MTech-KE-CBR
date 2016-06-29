@@ -131,6 +131,8 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 		return Cuisine.toString();
 	}
 	public void setCuisine(String cuisine) throws OntologyAccessException {
+		if (cuisine.contentEquals("null"))
+			return;
 		Cuisine = new Instance(cuisine);
 	}
 	public Integer getTypeOfCuisinePriority() {

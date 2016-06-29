@@ -654,8 +654,9 @@ public class QueryDialog extends JDialog {
 		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
 		
 		sAttribName = "Cuisine";
-		sAttribValue = Cuisine.getSelectedInstance().toString();
-		if (sAttribValue != null) {
+		if(Cuisine.getSelectedInstance() != null)
+		{
+			sAttribValue = Cuisine.getSelectedInstance().toString();
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
 				if (listModel.getElementAt(i).contains("Type Of Cuisine"))
 					nPriorityLevel=i+1;
