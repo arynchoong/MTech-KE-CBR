@@ -175,7 +175,7 @@ public class QueryDialog extends JDialog {
 		});
 		
 		panel.add(new JLabel("Other Dietary Requirements"));
-		panel.add(HealthyOption = new JCheckBox("Healthy Options /(less oil, non deep fry, etc/)"));
+		panel.add(HealthyOption = new JCheckBox("Healthy Options (less oil, non deep fry, etc)"));
 		HealthyOption.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -587,7 +587,7 @@ public class QueryDialog extends JDialog {
 
 		sAttribName = "NonSpicyOption";
 		bAttribValue = (Boolean) NonSpicyOption.isSelected();
-		if (NutsFreeOption.isSelected())
+		if (NonSpicyOption.isSelected())
 		{
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++)
 			{
@@ -694,7 +694,13 @@ public class QueryDialog extends JDialog {
 			nPriorityLevel=99;	
 			sAttribValue = "null";
 		}
-			
+		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
+
+		
+		// Just a placeholder so similarity function later
+		sAttribName = "CookingMethod";
+		sAttribValue = "null";
+		nPriorityLevel=11;		
 		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
 
 		return simConfig;

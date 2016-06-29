@@ -72,6 +72,16 @@ public class RecipeRecommender implements StandardCBRApplication {
 	AutoAdaptationDialog autoAdaptDialog;
 	RevisionDialog revisionDialog;
 	RetainDialog retainDialog;
+	static Boolean m_bHalalOption=false;
+	static int m_nHalalOptionPriority=99;
+	static Boolean m_bVeganOption=false;
+	static int m_nVeganOptionPriority=99;
+	static Boolean m_bNutsFreeOption=false;
+	static int m_nNutsOptionPriority=99;
+	static Boolean m_bHealthyOption=false;
+	static int m_nHealthyOptionPriority=99;
+	static Boolean m_bNonSpicyOption=false;
+	static int m_nNonSpicyOptionPriority=99;
 	
 	
 	public void configure() throws ExecutionException {
@@ -169,7 +179,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 				.addMapping(
 						attribute6,
 						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
-		simConfig.setWeight(attribute6, 0.0);
+		simConfig.setWeight(attribute6, AttrWeights[6]);
 		//
 		return simConfig;
 	}
@@ -191,9 +201,20 @@ public class RecipeRecommender implements StandardCBRApplication {
 				_caseBase.getCases(), query, simConfig);
 		// Select k cases
 		Collection<CBRCase> selectedcases = SelectCases.selectTopK(eval, 5);
-				
+		ArrayList<CBRCase> updatedcases = new ArrayList<CBRCase>(); 
+		if (m_bNonSpicyOption)
+		{
+			String szDescString;			
+			for (CBRCase scase : selectedcases)
+			{
+				szDescString = scase.getDescription().toString();				
+				if (! (szDescString.toLowerCase().contains("chillies") || szDescString.toLowerCase().contains("chilli") || szDescString.toLowerCase().contains("curry")) )
+					updatedcases.add(scase);				
+			}
+		}				
+		
 		// Show result
-		resultDialog.showCases(eval, selectedcases);
+		resultDialog.showCases(eval, updatedcases);
 		resultDialog.setVisible(true);
 		
 		// Show adaptation dialog
@@ -254,16 +275,6 @@ public class RecipeRecommender implements StandardCBRApplication {
 	
 		RecipeRecommender recommender = getInstance();
 		recommender.showMainFrame();
-		Boolean bHalalOption=false;
-		int nHalalOptionPriority=99;
-		Boolean bVeganOption=false;
-		int nVeganOptionPriority=99;
-		Boolean bNutsFreeOption=false;
-		int nNutsOptionPriority=99;
-		Boolean bHealthyOption=false;
-		int nHealthyOptionPriority=99;
-		Boolean bNonSpicyOption=false;
-		int nNonSpicyOptionPriority=99;
 		
 		try
 		{
@@ -291,28 +302,28 @@ public class RecipeRecommender implements StandardCBRApplication {
 				for (OtherUserOption opt : otheruseroptions) {
 					if (opt.getAttributeName().contains("Healthy"))
 					{
-						bHealthyOption = opt.getAttributeValue();
-						nHealthyOptionPriority = opt.getAttributePriority();
+						m_bHealthyOption = opt.getAttributeValue();
+						m_nHealthyOptionPriority = opt.getAttributePriority();
 					}
 					else if (opt.getAttributeName().contains("Halal"))
 					{
-						bHalalOption = opt.getAttributeValue();
-						nHalalOptionPriority = opt.getAttributePriority();
+						m_bHalalOption = opt.getAttributeValue();
+						m_nHalalOptionPriority = opt.getAttributePriority();
 					}
 					else if (opt.getAttributeName().contains("Vegan"))
 					{
-						bVeganOption = opt.getAttributeValue();
-						nVeganOptionPriority = opt.getAttributePriority();
+						m_bVeganOption = opt.getAttributeValue();
+						m_nVeganOptionPriority = opt.getAttributePriority();
 					}
 					else if (opt.getAttributeName().contains("NutsFree"))
 					{
-						bNutsFreeOption = opt.getAttributeValue();
-						nVeganOptionPriority = opt.getAttributePriority();
+						m_bNutsFreeOption = opt.getAttributeValue();
+						m_nVeganOptionPriority = opt.getAttributePriority();
 					}
 					else if (opt.getAttributeName().contains("NonSpicy"))
 					{
-						bNonSpicyOption = opt.getAttributeValue();
-						nNonSpicyOptionPriority = opt.getAttributePriority();
+						m_bNonSpicyOption = opt.getAttributeValue();
+						m_nNonSpicyOptionPriority = opt.getAttributePriority();
 					}
 				    System.out.println(opt);
 				}
@@ -339,15 +350,26 @@ public class RecipeRecommender implements StandardCBRApplication {
 						method.invoke(desc, sMethodVal);
 				    //System.out.println(p);
 				}
+				
+				// Weights calculation here
 				System.out.println(AttributesSize.toString()+" "+nullAttributes.toString());
 				for (int i=0; i<sconf.size();i++){
-					if (((bHalalOption == true)&&(nHalalOptionPriority != 99))||((bVeganOption==true)&&(nVeganOptionPriority != 99)))
+					if ((m_bHealthyOption == true)&&(m_nHealthyOptionPriority != 99))
 					{
-						if (sconf.get(i).getAttributeName().contains("TypeOfCuisine"))
+						if (sconf.get(i).getAttributeName().contains("CookingMethod"))
 						{
-							method = desc.getClass().getDeclaredMethod("setTypeOfCuisine",String.class);
+							method = desc.getClass().getDeclaredMethod("setCookingMethod",String.class);
+							AttrWeights[i] = 1.0;
+							method.invoke(desc, "steam");
+						}						
+					}
+					if (((m_bHalalOption == true)&&(m_nHalalOptionPriority != 99))||((m_bVeganOption==true)&&(m_nVeganOptionPriority != 99)))
+					{
+						if (sconf.get(i).getAttributeName().contains("Cuisine"))
+						{
+							method = desc.getClass().getDeclaredMethod("setCuisine",String.class);
 							method.invoke(desc, "Indonesian");	
-							if (bHalalOption & !bVeganOption)						
+							if (m_bHalalOption & !m_bVeganOption)						
 								AttrWeights[i] = 1;
 							else
 								AttrWeights[i] = 0.7;
@@ -356,27 +378,35 @@ public class RecipeRecommender implements StandardCBRApplication {
 						{
 							method = desc.getClass().getDeclaredMethod("setMainIngredient",String.class);
 							method.invoke(desc, "Vegetable");								
-							if (bVeganOption & !bHalalOption)
+							if (m_bVeganOption & !m_bHalalOption)
 								AttrWeights[i] = 1;								
 							else
 								AttrWeights[i] = 0.7;
 						}
 						else {
 							if (sconf.get(i).getAttributePriority()!=99) {
-								if (sconf.get(i).getAttributePriority()>6)
-									AttrWeights[i] = (7 - ((double) sconf.get(i).getAttributePriority()-5)) / 6;
-								else
-									AttrWeights[i] = (7 - (double) sconf.get(i).getAttributePriority()) / 6;
+								// Do not overwrite weights set when Healthy Option is true
+								if ((m_bHealthyOption == false)||(!sconf.get(i).getAttributeName().contains("CookingMethod")))
+								{
+									if (sconf.get(i).getAttributePriority()>6)
+										AttrWeights[i] = (7 - ((double) sconf.get(i).getAttributePriority()-5)) / 6;
+									else
+										AttrWeights[i] = (7 - (double) sconf.get(i).getAttributePriority()) / 6;
+								}
 							}							
 						}
 					}
 					else
 					{
 						if (sconf.get(i).getAttributePriority()!=99) {
-							if (sconf.get(i).getAttributePriority()>6)
-								AttrWeights[i] = (7 - ((double) sconf.get(i).getAttributePriority()-5)) / 6;
-							else
-								AttrWeights[i] = (7 - (double) sconf.get(i).getAttributePriority()) / 6;
+							// Do not overwrite weights set when Healthy Option is true
+							if ((m_bHealthyOption == false)||(!sconf.get(i).getAttributeName().contains("CookingMethod")))
+							{
+								if (sconf.get(i).getAttributePriority()>6)
+									AttrWeights[i] = (7 - ((double) sconf.get(i).getAttributePriority()-5)) / 6;
+								else
+									AttrWeights[i] = (7 - (double) sconf.get(i).getAttributePriority()) / 6;
+							}
 						}
 					}
 					System.out.print("["+sconf.get(i).getAttributePriority().toString()+"|"+AttrWeights[i]+"]");
