@@ -20,6 +20,7 @@
 	<property name="CookingMethod" column="CookingMethod"/>
 	<property name="MainIngredient" column="IngredientsCategory"/>
 	<property name="Ingredients" column="IngredientsOnly"/>
+	<property name="Tags" column="Tags"/>
 	
 </class>
 </hibernate-mapping>

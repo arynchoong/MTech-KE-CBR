@@ -36,6 +36,7 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	String MainIngredient;
 	String CookingMethod;
 	String Ingredients;
+	String Tags;
 	Boolean bHealthyOption;
 	Boolean bVeganOption;
 	Boolean bHalalOption;
@@ -200,6 +201,13 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 		this.Ingredients = Ingredients;
 	}
 
+	//////////////////////////For Tags//////////////////////////////////	
+	public String getTags () {
+		return this.Tags;
+	}
+	public void setTags(String tags) {
+		this.Tags = tags;
+	}
 
 	// @return the HealthyOption
 	public Boolean getHealthyOption () {
