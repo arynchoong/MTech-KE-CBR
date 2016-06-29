@@ -142,13 +142,13 @@ public class RetainDialog extends JDialog {
 		panel.add(label = new JLabel());
 
 		panel.add(new JLabel("Ingredients"));
-		ingredients = new JTextArea(2,1);
+		ingredients = new JTextArea(3,1);
 		JScrollPane scroller1 = new JScrollPane(ingredients,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		panel.add(scroller1);
 		ingredients.setAutoscrolls(false);
 		ingredients.setWrapStyleWord(true);
 		ingredients.setLineWrap(true);
-		ingredients.setEditable(false);
+		ingredients.setEditable(true);
 		
 		panel.add(new JLabel("Method"));
 		method = new JTextArea(3,1);
@@ -157,7 +157,7 @@ public class RetainDialog extends JDialog {
 		method.setAutoscrolls(false);
 		method.setWrapStyleWord(true);
 		method.setLineWrap(true);
-		method.setEditable(false);
+		method.setEditable(true);
 		
 		
 //		Lay out the panel.
@@ -293,14 +293,14 @@ public class RetainDialog extends JDialog {
 		RecipeDescription desc = (RecipeDescription) _case.getDescription();
 		this.name.setText(desc.getCaseId());
 		this.recipeName = desc.getCaseId();
-
 		this.servings.setText(desc.getNumberOfPersons().toString());
 		this.typeOfMeal.setText(desc.getTypeOfMeal());
-		this.cooktime.setText(desc.getCookingDuration().toString());
 		this.mainIngredient.setText(desc.getMainIngredient());
 		this.difficultyLevel.setText(desc.getDifficultyLevel().toString());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
+		this.preptime.setText(sol.getPrepDuration().toString());
+		this.cooktime.setText(sol.getCookingDuration().toString());
 		this.cuisine.setText(sol.getCuisine().toString()); // temporarily placed in recipeSolution until field mapping is resolved.
 		this.ingredients.setText(sol.getDetailedIngredients().toString());
 		this.method.setText(sol.getMethod());

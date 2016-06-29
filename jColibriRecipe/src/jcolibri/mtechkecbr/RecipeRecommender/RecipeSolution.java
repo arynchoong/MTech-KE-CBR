@@ -21,6 +21,8 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 	String szDetailedIngredients;
 	String szMethod;
 	Instance  Cuisine;
+	Integer PrepDuration;
+	Integer CookingDuration;
 
 	public String toString()
 	{
@@ -32,6 +34,20 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 		return new Attribute("id", this.getClass());
 	}
 
+	public Integer getPrepDuration() {
+		return PrepDuration;
+	}
+	public void setPrepDuration(Integer duration) {
+		this.PrepDuration = duration;
+	}
+	
+	public Integer getCookingDuration() {
+		return CookingDuration;
+	}
+	public void setCookingDuration(Integer duration) {
+		this.CookingDuration = duration;
+	}
+	
 	/**
 	 * @return the cuisine
 	 */

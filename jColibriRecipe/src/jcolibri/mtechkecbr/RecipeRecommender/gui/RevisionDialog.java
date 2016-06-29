@@ -138,7 +138,7 @@ public class RevisionDialog extends JDialog {
 		panel.add(cookingMethod = new JComboBox(cookingMethods));
 		
 		panel.add(new JLabel("Main ingredient"));
-		String[] mainIngredients = {"Anything", "Seafood", "Chicken", "Pork", "Beef", "Mutton", "Vegetables", "Fruits", "Rice", "Tofu", "Eggs", "Sweet"};
+		String[] mainIngredients = {"Anything", "Seafood", "Chicken", "Duck", "Pork", "Beef", "Mutton", "Vegetables", "Fruits", "Rice", "Tofu", "Eggs", "Sweet"};
 		panel.add(mainIngredient = new JComboBox(mainIngredients));
 		
 		panel.add(label = new JLabel("Solution"));
@@ -146,13 +146,13 @@ public class RevisionDialog extends JDialog {
 		panel.add(label = new JLabel());
 
 		panel.add(new JLabel("Ingredients"));
-		ingredients = new JTextArea(2,1);
+		ingredients = new JTextArea(3,1);
 		JScrollPane scroller1 = new JScrollPane(ingredients,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		panel.add(scroller1);
 		ingredients.setAutoscrolls(false);
 		ingredients.setWrapStyleWord(true);
 		ingredients.setLineWrap(true);
-		ingredients.setEditable(false);
+		ingredients.setEditable(true);
 		
 		panel.add(new JLabel("Method"));
 		method = new JTextArea(3,1);
@@ -161,7 +161,7 @@ public class RevisionDialog extends JDialog {
 		method.setAutoscrolls(false);
 		method.setWrapStyleWord(true);
 		method.setLineWrap(true);
-		method.setEditable(false);
+		method.setEditable(true);
 		
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
@@ -203,19 +203,21 @@ public class RevisionDialog extends JDialog {
 		buttonsDetailed.setLayout(new BorderLayout());	
 		buttonsDetailed.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
+		JButton IngredientDetailed = new JButton("Ingredient Detailed");
+		IngredientDetailed.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				ShowIngredientsDetails();			}
+		});
+		buttonsDetailed.add(IngredientDetailed, BorderLayout.CENTER);
+
 		JButton MethodDetailed = new JButton("Method Detailed");
 		MethodDetailed.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				ShowCookingMethodDetails();
 			}
 		});
-		buttonsDetailed.add(MethodDetailed, BorderLayout.CENTER);
-		JButton IngredientDetailed = new JButton("Ingredient Detailed");
-		IngredientDetailed.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				ShowIngredientsDetails();			}
-		});
-		buttonsDetailed.add(IngredientDetailed, BorderLayout.EAST);
+		buttonsDetailed.add(MethodDetailed, BorderLayout.EAST);
+
 
 		JPanel panelAux = new JPanel();
 		panelAux.setLayout(new BorderLayout());
@@ -286,14 +288,14 @@ public class RevisionDialog extends JDialog {
 		this.name.setText(desc.getCaseId());
 		this.difficulty.setSelectedItem(desc.getDifficultyLevel().toString());
 		this.servingSize.setValue(desc.getNumberOfPersons());
-		this.prepTime.setValue(desc.getPrepDuration());
-		this.cookTime.setValue(desc.getCookingDuration());
 		this.dishType.setSelectedItem(desc.getTypeOfMeal());
 		this.equipment.setSelectedItem(desc.getEquipment());
 		this.cookingMethod.setSelectedItem(desc.getCookingMethod());
 		this.mainIngredient.setSelectedItem(desc.getMainIngredient());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
+		this.prepTime.setValue(sol.getPrepDuration());
+		this.cookTime.setValue(sol.getCookingDuration());
 		this.cuisine.setSelectedInstance(sol.getCuisine()); // temporarily placed in recipeSolution until field mapping is resolved.
 		String Str_ingre = sol.getDetailedIngredients().toString();
 		String new_str_ingre = Str_ingre.replaceAll(";", "\n");

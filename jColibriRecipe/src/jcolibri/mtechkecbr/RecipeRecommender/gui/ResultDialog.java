@@ -127,7 +127,7 @@ public class ResultDialog extends JDialog {
 		panel.add(label = new JLabel());
 		
 		panel.add(new JLabel("Ingredients"));
-		ingredients = new JTextArea(3,1);
+		ingredients = new JTextArea(4,1);
 		scroller1 = new JScrollPane(ingredients,JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		panel.add(scroller1);
 		ingredients.setAutoscrolls(false);
@@ -136,7 +136,7 @@ public class ResultDialog extends JDialog {
 		ingredients.setEditable(false);
 		
 		panel.add(new JLabel("Method"));
-		method = new JTextArea(3,1);
+		method = new JTextArea(4,1);
 		scroller = new JScrollPane(method,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);	
 		panel.add(scroller);		
 		method.setAutoscrolls(false);

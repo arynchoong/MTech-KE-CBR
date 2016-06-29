@@ -215,7 +215,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 		{
 			// Compute a direct proportion between the "Serving size" and "Cooking duration" attributes.
 			NumericDirectProportionMethod.directProportion(	new Attribute("NumberOfPersons",RecipeDescription.class), 
-				 											new Attribute("CookDuration",RecipeSolution.class), 
+				 											new Attribute("CookingDuration",RecipeSolution.class), 
 				 											query, selectedcases);
 		}
 		
