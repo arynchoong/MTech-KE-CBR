@@ -53,6 +53,7 @@ public class ResultDialog extends JDialog {
 	JTextField servings;
 	JTextField cuisine;
 	JTextField typeOfMeal;
+	JTextField preptime;
 	JTextField cooktime;
 	JTextField mainIngredient;
 	JTextField difficultyLevel;
@@ -112,7 +113,10 @@ public class ResultDialog extends JDialog {
 		
 		panel.add(new JLabel("Type Of Meal"));
 		panel.add(this.typeOfMeal = new JTextField());
-		
+
+		panel.add(new JLabel("Prep time"));
+		panel.add(this.preptime = new JTextField());
+
 		panel.add(new JLabel("Cooking time"));
 		panel.add(this.cooktime = new JTextField());
 		
@@ -146,7 +150,7 @@ public class ResultDialog extends JDialog {
 		
 //		Lay out the panel.
 		Utils.makeCompactGrid(panel,
-		                11, 2, //rows, cols
+		                12, 2, //rows, cols
 		                6, 6,        //initX, initY
 		                30, 10);       //xPad, yPad
 		
@@ -254,6 +258,7 @@ public class ResultDialog extends JDialog {
 		this.servings.setText(desc.getNumberOfPersons().toString());
 		this.cuisine.setText(desc.getTypeOfCuisine());
 		this.typeOfMeal.setText(desc.getTypeOfMeal());
+		this.preptime.setText(desc.getPrepDuration().toString());
 		this.cooktime.setText(desc.getCookingDuration().toString());
 		this.mainIngredient.setText(desc.getMainIngredient());
 		this.difficultyLevel.setText(desc.getDifficultyLevel().toString());

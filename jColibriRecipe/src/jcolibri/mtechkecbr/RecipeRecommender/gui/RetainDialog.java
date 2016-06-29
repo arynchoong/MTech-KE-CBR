@@ -294,13 +294,13 @@ public class RetainDialog extends JDialog {
 		this.name.setText(desc.getCaseId());
 		this.recipeName = desc.getCaseId();
 		this.servings.setText(desc.getNumberOfPersons().toString());
+		this.preptime.setText(desc.getPrepDuration().toString());
+		this.cooktime.setText(desc.getCookingDuration().toString());
 		this.typeOfMeal.setText(desc.getTypeOfMeal());
 		this.mainIngredient.setText(desc.getMainIngredient());
 		this.difficultyLevel.setText(desc.getDifficultyLevel().toString());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-		this.preptime.setText(sol.getPrepDuration().toString());
-		this.cooktime.setText(sol.getCookingDuration().toString());
 		this.cuisine.setText(sol.getCuisine().toString()); // temporarily placed in recipeSolution until field mapping is resolved.
 		this.ingredients.setText(sol.getDetailedIngredients().toString());
 		this.method.setText(sol.getMethod());
@@ -319,7 +319,7 @@ public class RetainDialog extends JDialog {
 		casesToRetain.add(_case);
 		
 		currentCase = 0;
-		idEditor.setText("Journey"+(++numcases));
+		idEditor.setText("Recipes"+(++numcases));
 		saveCheck.setSelected(false);
 		enableSaveCase();
 		showCase();

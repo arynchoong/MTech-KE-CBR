@@ -31,7 +31,6 @@ import jcolibri.mtechkecbr.RecipeRecommender.gui.QueryDialog;
 import jcolibri.mtechkecbr.RecipeRecommender.gui.ResultDialog;
 import jcolibri.mtechkecbr.RecipeRecommender.gui.RetainDialog;
 import jcolibri.mtechkecbr.RecipeRecommender.gui.RevisionDialog;
-import jcolibri.mtechkecbr.RecipeRecommender.gui.SimilarityDialog;
 import jcolibri.exception.ExecutionException;
 import jcolibri.method.retrieve.RetrievalResult;
 import jcolibri.method.retrieve.NNretrieval.NNConfig;
@@ -68,8 +67,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 	Connector _connector;
 	/** CaseBase object */
 	CBRCaseBase _caseBase;
-	
-	SimilarityDialog similarityDialog;
+
 	ResultDialog resultDialog;
 	AutoAdaptationDialog autoAdaptDialog;
 	RevisionDialog revisionDialog;
@@ -102,7 +100,6 @@ public class RecipeRecommender implements StandardCBRApplication {
 			ob.loadOntology(mainOnto, subOntologies, false);
 
 			// Create the dialogs
-			similarityDialog = new SimilarityDialog(main);
 			resultDialog     = new ResultDialog(main);
 			autoAdaptDialog  = new AutoAdaptationDialog(main);
 			revisionDialog   = new RevisionDialog(main);
@@ -207,7 +204,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 		{
 			// Compute a direct proportion between the "Difficulty Level" and "Prep time" attributes.
 			NumericDirectProportionMethod.directProportion(	new Attribute("DifficultyLevel",RecipeDescription.class), 
-				 											new Attribute("PrepDuration",RecipeSolution.class), 
+				 											new Attribute("PrepDuration",RecipeDescription.class), 
 				 											query, selectedcases);
 		}
 		
@@ -215,7 +212,7 @@ public class RecipeRecommender implements StandardCBRApplication {
 		{
 			// Compute a direct proportion between the "Serving size" and "Cooking duration" attributes.
 			NumericDirectProportionMethod.directProportion(	new Attribute("NumberOfPersons",RecipeDescription.class), 
-				 											new Attribute("CookingDuration",RecipeSolution.class), 
+				 											new Attribute("CookingDuration",RecipeDescription.class), 
 				 											query, selectedcases);
 		}
 		
