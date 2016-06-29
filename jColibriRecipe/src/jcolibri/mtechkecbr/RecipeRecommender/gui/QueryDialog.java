@@ -121,8 +121,8 @@ public class QueryDialog extends JDialog {
 
 		panel.add(new JLabel("Type Of Cuisine"));
 		panel.add(Cuisine = new CuisineSelector(this));
-		Cuisine.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
+		Cuisine.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
 				try {
 					RecipeRecommender.getInstance().postCycle();
 				} catch (Exception ex) {
