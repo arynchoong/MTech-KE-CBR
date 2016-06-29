@@ -4,13 +4,6 @@
 <class name="jcolibri.mtechkecbr.RecipeRecommender.RecipeSolution" table="recipe">
 	<id name="id" column="caseId">
 	</id>
-	<property name="PrepDuration" column="PrepTime"/>
-	<property name="CookingDuration" column="CookTime"/>
-	<property name="Cuisine" column="Cuisine">
-		<type name="jcolibri.connector.databaseutils.GenericUserType">
-			<param name="className">jcolibri.datatypes.Instance</param>
-		</type>
-	</property>
 	<property name="DetailedIngredients" column="Ingredients"/>
 	<property name="Method" column="Method"/>
 </class>

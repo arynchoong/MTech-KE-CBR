@@ -256,7 +256,7 @@ public class ResultDialog extends JDialog {
 		RecipeDescription desc = (RecipeDescription) _case.getDescription();
 		this.name.setText(desc.getCaseId());
 		this.servings.setText(desc.getNumberOfPersons().toString());
-		this.cuisine.setText(desc.getTypeOfCuisine());
+		this.cuisine.setText(desc.getCuisine().toString());
 		this.typeOfMeal.setText(desc.getTypeOfMeal());
 		this.preptime.setText(desc.getPrepDuration().toString());
 		this.cooktime.setText(desc.getCookingDuration().toString());

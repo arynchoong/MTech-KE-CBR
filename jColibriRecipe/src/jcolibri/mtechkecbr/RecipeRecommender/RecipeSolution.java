@@ -8,7 +8,6 @@
 package jcolibri.mtechkecbr.RecipeRecommender;
 
 import jcolibri.cbrcore.Attribute;
-import jcolibri.datatypes.Instance;
 
 /**
  * Bean that stores the solution of the case (trip)
@@ -20,9 +19,6 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 	String id;
 	String szDetailedIngredients;
 	String szMethod;
-	Instance  Cuisine;
-	Integer PrepDuration;
-	Integer CookingDuration;
 
 	public String toString()
 	{
@@ -32,33 +28,6 @@ public class RecipeSolution  implements jcolibri.cbrcore.CaseComponent {
 	public Attribute getIdAttribute() {
 		
 		return new Attribute("id", this.getClass());
-	}
-
-	public Integer getPrepDuration() {
-		return PrepDuration;
-	}
-	public void setPrepDuration(Integer duration) {
-		this.PrepDuration = duration;
-	}
-	
-	public Integer getCookingDuration() {
-		return CookingDuration;
-	}
-	public void setCookingDuration(Integer duration) {
-		this.CookingDuration = duration;
-	}
-	
-	/**
-	 * @return the cuisine
-	 */
-	public Instance getCuisine() {
-		return Cuisine;
-	}
-	/**
-	 * @param cuisine the cuisine to set
-	 */
-	public void setCuisine(Instance cuisine) {
-		Cuisine = cuisine;
 	}
 
 	// @return the DetailedIngredients

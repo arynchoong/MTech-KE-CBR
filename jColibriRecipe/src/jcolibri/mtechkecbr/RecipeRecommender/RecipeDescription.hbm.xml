@@ -10,7 +10,11 @@
 	<property name="NumberOfPersons" column="Servings"/>
 	<property name="PrepDuration" column="PrepTime"/>
 	<property name="CookingDuration" column="CookTime"/>
-	<property name="TypeOfCuisine" column="Cuisine"/>
+	<property name="Cuisine" column="Cuisine">
+		<type name="jcolibri.connector.databaseutils.GenericUserType">
+			<param name="className">jcolibri.datatypes.Instance</param>
+		</type>
+	</property>
 	<property name="TypeOfMeal" column="DishType"/>
 	<property name="Equipment" column="Equipment"/>
 	<property name="CookingMethod" column="CookingMethod"/>

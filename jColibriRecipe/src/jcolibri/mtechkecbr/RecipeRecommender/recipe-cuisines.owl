@@ -1,13 +1,15 @@
 <?xml version="1.0"?>
-<rdf:RDF
-    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:owl="http://www.w3.org/2002/07/owl#"
-    xmlns="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#"
-  xml:base="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl">
-  <owl:Ontology rdf:about=""/>
+<rdf:RDF xmlns="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#"
+     xml:base="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl"/>
     
+
+
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -16,82 +18,158 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    <!-- #American -->
+    
 
-    <owl:Class rdf:about="#American">
-        <rdfs:subClassOf rdf:resource="#Western"/>
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine -->
+
+    <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe -->
+
+    <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe_cuisine">
+        <rdfs:subClassOf rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Western_cuisine"/>
     </owl:Class>
     
-    <!-- #Asian -->
 
-    <owl:Class rdf:about="#Asian"/>
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Fusion_cuisine -->
+
+    <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Fusion_cuisine"/>
     
-    <!-- #Chinese -->
 
-    <owl:Class rdf:about="#Chinese">
-        <rdfs:subClassOf rdf:resource="#Asian"/>
-    </owl:Class>
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Western_cuisine -->
+
+    <owl:Class rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Western_cuisine"/>
     
-    <!-- #European -->
 
-    <owl:Class rdf:about="#European">
-        <rdfs:subClassOf rdf:resource="#Western"/>
-    </owl:Class>
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
     
-    <!-- #French -->
 
-    <owl:Class rdf:about="#French">
-        <rdfs:subClassOf rdf:resource="#European"/>
-    </owl:Class>
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#American -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#American">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Western_cuisine"/>
+    </owl:NamedIndividual>
     
-    <!-- #Indian -->
 
-    <owl:Class rdf:about="#Indian">
-        <rdfs:subClassOf rdf:resource="#Asian"/>
-    </owl:Class>
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:NamedIndividual>
     
-    <!-- #Indonesian -->
 
-    <owl:Class rdf:about="#Indonesian">
-        <rdfs:subClassOf rdf:resource="#Asian"/>
-    </owl:Class>
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Chinese -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Chinese">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:NamedIndividual>
     
-    <!-- #Malay -->
 
-    <owl:Class rdf:about="#Malay">
-        <rdfs:subClassOf rdf:resource="#Asian"/>
-    </owl:Class>
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Western_cuisine"/>
+    </owl:NamedIndividual>
     
-    <!-- #Nyonya -->
 
-    <owl:Class rdf:about="#Nyonya">
-        <owl:equivalentClass rdf:resource="#Peranakan"/>
-        <rdfs:subClassOf rdf:resource="#Chinese"/>
-    </owl:Class>
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#French -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#French">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Europe_cuisine"/>
+    </owl:NamedIndividual>
     
-    <!-- #Peranakan -->
 
-    <owl:Class rdf:about="#Peranakan">
-        <rdfs:subClassOf rdf:resource="#Malay"/>
-    </owl:Class>
 
-    <!-- #Hokkien -->
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Fusion -->
 
-    <owl:Class rdf:about="#Hokkien">
-        <rdfs:subClassOf rdf:resource="#Chinese"/>
-    </owl:Class>
-
-    <!-- #Singaporean -->
-
-    <owl:Class rdf:about="#Singaporean">
-        <rdfs:subClassOf rdf:resource="#Asian"/>
-    </owl:Class>
-
-    <!-- #Western -->
-    <owl:Class rdf:about="#Western"/>
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Fusion">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Fusion_cuisine"/>
+    </owl:NamedIndividual>
     
-    <!-- #Fusion -->
-    <owl:Class rdf:about="#Fusion"/>
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Hokkien -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Hokkien">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Indian -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Indian">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Indonesian -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Indonesian">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Malay -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Malay">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Nyonya -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Nyonya">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Peranakan -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Peranakan">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Singaporean -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Singaporean">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Asian_cuisine"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Western -->
+
+    <owl:NamedIndividual rdf:about="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Western">
+        <rdf:type rdf:resource="http://gaia.fdi.ucm.es/ontologies/recipe-cuisines.owl#Western_cuisine"/>
+    </owl:NamedIndividual>
 </rdf:RDF>
 
+
+
 <!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

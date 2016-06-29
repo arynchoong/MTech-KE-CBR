@@ -122,7 +122,6 @@ public class RevisionDialog extends JDialog {
 		panel.add(new JSpinner(cookTime));
 		
 		panel.add(new JLabel("Cuisine"));
-		//String[] cuisines = {
 		panel.add(cuisine = new CuisineSelector(this));
 		
 		panel.add(new JLabel("Type of Meal"));
@@ -288,15 +287,15 @@ public class RevisionDialog extends JDialog {
 		this.name.setText(desc.getCaseId());
 		this.difficulty.setSelectedItem(desc.getDifficultyLevel().toString());
 		this.servingSize.setValue(desc.getNumberOfPersons());
+		this.prepTime.setValue(desc.getPrepDuration());
+		this.cookTime.setValue(desc.getCookingDuration());
+		this.cuisine.setSelectedInstance(desc.getCuisine());
 		this.dishType.setSelectedItem(desc.getTypeOfMeal());
 		this.equipment.setSelectedItem(desc.getEquipment());
 		this.cookingMethod.setSelectedItem(desc.getCookingMethod());
 		this.mainIngredient.setSelectedItem(desc.getMainIngredient());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-		this.prepTime.setValue(sol.getPrepDuration());
-		this.cookTime.setValue(sol.getCookingDuration());
-		this.cuisine.setSelectedInstance(sol.getCuisine()); // temporarily placed in recipeSolution until field mapping is resolved.
 		String Str_ingre = sol.getDetailedIngredients().toString();
 		String new_str_ingre = Str_ingre.replaceAll(";", "\n");
 		this.ingredients.setText(new_str_ingre);
@@ -332,12 +331,12 @@ public class RevisionDialog extends JDialog {
 		desc.setNumberOfPersons(this.servingSize.getNumber().intValue());
 		desc.setPrepDuration(this.prepTime.getNumber().intValue());
 		desc.setCookingDuration(this.cookTime.getNumber().intValue());
+		desc.setCuisine(this.cuisine.getSelectedInstance()); 
 		desc.setTypeOfMeal((String)this.dishType.getSelectedItem());
 		desc.setCookingMethod((String)this.cookingMethod.getSelectedItem());
 		desc.setMainIngredient((String)this.mainIngredient.getSelectedItem());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-		sol.setCuisine(this.cuisine.getSelectedInstance()); 		// temporarily placed in recipeSolution until field mapping is resolved.
 		sol.setDetailedIngredients(this.ingredients.getText());
 		sol.setMethod(this.method.getText());
 	}

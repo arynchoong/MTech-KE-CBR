@@ -42,7 +42,7 @@ public class QueryDialog extends JDialog {
 	
 	JComboBox<String> MainIngredient;
 	JComboBox<String> TypeOfMeal;
-	JComboBox<String> TypeOfCuisine;
+	CuisineSelector Cuisine;
 	JComboBox<String> DifficultyLevel;
 	JCheckBox HealthyOption;
 	JCheckBox HalalOption;
@@ -52,7 +52,6 @@ public class QueryDialog extends JDialog {
 	JLabel SelectionsMade;
 	SpinnerNumberModel numberOfPersons;
 	SpinnerNumberModel CookingDuration;
-	CuisineSelector cuisine;
     JList<String> PreferenceList;	
     DefaultListModel<String> listModel;
     Boolean m_bFirstTimeRunning = true;
@@ -121,9 +120,8 @@ public class QueryDialog extends JDialog {
 		});
 
 		panel.add(new JLabel("Type Of Cuisine"));
-		String[] TypeOfCuisines = {"Anything", "Chinese", "Indian", "Malay/Indonesian", "Nyonya", "Western"};
-		panel.add(TypeOfCuisine = new JComboBox<String>(TypeOfCuisines));
-		TypeOfCuisine.addActionListener(new ActionListener(){
+		panel.add(Cuisine = new CuisineSelector(this));
+		Cuisine.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				try {
 					RecipeRecommender.getInstance().postCycle();
@@ -357,7 +355,10 @@ public class QueryDialog extends JDialog {
 				listModel.removeAllElements();
 			listModel.addElement("Main Ingredient: " + (java.lang.String) MainIngredient.getSelectedItem());
 			listModel.addElement("Type Of Meal: " + (java.lang.String) TypeOfMeal.getSelectedItem());
-			listModel.addElement("Type Of Cuisine: " + (java.lang.String) TypeOfCuisine.getSelectedItem());
+			if(Cuisine.getSelectedInstance() == null)
+				listModel.addElement("Type Of Cuisine: none");
+			else
+				listModel.addElement("Type Of Cuisine: " + Cuisine.getSelectedInstance().toString());
 			listModel.addElement("Difficulty Level:" + (java.lang.String) DifficultyLevel.getSelectedItem());
 			listModel.addElement("Number Of Persons: " + numberOfPersons.getNumber().toString());
 			listModel.addElement("Cooking Duration: " + CookingDuration.getNumber());
@@ -396,7 +397,10 @@ public class QueryDialog extends JDialog {
 				}
 				else if (listModel.getElementAt(i).contains("Type Of Cuisine"))
 				{
-					listModel.setElementAt("Type Of Cuisine: " + (java.lang.String) TypeOfCuisine.getSelectedItem(), i);					
+					if(Cuisine.getSelectedInstance() == null)
+						listModel.setElementAt("Type Of Cuisine: none", i);
+					else
+						listModel.setElementAt("Type Of Cuisine: " + Cuisine.getSelectedInstance().toString(), i);					
 				}
 				else if (listModel.getElementAt(i).contains("Main Ingredient"))
 				{
@@ -454,8 +458,8 @@ public class QueryDialog extends JDialog {
 	private void ResetDefault()
 	{
 		MainIngredient.setSelectedIndex(0);
-		TypeOfMeal.setSelectedIndex(0);			
-		TypeOfCuisine.setSelectedIndex(0);
+		TypeOfMeal.setSelectedIndex(0);
+		Cuisine.setInstanceEmpty();
 		DifficultyLevel.setSelectedIndex(0);
 		numberOfPersons.setValue((java.lang.Integer)2);
 		CookingDuration.setValue((java.lang.Integer)120);
@@ -649,9 +653,9 @@ public class QueryDialog extends JDialog {
 		}
 		simConfig.add(new SimilAlgo(sAttribName,sAttribValue,nPriorityLevel));
 		
-		sAttribName = "TypeOfCuisine";
-		sAttribValue = (String) TypeOfCuisine.getSelectedItem();
-		if (!sAttribValue.contains("Anything")) {
+		sAttribName = "Cuisine";
+		sAttribValue = Cuisine.getSelectedInstance().toString();
+		if (sAttribValue != null) {
 			for (int i=0; i<PreferenceList.getModel().getSize(); i++) {
 				if (listModel.getElementAt(i).contains("Type Of Cuisine"))
 					nPriorityLevel=i+1;

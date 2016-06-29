@@ -108,7 +108,14 @@ public class CuisineSelector extends JButton {
 			this.setIcon(INSTANCE);
 		}
 	}
-	
+
+	void setInstanceEmpty()
+	{
+		this.selected=null;
+		this.setText("...");
+		this.setIcon(null);
+	}
+
 	/**
 	 * @param args
 	 */

@@ -140,14 +140,14 @@ public class RecipeRecommender implements StandardCBRApplication {
 		simConfig
 				.addMapping(
 						attribute2,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.Threshold(new Double(10))); // ten minutes +- 
 		simConfig.setWeight(attribute2, AttrWeights[2]);
 		//
-		Attribute attribute3 = new Attribute("TypeOfCuisine", RecipeDescription.class);
+		Attribute attribute3 = new Attribute("Cuisine", RecipeDescription.class);
 		simConfig
 				.addMapping(
 						attribute3,
-						new jcolibri.method.retrieve.NNretrieval.similarity.local.MaxString());
+						new jcolibri.method.retrieve.NNretrieval.similarity.local.ontology.OntCosine());
 		simConfig.setWeight(attribute3, AttrWeights[3]);
 		//
 		Attribute attribute4 = new Attribute("TypeOfMeal", RecipeDescription.class);

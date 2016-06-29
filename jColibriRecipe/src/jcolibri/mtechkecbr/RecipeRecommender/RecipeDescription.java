@@ -12,6 +12,7 @@ package jcolibri.mtechkecbr.RecipeRecommender;
 
 import jcolibri.cbrcore.Attribute;
 import jcolibri.datatypes.Instance;
+import jcolibri.exception.OntologyAccessException;
 
 
 /**
@@ -29,7 +30,7 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	Integer NumberOfPersons;
 	Integer PrepDuration;
 	Integer CookingDuration;
-	String TypeOfCuisine;
+	Instance  Cuisine;
 	String TypeOfMeal;
 	String Equipment;
 	String MainIngredient;
@@ -120,11 +121,17 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 		nCookingDurationPriority = pDuration;
 	}
 	////////////////////////// For TypeOfCuisine //////////////////////////////////	
-	public String getTypeOfCuisine() {
-		return TypeOfCuisine;
+	public Instance getCuisine() {
+		return Cuisine;
 	}
-	public void setTypeOfCuisine(String CuisineType) {
-		this.TypeOfCuisine = CuisineType;
+	public void setCuisine(Instance cuisine) {
+		Cuisine = cuisine;
+	}
+	public String getTypeOfCuisine() {
+		return Cuisine.toString();
+	}
+	public void setCuisine(String cuisine) throws OntologyAccessException {
+		Cuisine = new Instance(cuisine);
 	}
 	public Integer getTypeOfCuisinePriority() {
 		return nTypeOfCuisinePriority;
@@ -270,7 +277,7 @@ public class RecipeDescription implements jcolibri.cbrcore.CaseComponent {
 	
 	public String toString() {
 		return "("+caseId+";"+DifficultyLevel+";"+NumberOfPersons+
-				";"+CookingDuration+";"+TypeOfCuisine+
+				";"+CookingDuration+";"+Cuisine+
 				";"+TypeOfMeal+";"+MainIngredient+";"+CookingMethod+")";
 	}
 	@Override

@@ -296,12 +296,12 @@ public class RetainDialog extends JDialog {
 		this.servings.setText(desc.getNumberOfPersons().toString());
 		this.preptime.setText(desc.getPrepDuration().toString());
 		this.cooktime.setText(desc.getCookingDuration().toString());
+		this.cuisine.setText(desc.getCuisine().toString()); 
 		this.typeOfMeal.setText(desc.getTypeOfMeal());
 		this.mainIngredient.setText(desc.getMainIngredient());
 		this.difficultyLevel.setText(desc.getDifficultyLevel().toString());
 		
 		RecipeSolution sol = (RecipeSolution) _case.getSolution();
-		this.cuisine.setText(sol.getCuisine().toString()); // temporarily placed in recipeSolution until field mapping is resolved.
 		this.ingredients.setText(sol.getDetailedIngredients().toString());
 		this.method.setText(sol.getMethod());
 	}
