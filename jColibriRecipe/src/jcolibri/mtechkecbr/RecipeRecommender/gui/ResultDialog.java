@@ -246,7 +246,8 @@ public class ResultDialog extends JDialog {
 		double sim = rr.getEval();
 		
 		CBRCase _case = rr.get_case();
-		this.caseId.setText(_case.getID().toString()+" ("+(currentCase+1)+"/"+cases.size()+")");
+//		this.caseId.setText(_case.getID().toString()+" ("+(currentCase+1)+"/"+cases.size()+")");
+		this.caseId.setText(_case.getID().toString()+" -> "+ String.format("%.2f", sim) +" ("+(currentCase+1)+"/"+cases.size()+")");
 		
 		RecipeDescription desc = (RecipeDescription) _case.getDescription();
 		this.name.setText(desc.getCaseId());
